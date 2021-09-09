@@ -1,0 +1,83 @@
+# .gitignore
+
+# Unity generated
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Bb]in/
+/Assets/AssetStoreTools*
+sysinfo.txt
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+[Ll]ibrary.meta
+[Tt]emp.meta
+[Oo]bj.meta
+[Bb]uild.meta
+[Bb]uilds.meta
+[Ll]ogs.meta
+[Bb]in.meta
+
+# Never ignore Asset meta data
+![Aa]ssets/**/*.meta
+
+# VS/Rider/MD/Consulo
+.vs/
+ExportedObj/
+.consulo/
+**/.idea/**
+.idea/**
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+*Resharper*
+*ReSharper*
+*.orig
+*.orig.*
+.gradle/
+ 
+# Ignore Jetbrains Plugin
+Assets/Plugins/Editor/JetBrains.meta
+Assets/Plugins/Editor/JetBrains/*
+JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll.meta
+assets/Plugins/Editor/JetBrains.meta
+assets/Plugins/Editor/JetBrains/*
+
+#maya intermediate files
+**/incrementalSave/
+
+# Builds
+*.apk
+*.apk.meta
+*.unitypackage
+*.unitypackage.meta
+*.app
+*.app.meta
+*.exe
+*.exe.meta
+
+# OS generated
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+Thumbs.db
+Desktop.ini
+ehthumbs.db
+Local/*
