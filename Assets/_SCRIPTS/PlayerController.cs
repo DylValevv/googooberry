@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,21 +9,65 @@ public class PlayerController : MonoBehaviour
     // main camera
     private Transform cameraMainTransform;
 
+    [Header("Locomotion Variables")]
     #region<Locomotion Variables>
     // input system variables
     [SerializeField] private InputActionReference movementControl;
-    [SerializeField] private InputActionReference jumpControl;
 
     // player locomotion variables
     private CharacterController controller;
     private Vector3 playerVelocity;
-    private bool groundedPlayer;
 
     // adjustable player movement values
     [SerializeField] private float playerSpeed = 2.0f;
     [SerializeField] private float rotationSpeed = 4f;
+
+    // jump variables
+    [SerializeField] private InputActionReference jumpControl;
+    private bool groundedPlayer;
+    private int jumpTimes = 0;
+    [SerializeField] private float jumpTimer = 0.2f;
     [SerializeField] private float jumpHeight = 1.0f;
+    private float jumpElapsedTime;
+    enum ButtonState { Released, Held };
+    ButtonState previousButtonState;
+    private bool jumpButtonPressed;
     [SerializeField] private float gravityValue = -9.81f;
+    [SerializeField] private float gravityFallMultipler;
+    #endregion
+
+    [Header("Dashing Variables")]
+    #region<Dashing Variables>
+    // the amount of times the player can dash consecutively while in the air
+    [SerializeField] private int dashAmountMax;
+    // the speed of the dash
+    [SerializeField] private float dashSpeed;
+    // how long to dash forward
+    [SerializeField] private float dashTime;
+    // the time before the player can dash again
+    [SerializeField] private float dashAgainCooldown;
+    Coroutine dashCoroutine;
+    // used after the dashagain cooldown is done
+    private bool canDash;
+    // dash variables
+    private int dashes;
+    #endregion
+
+    [Header("Attack Variables")]
+    #region<Attack Variables>
+    [SerializeField] private InputActionReference attackControl;
+    [SerializeField] float attackCooldown;
+    Coroutine attackCoroutine;
+
+    Coroutine comboCooldownCoroutine;
+    private int comboCount;
+    // how long the player has to press Attack to do the next combo animation
+    [SerializeField] private int comboTimer;
+    float totalTime;
+
+    [SerializeField] Weapon weapon;
+
+    private bool isAttacking;
     #endregion
 
     #region<Initializing Functions>
@@ -32,6 +78,7 @@ public class PlayerController : MonoBehaviour
     {
         movementControl.action.Enable();
         jumpControl.action.Enable();
+        attackControl.action.Enable();
     }
 
     /// <summary>
@@ -41,6 +88,7 @@ public class PlayerController : MonoBehaviour
     {
         movementControl.action.Disable();
         jumpControl.action.Disable();
+        attackControl.action.Disable();
     }
 
     /// <summary>
@@ -50,6 +98,10 @@ public class PlayerController : MonoBehaviour
     {
         controller = gameObject.GetComponent<CharacterController>();
         cameraMainTransform = Camera.main.transform;
+
+        isAttacking = false;
+
+        dashes = 0;
     }
     #endregion
 
@@ -61,12 +113,15 @@ public class PlayerController : MonoBehaviour
         if (groundedPlayer && playerVelocity.y < 0)
         {
             playerVelocity.y = 0f;
+            dashes = 0;
         }
         #endregion
 
-        // movement handler functions
         WalkHandler();
         JumpHandler();
+
+        // attack handler functions
+        AttackHandler();
     }
 
     /// <summary>
@@ -92,18 +147,171 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    #region<Jump Functions>
     /// <summary>
-    /// handles player jumping when triggered
+    /// handles player jumping when triggered. while airborne they will dash if pressing the dash button
     /// </summary>
     private void JumpHandler()
     {
-        // if the jump action is triggered on the current frame, jump
-        if (jumpControl.action.triggered && groundedPlayer)
+        // reset the sustained jump if on the ground
+        if(groundedPlayer)
         {
-            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+            jumpElapsedTime = 0;
+            dashes = 0;
+            canDash = true;
+            jumpTimes = 0;
         }
 
-        playerVelocity.y += gravityValue * Time.deltaTime;
+        // return if the player is pressing and holding jump
+        jumpButtonPressed = jumpControl.action.ReadValue<float>() > 0 ? true : false;
+
+        // register how many times the player pressed the jump button
+        if (jumpControl.action.triggered) jumpTimes++;
+
+        // if the jump action is triggered and the player is on the ground, jump
+        if(jumpButtonPressed && jumpTimes == 1)
+        {
+            // if on the ground, jump
+            if(CanJump() || CanContinueJump())
+            {
+                Debug.Log("jump hoe");
+                playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+                //playerVelocity.y = jumpHeight;
+                jumpElapsedTime += Time.deltaTime;
+            }
+        }
+        // else dash
+        else if(jumpButtonPressed && !groundedPlayer)
+        {
+            // if the player can dash again, dash. else do nothing
+            if (canDash && dashes < dashAmountMax)
+            {
+                dashCoroutine = StartCoroutine(Dash());
+            }
+        }
+
+        gravityValue = jumpButtonPressed ? -9.81f : -9.81f * gravityFallMultipler;
+
+        playerVelocity.y = playerVelocity.y + (gravityValue * Time.deltaTime);
         controller.Move(playerVelocity * Time.deltaTime);
+
+        previousButtonState = jumpButtonPressed ? ButtonState.Held : ButtonState.Released;
     }
+
+    /// <summary>
+    /// assess if the player can jump at all
+    /// </summary>
+    /// <returns>if the player can jump</returns>
+    private bool CanJump()
+    {
+        return groundedPlayer && previousButtonState == ButtonState.Released;
+    }
+
+    /// <summary>
+    /// assess if the player can continue to jump or not
+    /// </summary>
+    /// <returns>if the player can continue to jump</returns>
+    private bool CanContinueJump()
+    {
+        return jumpElapsedTime <= jumpTimer && groundedPlayer == false;
+    }
+    #endregion
+
+    #region<Attack Functions>
+    /// <summary>
+    /// handles the player attack when pressing the jab/slash button
+    /// </summary>
+    private void AttackHandler()
+    {
+        if(attackControl.action.triggered && !isAttacking)
+        {
+            attackCoroutine = StartCoroutine(Attack());
+        }
+    }      
+
+    /// <summary>
+    /// the player physically attacks. this is where animation timing and combos are handled
+    /// </summary>
+    private IEnumerator Attack()
+    {
+        totalTime = 0;
+        comboCooldownCoroutine = StartCoroutine(CooldownCountdown(attackCooldown));
+        if (comboCount < 3)
+        {
+            comboCount++;
+        }
+        else
+        {
+            comboCount = 0;
+            comboCount++;
+        }
+        // ground combos
+        if(groundedPlayer)
+        {
+            Debug.Log("ground  babey");
+            string tempString = "weaponTemp" + comboCount;
+            weapon.GetComponent<Animation>().Play(tempString);
+        }
+        // air combos
+        else
+        {
+            Debug.Log("air  babey");
+            string tempString = "airWeaponTemp" + comboCount;
+            weapon.GetComponent<Animation>().Play(tempString);
+        }
+
+        isAttacking = true;
+        weapon.ToggleCollider(isAttacking);
+
+        // play the animation which moves this attacking object
+        // THE FOLLOWING IS TEMPORARY
+
+        yield return new WaitForSeconds(attackCooldown);
+
+        isAttacking = false;
+        weapon.ToggleCollider(isAttacking);
+    }
+
+    /// <summary>
+    /// countdown for player cooldowns
+    /// </summary>
+    private IEnumerator CooldownCountdown(float cooldownTime)
+    {
+        while (totalTime <= comboTimer)
+        {
+            totalTime += Time.deltaTime;
+            yield return null;
+        }
+
+        comboCount = 0;
+    }
+
+    /// <summary>
+    /// countdown for player dash combo & dash functionality
+    /// </summary>
+    private IEnumerator Dash()
+    {
+        float dashTotalTime = 0;
+
+        // dash refractory period begin
+        canDash = false;
+        dashes++;
+
+        movementControl.action.Disable();
+        Vector3 moveDirection = transform.TransformDirection(Vector3.forward);
+
+        while (dashTotalTime <= dashTime)
+        {
+            controller.Move(moveDirection * dashSpeed * Time.deltaTime);
+            dashTotalTime += Time.deltaTime;
+            yield return null;
+        }
+
+        movementControl.action.Enable();
+
+        yield return new WaitForSeconds(dashAgainCooldown);
+        // dash refractory period end
+        canDash = true;
+    }
+    #endregion
 }
