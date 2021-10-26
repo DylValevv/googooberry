@@ -1,0 +1,34 @@
+Project Conversations
+
+WRITING DIALOGUES:
+To make a scene write the scene name and end it with a semicolon. 
+The following text is the dialogue. The dialogue must finish with a semicolon.
+An arrow - ">" is how to dicate the next line within a scene. 
+
+IMPORTANT: 
+the speaker tags must be in the //SPEAKER-NAME//] format, and the text mesh pro for the dialogue must be named to match it
+the speakers must be recognised in a global Dialogue Manager Object in the Scene
+start dialogues using dialogue triggers, with the parameter matching the Scene Name it wishes to start
+See the example below, scene1! Happy writing!;
+
+SCENE1;
+
+//BRIGHTSQUARE//]
+
+<b>I like peas]
+
+<i>Give them to me]
+
+poop]
+
+//PLAYER//]
+
+No man. Leave me alone.]
+
+//BRIGHTSQUARE//]
+
+<color=green>Come</color> <color=blue><b>on bro.]
+
+//PLAYER//]
+
+*shrugs*];

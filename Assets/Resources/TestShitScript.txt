@@ -1,0 +1,77 @@
+TestShit Script;
+
+SCENE1;
+
+//BRIGHTSQUARE//>
+
+What's up my man!>
+
+See you around my dude!>
+
+//PLAYER//>
+
+I'll come back to visit!>
+
+//BRIGHTSQUARE//>
+
+Thanks;
+
+SCENE2;
+
+//PLAYER//>
+
+Hey Brightsquare>
+
+What up>
+
+//BRIGHTSQUARE//>
+
+I've been saying the same lines over and over again>
+
+I'm just getting sick of it is all>
+
+//PLAYER//>
+
+Sorry man...>
+
+Anything I can do?>
+
+//BRIGHTSQUARE//>
+
+Nah...>
+
+I'll deal>
+
+Not much you can do>
+
+When you're stuck in a computer;
+
+SCENE3;
+
+//REDSQUARE//>
+
+Hahahahaha>
+HAH!>
+hehehe>
+
+You can't move, white circle!>
+
+//PLAYER//>
+
+How intimidating>
+I'm shaking>
+
+//REDSQUARE//>
+
+Jeez>
+Just trying to spice the dialogue up>
+Chill out;
+
+SCENE4;
+
+//PLAYER//>
+
+Jeez>
+Another Day>
+Guess I need to walk around>
+try pressing left shit to run;
