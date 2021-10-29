@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
@@ -9,7 +10,7 @@ public class PlayerController : MonoBehaviour
     // main camera
     private Transform cameraMainTransform;
 
-    [Header("Locomotion Variables")]
+    [Header("Locomotion")]
     #region<Locomotion Variables>
     // input system variables
     [SerializeField] private InputActionReference movementControl;
@@ -36,7 +37,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float gravityFallMultipler;
     #endregion
 
-    [Header("Dashing Variables")]
+    [Header("Dashing")]
     #region<Dashing Variables>
     // the amount of times the player can dash consecutively while in the air
     [SerializeField] private int dashAmountMax;
@@ -53,7 +54,7 @@ public class PlayerController : MonoBehaviour
     private int dashes;
     #endregion
 
-    [Header("Attack Variables")]
+    [Header("Attack")]
     #region<Attack Variables>
     [SerializeField] private InputActionReference attackControl;
     [SerializeField] float attackCooldown;
@@ -68,6 +69,24 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Weapon weapon;
 
     private bool isAttacking;
+    #endregion
+
+    [Header("Animation")]
+    #region<Animation Variables>
+    [SerializeField] private Animator anim;
+    // like an animation controller, but instead it lets you take a base animator controller and lets you swap the clips within the animator. this is like a modular state machine
+    // this lets you keep the same state machines across all charactersa
+    private AnimatorOverrideController animOverride;
+    // the clip that the script will look for to replace through the statemachine. everytime it finds an instance of this clip, it will swap it with the new clip
+    [SerializeField] private AnimationClip utilClip;
+    [SerializeField] private AnimationClip[] anims;
+    #endregion
+
+    [Header("SFX")]
+    #region<SFX Variables>
+    public List<AudioClip> footsteps;
+    public List<AudioClip> attacks;
+    public List<AudioClip> impacts;
     #endregion
 
     #region<Initializing Functions>
@@ -89,6 +108,18 @@ public class PlayerController : MonoBehaviour
         movementControl.action.Disable();
         jumpControl.action.Disable();
         attackControl.action.Disable();
+    }
+
+    /// <summary>
+    /// assign and initialize the statemachine
+    /// </summary>
+    private void Awake()
+    {
+        anim = GetComponent<Animator>();
+        // create an animation override controller that is based off of our current animation controller
+        animOverride = new AnimatorOverrideController(anim.runtimeAnimatorController);
+        // assign the override controller back into the animator so it can be manipulated/be used
+        anim.runtimeAnimatorController = animOverride;
     }
 
     /// <summary>
@@ -138,8 +169,12 @@ public class PlayerController : MonoBehaviour
         move.y = 0;
         controller.Move(move * Time.deltaTime * playerSpeed);
 
+        // statemachine handling
+        anim.SetBool("UtilStop", true);
+        UpdateBlendTreeMoveSpeed();
+
         // calculate the angle to rotate to based off of where the camera is looking
-        if(movement != Vector2.zero)
+        if (movement != Vector2.zero)
         {
             float targetAngle = Mathf.Atan2(movement.x, movement.y) * Mathf.Rad2Deg + cameraMainTransform.eulerAngles.y;
             Quaternion rotation = Quaternion.Euler(0f, targetAngle, 0f);
@@ -154,25 +189,35 @@ public class PlayerController : MonoBehaviour
     private void JumpHandler()
     {
         // reset the sustained jump if on the ground
-        if(groundedPlayer)
+        if (groundedPlayer)
         {
             jumpElapsedTime = 0;
             dashes = 0;
             canDash = true;
             jumpTimes = 0;
+            anim.SetBool("InAir", false);
         }
 
         // return if the player is pressing and holding jump
         jumpButtonPressed = jumpControl.action.ReadValue<float>() > 0 ? true : false;
 
         // register how many times the player pressed the jump button
-        if (jumpControl.action.triggered) jumpTimes++;
+        if (jumpControl.action.triggered)
+        {
+            anim.SetBool("InAir", true);
+            // normalize the magnitude
+            float normalizedSpeed = controller.velocity.magnitude / playerSpeed;
+
+            // make sure the blend trees are scaled to these dynamic values
+            anim.SetFloat("MoveSpeed", normalizedSpeed);
+            jumpTimes++;
+        }
 
         // if the jump action is triggered and the player is on the ground, jump
-        if(jumpButtonPressed && jumpTimes == 1)
+        if (jumpButtonPressed && jumpTimes == 1)
         {
             // if on the ground, jump
-            if(CanJump() || CanContinueJump())
+            if (CanJump() || CanContinueJump())
             {
                 Debug.Log("jump hoe");
                 playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
@@ -181,7 +226,7 @@ public class PlayerController : MonoBehaviour
             }
         }
         // else dash
-        else if(jumpButtonPressed && !groundedPlayer)
+        else if (jumpButtonPressed && !groundedPlayer)
         {
             // if the player can dash again, dash. else do nothing
             if (canDash && dashes < dashAmountMax)
@@ -223,11 +268,11 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void AttackHandler()
     {
-        if(attackControl.action.triggered && !isAttacking)
+        if (attackControl.action.triggered && !isAttacking)
         {
             attackCoroutine = StartCoroutine(Attack());
         }
-    }      
+    }
 
     /// <summary>
     /// the player physically attacks. this is where animation timing and combos are handled
@@ -246,16 +291,16 @@ public class PlayerController : MonoBehaviour
             comboCount++;
         }
         // ground combos
-        if(groundedPlayer)
+        if (groundedPlayer)
         {
-            Debug.Log("ground  babey");
+            PlayAnim("GroundAttack" + comboCount, true);
             string tempString = "weaponTemp" + comboCount;
             weapon.GetComponent<Animation>().Play(tempString);
         }
         // air combos
         else
         {
-            Debug.Log("air  babey");
+            PlayAnim("AirAttack" + comboCount, true);
             string tempString = "airWeaponTemp" + comboCount;
             weapon.GetComponent<Animation>().Play(tempString);
         }
@@ -291,6 +336,8 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private IEnumerator Dash()
     {
+        PlayAnim("Dash", true);
+
         float dashTotalTime = 0;
 
         // dash refractory period begin
@@ -314,4 +361,93 @@ public class PlayerController : MonoBehaviour
         canDash = true;
     }
     #endregion
+
+    #region<SFX Functions>
+    public void PlayFootSteps()
+    {
+        if (footsteps.Count > 0)
+        {
+            int num = UnityEngine.Random.Range(0, footsteps.Count);
+            AudioManager.instance.Play("Footstep" + footsteps[num].ToString());
+        }
+    }
+
+    public void PlayAttack()
+    {
+        if (attacks.Count > 0)
+        {
+            int num = UnityEngine.Random.Range(0, attacks.Count);
+            AudioManager.instance.Play("Attack" + attacks[num].ToString());
+        }
+    }
+
+    public void PlayImpact()
+
+    {
+        if (impacts.Count > 0)
+        {
+            int num = UnityEngine.Random.Range(0, impacts.Count);
+            AudioManager.instance.Play("Impact" + attacks[num].ToString());
+        }
+    }
+    #endregion
+
+    #region<Animation Functions>
+    /// <summary>
+    /// called when we want to swap to a new animation
+    /// </summary>
+    /// <param name="clip">the new clip that we are going to be swapping in</param>
+    /// <param name="utilExit">does the animation loop. this is defaulted to false (it does loop)</param>
+    public void AnimUtil(AnimationClip clip, bool utilExit = false)
+    {
+        animOverride[utilClip] = clip;
+        anim.SetBool("UtilStop", false);
+        anim.SetBool("UtilExit", utilExit);
+        anim.SetTrigger("Util");
+    }
+
+    /// <summary>
+    /// updates the blend tree based on player movement
+    /// </summary>
+    private void UpdateBlendTreeMoveSpeed()
+    {
+        // normalize the magnitude
+        float normalizedSpeed = controller.velocity.magnitude / playerSpeed;
+
+        // make sure the blend trees are scaled to these dynamic values
+        anim.SetFloat("MoveSpeed", normalizedSpeed);
+    }
+
+    /// <summary>
+    /// a helper function to make it easier to play specific animations by name
+    /// </summary>
+    /// <param name="name">the name of the animation to play</param>
+    /// <param name="dontLoop">whether to loop the animation or not</param>
+    public void PlayAnim(string name, bool dontLoop = false)
+    {
+        AnimationClip clip = Array.Find(anims, anim => anim.name == name);
+        if (clip == null)
+        {
+            Debug.LogWarning("Animation Clip: " + name + " not found!");
+            return;
+        }
+
+        AnimUtil(clip, dontLoop);
+    }
+    #endregion
+
+    public void Die()
+    {
+        PlayAnim("Die", true);
+    }
+
+    public void ShiftAbility()
+    {
+        PlayAnim("ShiftAbility", true);
+    }
+
+    public void RAbility()
+    {
+        PlayAnim("RAbility", true);
+    }
 }
