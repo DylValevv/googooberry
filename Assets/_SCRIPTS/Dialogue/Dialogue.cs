@@ -5,14 +5,14 @@ using UnityEngine;
 public class Dialogue
 {
     static TextAsset txtAssets;
-    static string convo;//parsed into
+    static string conversation;//parsed into
     public string[] sentences;
 
     public Dialogue(string SCENE, string filename)//constructor
     {
         txtAssets = (TextAsset)Resources.Load(filename);
-        convo = remLineBreak(txtAssets.text);//parsed into
-        sentences = convo.Split(';');
+        conversation = remLineBreak(txtAssets.text);//parsed into
+        sentences = conversation.Split(';');
         sentences = this.Process(SCENE);
         //a processed scene is an array of sentences, each sentence starting with the speaker tag (//BRIGHTSQUARE//>)
     }
@@ -57,3 +57,6 @@ public class Dialogue
         return s;
     }
 }
+
+
+
