@@ -48,6 +48,7 @@ public class DialogueStart : MonoBehaviour
         {
             ready = false;
             talkIcon.transform.DOScale(0f, .3f).OnComplete(()=>talkIcon.SetActive(false));
+            ExitDialogue();
         }
     }
 
@@ -92,8 +93,12 @@ public class DialogueStart : MonoBehaviour
         dialogueZone.transform.DOMoveY(-80, .2f);
         s = s.Trim('/');
         index++;//skip the speaker tag so it does not display
+        Character character = Resources.Load<Character>("CHARACTERS/" + s) ?? Resources.Load<Character>("CHARACTERS/DEFAULT");
+        dialogueZone.speakerName.color = character.textColor;
+        dialogueZone.content.color = character.textColor;
+
         dialogueZone.speakerName.text = s;
-        dialogueZone.portrait.sprite = Resources.Load<Sprite>("PORTRAITS/" + s) ?? Resources.Load<Sprite>("PORTRAITS/DEFAULT");
+        dialogueZone.portrait.sprite = character.portrait;
         dialogueZone.transform.DOMoveY(80, .2f);
 
     }
