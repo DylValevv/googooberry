@@ -73,13 +73,16 @@ public class PlayerController : MonoBehaviour
 
     [Header("Animation")]
     #region<Animation Variables>
+    [SerializeField] private GameObject animatedMesh;
     [SerializeField] private Animator anim;
+    [SerializeField] private float blendMultiplier;
     // like an animation controller, but instead it lets you take a base animator controller and lets you swap the clips within the animator. this is like a modular state machine
     // this lets you keep the same state machines across all charactersa
     private AnimatorOverrideController animOverride;
     // the clip that the script will look for to replace through the statemachine. everytime it finds an instance of this clip, it will swap it with the new clip
     [SerializeField] private AnimationClip utilClip;
     [SerializeField] private AnimationClip[] anims;
+    private Coroutine blendTreeCoroutine;
     #endregion
 
     [Header("SFX")]
@@ -115,7 +118,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void Awake()
     {
-        anim = GetComponent<Animator>();
+        //anim = GetComponent<Animator>();
         // create an animation override controller that is based off of our current animation controller
         animOverride = new AnimatorOverrideController(anim.runtimeAnimatorController);
         // assign the override controller back into the animator so it can be manipulated/be used
@@ -407,6 +410,34 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
+    /// make a smooth transition from idle to run and vice versa
+    /// </summary>
+    private IEnumerator BlendTreeLerp(float lerpTime, bool forward)
+    {
+        if(forward)
+        {
+            totalTime = 0;
+            while (totalTime <= lerpTime)
+            {
+                totalTime += Time.deltaTime * blendMultiplier;
+                anim.SetFloat("MoveSpeed", totalTime);
+                yield return null;
+            }
+        }
+        else
+        {
+            totalTime = 1;
+
+            while (totalTime >= lerpTime)
+            {
+                totalTime -= Time.deltaTime * blendMultiplier;
+                anim.SetFloat("MoveSpeed", totalTime);
+                yield return null;
+            }
+        }
+    }
+
+    /// <summary>
     /// updates the blend tree based on player movement
     /// </summary>
     private void UpdateBlendTreeMoveSpeed()
@@ -414,8 +445,25 @@ public class PlayerController : MonoBehaviour
         // normalize the magnitude
         float normalizedSpeed = controller.velocity.magnitude / playerSpeed;
 
+        // blend from idle to run
+        if(normalizedSpeed > 0)
+        {
+            if(blendTreeCoroutine==null)blendTreeCoroutine = StartCoroutine(BlendTreeLerp(1, true));
+            else if(anim.GetFloat("MoveSpeed") == 0)
+            {
+                blendTreeCoroutine = StartCoroutine(BlendTreeLerp(1, true));
+            }
+        }
+        // blend from run to idle
+        else
+        {
+            if (blendTreeCoroutine != null) StopCoroutine(blendTreeCoroutine);
+            if (blendTreeCoroutine != null) blendTreeCoroutine = StartCoroutine(BlendTreeLerp(0, false));
+            blendTreeCoroutine = null;
+            anim.SetFloat("MoveSpeed", 0);
+        }
         // make sure the blend trees are scaled to these dynamic values
-        anim.SetFloat("MoveSpeed", normalizedSpeed);
+        //anim.SetFloat("MoveSpeed", normalizedSpeed);
     }
 
     /// <summary>
