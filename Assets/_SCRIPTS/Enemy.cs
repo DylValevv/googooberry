@@ -1,47 +1,80 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+using DG.Tweening;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private int health;
-    private bool isDead;
+    public EnemyManager enemyManager;
+    //public Game
 
-    private void Start()
+    private GameObject playerObj;
+    private NavMeshAgent navMeshAgent;
+
+    [Header("Attack Ranges")]
+    [SerializeField] CapsuleCollider meleeRange;
+    [SerializeField] CapsuleCollider rangedRange;
+
+    [Header("Enemy Stats (Don't edit here, set in EnemyManager)")]
+    public int speed = 0;
+    public int damage = 0;
+    public int health = 0;
+
+    // Start is called before the first frame update
+    void Start()
     {
-        isDead = false;
+        playerObj = GameObject.FindWithTag("Player");
+        if (playerObj == null) Debug.LogError("Missing player object in scene");
+        navMeshAgent = GetComponent<NavMeshAgent>();
+        if (navMeshAgent == null) Debug.LogError("The nav mesh agent component is missing from " + gameObject.name);
+        else SetDestination();
+        SetStats();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        SetDestination(); //Reroute towards player 
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Weapon")
+        if (other.gameObject.CompareTag("Weapon"))
         {
-            Weapon weapon = other.GetComponent<Weapon>();
-            TakeDamage(weapon.GetDamage());
-            weapon.ToggleCollider(false);
+            //TakeDamage()
         }
     }
 
-    /// <summary>
-    /// removes the health amount by weapon damage amount
-    /// </summary>
-    /// <param name="amount"></param> the amount of damage to take/health to lose
-    private void TakeDamage(int amount)
+    private void SetDestination()
     {
-        health -= amount;
-        CheckIsDead();
+        if (playerObj != null)
+        {
+            //Debug.Log(playerObj.transform.position);
+            Vector3 targetVector = playerObj.transform.position;
+            navMeshAgent.SetDestination(targetVector);
+        }
     }
 
-    /// <summary>
-    /// checks to see if the health is at or below 0. if so, kills it
-    /// </summary>
-    private void CheckIsDead()
+    private void SetStats()
     {
-        if(health <= 0)
-        {
-            isDead = true;
+        speed = enemyManager.enemyAverageSpeed;
+        damage = enemyManager.enemyAverageDamage;
+        health = enemyManager.enemyAverageHealth;
+    }
 
-            Destroy(this.gameObject);
+    public void TakeDamage(int hitDamage)
+    {
+        health -= hitDamage;
+        if (health <= 0)
+        {
+            Death();
         }
-    }    
+    }
+
+    private void Death()
+    {
+        enemyManager.enemiesRemainingInWave -= 1;
+        gameObject.SetActive(false);
+    }
 }
