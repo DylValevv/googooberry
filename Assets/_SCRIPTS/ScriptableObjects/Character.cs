@@ -6,6 +6,7 @@ using UnityEngine;
 public class Character : ScriptableObject
 {
     public Sprite portrait;
-    public float soundModifier;
+    public int soundIndex;
+    public float[] sounds;
     public Color textColor;
 }

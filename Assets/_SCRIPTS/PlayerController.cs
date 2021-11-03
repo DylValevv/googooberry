@@ -368,7 +368,7 @@ public class PlayerController : MonoBehaviour
         if (footsteps.Count > 0)
         {
             int num = UnityEngine.Random.Range(0, footsteps.Count);
-            AudioManager.instance.Play("Footstep" + footsteps[num].ToString());
+            //AudioManager.instance.Play("Footstep" + footsteps[num].ToString());
         }
     }
 
@@ -377,7 +377,7 @@ public class PlayerController : MonoBehaviour
         if (attacks.Count > 0)
         {
             int num = UnityEngine.Random.Range(0, attacks.Count);
-            AudioManager.instance.Play("Attack" + attacks[num].ToString());
+            //AudioManager.instance.Play("Attack" + attacks[num].ToString());
         }
     }
 
@@ -387,7 +387,7 @@ public class PlayerController : MonoBehaviour
         if (impacts.Count > 0)
         {
             int num = UnityEngine.Random.Range(0, impacts.Count);
-            AudioManager.instance.Play("Impact" + attacks[num].ToString());
+            //AudioManager.instance.Play("Impact" + attacks[num].ToString());
         }
     }
     #endregion

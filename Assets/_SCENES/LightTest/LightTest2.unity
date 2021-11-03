@@ -183,6 +183,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 132989663}
+  - component: {fileID: 132989662}
   m_Layer: 0
   m_Name: AUDIOMANAGER
   m_TagString: Untagged
@@ -190,6 +191,63 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &132989662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132989661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcce057a38e1ef648a79bf6051df8de1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterMixer: {fileID: 24300002, guid: 4d78c0ff4b4f99647ad6b2dce1f21f47, type: 2}
+  actionMixer: {fileID: -7613153107081881719, guid: 4d78c0ff4b4f99647ad6b2dce1f21f47, type: 2}
+  actionSounds: []
+  ambientMixer: {fileID: 7244315924189732430, guid: 4d78c0ff4b4f99647ad6b2dce1f21f47, type: 2}
+  ambientSounds: []
+  dialogueMixer: {fileID: -4204815170117952932, guid: 4d78c0ff4b4f99647ad6b2dce1f21f47, type: 2}
+  dialogueSounds:
+  - name: moth1
+    clip: {fileID: 8300000, guid: f97729ea0edfe7e4a9abeaa5cc178823, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: moth2
+    clip: {fileID: 8300000, guid: b5da8266aaa9bad44a0d312042c7eab0, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: moth3
+    clip: {fileID: 8300000, guid: 5927b39d6cc69404cb2ea936418443f4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: moth4
+    clip: {fileID: 8300000, guid: bdc12adcd14de534889eee64309485b1, type: 3}
+    volume: 1
+    pitch: 2.94
+    loop: 0
+    source: {fileID: 0}
+  - name: moth5
+    clip: {fileID: 8300000, guid: 8a45e4a6225c67f44b10b37b5c578e67, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: moth6
+    clip: {fileID: 8300000, guid: 8a45e4a6225c67f44b10b37b5c578e67, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  musicMixer: {fileID: -2102648953317553773, guid: 4d78c0ff4b4f99647ad6b2dce1f21f47, type: 2}
+  musicSounds: []
 --- !u!4 &132989663
 Transform:
   m_ObjectHideFlags: 0
@@ -3829,7 +3887,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2129989846}
-  m_LocalRotation: {x: 0.14521314, y: -5.1799038e-15, z: 7.130392e-16, w: 0.98940045}
+  m_LocalRotation: {x: 0.14521313, y: 0.000000032966824, z: -0.000000004838501, w: 0.98940045}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
