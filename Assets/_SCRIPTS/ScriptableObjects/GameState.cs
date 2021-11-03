@@ -7,8 +7,8 @@ public class GameState : ScriptableObject
 {
     
     //Player values
-    public float playerHealth;
-    public float playerStamina;
+    public int playerHealth;
+    public int playerDamage;
 
     //Crystal values
     public Object[] crystalCores;

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1417416845885696283}
   - component: {fileID: 1417416845885696295}
   - component: {fileID: 1417416845885696294}
+  - component: {fileID: 5615873079863716120}
   m_Layer: 0
   m_Name: playermesh
   m_TagString: Player
@@ -146,6 +147,31 @@ MonoBehaviour:
   attackCooldown: 0.25
   comboTimer: 3
   weapon: {fileID: 1417416846689095888}
+  anim: {fileID: 0}
+  utilClip: {fileID: 0}
+  anims: []
+  footsteps: []
+  attacks: []
+  impacts: []
+--- !u!95 &5615873079863716120
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417416845885696281}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7c4b0fed1d5f777419ce8d5f7ab746fc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1417416845993155756
 GameObject:
   m_ObjectHideFlags: 0

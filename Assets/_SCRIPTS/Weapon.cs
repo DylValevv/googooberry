@@ -7,6 +7,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] PlayerController player;
     [SerializeField] int damage;
 
+
     Collider myCollider;
 
     private void Start()

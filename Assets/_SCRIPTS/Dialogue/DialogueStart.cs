@@ -24,18 +24,25 @@ public class DialogueStart : MonoBehaviour
     [SerializeField]
     private GameObject talkIcon;
 
+    [SerializeField]
+    private AudioManager audioManager;
+
+    private Character character;
+
     // Start is called before the first frame update
     void Start()
     {
         index = 0;
         dialogue = new Dialogue(SceneInCaps, "Conversation");//we now have the dialogue
         talkIcon.transform.localScale.Set(0, 0, 0);
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         {
+            audioManager.PlayDialogue("moth4");
             ready = true;
             talkIcon.SetActive(true);
             talkIcon.transform.DOScale(1f, .3f);
@@ -48,6 +55,7 @@ public class DialogueStart : MonoBehaviour
         {
             ready = false;
             talkIcon.transform.DOScale(0f, .3f).OnComplete(()=>talkIcon.SetActive(false));
+            ExitDialogue();
         }
     }
 
@@ -56,7 +64,6 @@ public class DialogueStart : MonoBehaviour
     {
         if (ready && Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("entered convo");
             dialogueZone.gameObject.SetActive(true);
             dialogueZone.transform.DOMoveY(80, .2f);
             NextSentence();
@@ -68,6 +75,9 @@ public class DialogueStart : MonoBehaviour
         //set speaker
         if (dialogue.sentences[index].Contains("//"))
             switchSpeaker(dialogue.sentences[index]);
+
+        audioManager.PlayDialogue("moth" + character.sounds[character.soundIndex++ % character.sounds.Length]);
+
 
         if (!typeSentence) dialogueZone.content.text = dialogue.sentences[index];
         else { StopAllCoroutines(); StartCoroutine(TypeSentence(dialogue.sentences[index])); }
@@ -92,8 +102,12 @@ public class DialogueStart : MonoBehaviour
         dialogueZone.transform.DOMoveY(-80, .2f);
         s = s.Trim('/');
         index++;//skip the speaker tag so it does not display
+        character = Resources.Load<Character>("CHARACTERS/" + s) ?? Resources.Load<Character>("CHARACTERS/DEFAULT");
+        dialogueZone.speakerName.color = character.textColor;
+        dialogueZone.content.color = character.textColor;
+
         dialogueZone.speakerName.text = s;
-        dialogueZone.portrait.sprite = Resources.Load<Sprite>("PORTRAITS/" + s) ?? Resources.Load<Sprite>("PORTRAITS/DEFAULT");
+        dialogueZone.portrait.sprite = character.portrait;
         dialogueZone.transform.DOMoveY(80, .2f);
 
     }
