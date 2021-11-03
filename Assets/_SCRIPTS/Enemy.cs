@@ -1,13 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using DG.Tweening;
 
 public class Enemy : MonoBehaviour
 {
     public EnemyManager enemyManager;
-    //public Game
+    public GameState gameState;
 
     private GameObject playerObj;
     private NavMeshAgent navMeshAgent;
@@ -42,7 +39,8 @@ public class Enemy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Weapon"))
         {
-            //TakeDamage()
+            //TakeDamage(gameState.playerDamage);
+            TakeDamage(1);
         }
     }
 
@@ -66,6 +64,7 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int hitDamage)
     {
         health -= hitDamage;
+        Debug.Log("Take Damage");
         if (health <= 0)
         {
             Death();

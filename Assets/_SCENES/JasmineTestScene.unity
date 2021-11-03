@@ -456,6 +456,7 @@ GameObject:
   - component: {fileID: 1763446104}
   - component: {fileID: 1763446103}
   - component: {fileID: 1763446102}
+  - component: {fileID: 1763446105}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -710,6 +711,14 @@ PrefabInstance:
     - target: {fileID: 4058565970394789145, guid: 92e30bfde88642f4c9522d40ddcf8115, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058565970394789146, guid: 92e30bfde88642f4c9522d40ddcf8115, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058565970394789146, guid: 92e30bfde88642f4c9522d40ddcf8115, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4058565970394789147, guid: 92e30bfde88642f4c9522d40ddcf8115, type: 3}
       propertyPath: meleeRange

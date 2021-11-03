@@ -7,12 +7,13 @@ public class Weapon : MonoBehaviour
     [SerializeField] PlayerController player;
     [SerializeField] int damage;
 
-    new Collider collider;
+
+    Collider myCollider;
 
     private void Start()
     {
-        collider = GetComponent<Collider>();
-        collider.enabled = false;
+        myCollider = GetComponent<Collider>();
+        myCollider.enabled = false;
     }
 
     /// <summary>
@@ -29,6 +30,6 @@ public class Weapon : MonoBehaviour
     /// </summary>
     public void ToggleCollider(bool active)
     {
-        collider.enabled = active;
+        myCollider.enabled = active;
     }
 }
