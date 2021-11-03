@@ -21,7 +21,6 @@ public class EnemySpawner : MonoBehaviour
     {
         if (enemyManager.enemiesRemainingInWave <= 0)
         {
-            Debug.Log("New Wave");
             enemyManager.currentWave++;
             SpawnWave();
         }
@@ -53,6 +52,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (enemyManager.currentWave < enemyManager.enemiesPerWave.Length)
         {
+            Debug.Log("New Wave");
             for (int i = 0; i < enemyManager.enemiesPerWave[enemyManager.currentWave]; i++)
             {
                 enemies[i].SetActive(true);
