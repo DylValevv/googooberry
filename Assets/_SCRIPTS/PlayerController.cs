@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
 
     // adjustable player movement values
     [SerializeField] private float playerSpeed = 2.0f;
+    private float OGplayerSpeed;
     [SerializeField] private float rotationSpeed = 4f;
 
     // jump variables
@@ -64,6 +65,8 @@ public class PlayerController : MonoBehaviour
     private int comboCount;
     // how long the player has to press Attack to do the next combo animation
     [SerializeField] private int comboTimer;
+    // the pause between each attack. there is one for each attack to align with the animations 
+    [SerializeField] private float[] timeBetweenNextAttack;
     float totalTime;
 
     [SerializeField] Weapon weapon;
@@ -76,6 +79,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject animatedMesh;
     [SerializeField] private Animator anim;
     [SerializeField] private float blendMultiplier;
+    [SerializeField] [Range(0, 1f)] private float blendTreeSmoothTime;
+    // the speed the player reaches to after they attack
+    [SerializeField] private float slowPlayerTo;
+    // how quickly the player slows down after attacking
+    [SerializeField] private float attackSmoothingIn;
+    // how quickly the player goes back to their default speed after slowed after attacking
+    [SerializeField] private float attackSmoothingOut;
     // like an animation controller, but instead it lets you take a base animator controller and lets you swap the clips within the animator. this is like a modular state machine
     // this lets you keep the same state machines across all charactersa
     private AnimatorOverrideController animOverride;
@@ -136,6 +146,8 @@ public class PlayerController : MonoBehaviour
         isAttacking = false;
 
         dashes = 0;
+
+        OGplayerSpeed = playerSpeed;
     }
     #endregion
 
@@ -212,7 +224,7 @@ public class PlayerController : MonoBehaviour
             float normalizedSpeed = controller.velocity.magnitude / playerSpeed;
 
             // make sure the blend trees are scaled to these dynamic values
-            anim.SetFloat("MoveSpeed", normalizedSpeed);
+            //anim.SetFloat("MoveSpeed", normalizedSpeed);
             jumpTimes++;
         }
 
@@ -297,27 +309,25 @@ public class PlayerController : MonoBehaviour
         if (groundedPlayer)
         {
             PlayAnim("GroundAttack" + comboCount, true);
-            string tempString = "weaponTemp" + comboCount;
-            weapon.GetComponent<Animation>().Play(tempString);
         }
         // air combos
         else
         {
             PlayAnim("AirAttack" + comboCount, true);
-            string tempString = "airWeaponTemp" + comboCount;
-            weapon.GetComponent<Animation>().Play(tempString);
         }
 
+        // toggle on the collider of the weapon
         isAttacking = true;
         weapon.ToggleCollider(isAttacking);
 
         // play the animation which moves this attacking object
-        // THE FOLLOWING IS TEMPORARY
+        Debug.Log("weapon anim calls here");
 
-        yield return new WaitForSeconds(attackCooldown);
+        // have the correct pause between the attack sequence to align with the attack animations. both ground and air combos should have the same timing with their respecitve indices
+        // room for future implementation of ground slam and different handling dependent on that
+        StopMovementTemporarily(timeBetweenNextAttack[comboCount - 1], true);
 
-        isAttacking = false;
-        weapon.ToggleCollider(isAttacking);
+        yield return null;
     }
 
     /// <summary>
@@ -410,60 +420,20 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// make a smooth transition from idle to run and vice versa
-    /// </summary>
-    private IEnumerator BlendTreeLerp(float lerpTime, bool forward)
-    {
-        if(forward)
-        {
-            totalTime = 0;
-            while (totalTime <= lerpTime)
-            {
-                totalTime += Time.deltaTime * blendMultiplier;
-                anim.SetFloat("MoveSpeed", totalTime);
-                yield return null;
-            }
-        }
-        else
-        {
-            totalTime = 1;
-
-            while (totalTime >= lerpTime)
-            {
-                totalTime -= Time.deltaTime * blendMultiplier;
-                anim.SetFloat("MoveSpeed", totalTime);
-                yield return null;
-            }
-        }
-    }
-
-    /// <summary>
     /// updates the blend tree based on player movement
     /// </summary>
     private void UpdateBlendTreeMoveSpeed()
     {
-        // normalize the magnitude
-        float normalizedSpeed = controller.velocity.magnitude / playerSpeed;
-
         // blend from idle to run
-        if(normalizedSpeed > 0)
+        if (controller.velocity.magnitude > 0)
         {
-            if(blendTreeCoroutine==null)blendTreeCoroutine = StartCoroutine(BlendTreeLerp(1, true));
-            else if(anim.GetFloat("MoveSpeed") == 0)
-            {
-                blendTreeCoroutine = StartCoroutine(BlendTreeLerp(1, true));
-            }
+            anim.SetFloat("MoveSpeed", 1, blendTreeSmoothTime, Time.deltaTime * 2f);
         }
         // blend from run to idle
         else
         {
-            if (blendTreeCoroutine != null) StopCoroutine(blendTreeCoroutine);
-            if (blendTreeCoroutine != null) blendTreeCoroutine = StartCoroutine(BlendTreeLerp(0, false));
-            blendTreeCoroutine = null;
-            anim.SetFloat("MoveSpeed", 0);
+            anim.SetFloat("MoveSpeed", 0, blendTreeSmoothTime, Time.deltaTime * 2f);
         }
-        // make sure the blend trees are scaled to these dynamic values
-        //anim.SetFloat("MoveSpeed", normalizedSpeed);
     }
 
     /// <summary>
@@ -481,6 +451,71 @@ public class PlayerController : MonoBehaviour
         }
 
         AnimUtil(clip, dontLoop);
+    }
+
+    /// <summary>
+    /// starts the StopMovementTemporarily coroutine
+    /// </summary>
+    /// <param name="noFadeDelay">the amount of time to temporarily slow the movement if fade is false</param>
+    /// <param name="fade">if true, it will smooth into the stop/start. if false, it will have no exit time and immediately start/stop</param>
+    public void StopMovementTemporarily(float noFadeDelay, bool fade)
+    {
+        StartCoroutine(StopMovementTemporarilyCo(noFadeDelay, fade));
+    }
+
+    /// <summary>
+    /// stop/slow movement for a certain amount of time
+    /// </summary>
+    /// <param name="noFadeDelay">the amount of time to temporarily slow the movement if fade is false</param>
+    /// <param name="fade">if true, it will smooth into the stop/start. if false, it will have no exit time and immediately start/stop</param>
+    IEnumerator StopMovementTemporarilyCo(float noFadeDelay, bool fade)
+    {
+        // initialize timer duration
+        float timeElapsed = 0;
+        float currentPlayerSpeed = playerSpeed;
+
+        if (fade)
+        {
+            // slow the player down to a temporary stop
+            while (timeElapsed < attackSmoothingIn)
+            {
+                playerSpeed = Mathf.Lerp(currentPlayerSpeed, slowPlayerTo, timeElapsed / attackSmoothingIn);
+                timeElapsed += Time.deltaTime;
+                yield return null;
+            }
+        }
+        // instantly slow player
+        else
+        {
+            playerSpeed = slowPlayerTo;
+        }
+
+        // if there is no fade, have a noticeable pause to feel the affect of the stopping/slowing
+        if(!fade) yield return new WaitForSeconds(noFadeDelay);
+
+        // reset timer duration
+        timeElapsed = 0;
+        currentPlayerSpeed = playerSpeed;
+
+        if (fade)
+        {
+            // slow the player down to a temporary stop
+            while (timeElapsed < attackSmoothingOut)
+            {
+                playerSpeed = Mathf.Lerp(currentPlayerSpeed, OGplayerSpeed, timeElapsed / attackSmoothingOut);
+                timeElapsed += Time.deltaTime;
+                yield return null;
+            }
+        }
+        // instantly accerlate player to starter speed
+        else
+        {
+            playerSpeed = OGplayerSpeed;
+        }
+
+        // toggle off the collider of the weapon
+        isAttacking = false;
+        weapon.ToggleCollider(isAttacking);
     }
     #endregion
 
