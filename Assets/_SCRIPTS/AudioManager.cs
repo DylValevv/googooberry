@@ -4,9 +4,25 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    [SerializeField] private AudioMixerGroup mixer;
 
-    [SerializeField] private Sound[] sounds;
+    [SerializeField] private AudioMixerGroup masterMixer;
+
+    [Header("Action")]
+    [SerializeField] private AudioMixerGroup actionMixer;
+    [SerializeField] private Sound[] actionSounds;
+
+    [Header("Ambient")]
+    [SerializeField] private AudioMixerGroup ambientMixer;
+    [SerializeField] private Sound[] ambientSounds;
+
+    [Header("Dialogue")]
+    [SerializeField] private AudioMixerGroup dialogueMixer;
+    [SerializeField] private Sound[] dialogueSounds;
+
+    [Header("Music")]
+    [SerializeField] private AudioMixerGroup musicMixer;
+    [SerializeField] private Sound[] musicSounds;
+
 
     public static AudioManager instance;
 
@@ -24,6 +40,14 @@ public class AudioManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
 
+        setup(dialogueSounds, dialogueMixer);
+        setup(actionSounds, actionMixer);
+        setup(ambientSounds, ambientMixer);
+        setup(musicSounds, musicMixer);
+    }
+
+    private void setup(Sound[] sounds, AudioMixerGroup audioMixer)
+    {
         foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
@@ -34,11 +58,12 @@ public class AudioManager : MonoBehaviour
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
 
-            s.source.outputAudioMixerGroup = mixer;
+            s.source.outputAudioMixerGroup = audioMixer;
         }
     }
 
-    public void Play(string name)
+    #region Play Sounds
+    private void Play(string name, Sound[] sounds)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)
@@ -49,8 +74,29 @@ public class AudioManager : MonoBehaviour
 
         s.source.Play();
     }
+    public void PlayAmbient(string name)
+    {
+        Play(name, ambientSounds);
+    }
 
-    public void Stop(string name)
+    public void PlayAction(string name)
+    {
+        Play(name, actionSounds);
+    }
+
+    public void PlayDialogue(string name)
+    {
+        Play(name, dialogueSounds);
+    }
+
+    public void PlayMusic(string name)
+    {
+        Play(name, musicSounds);
+    }
+    #endregion
+
+    #region Stop Sounds
+    private void Stop(string name, Sound[] sounds)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)
@@ -62,10 +108,31 @@ public class AudioManager : MonoBehaviour
         s.source.Stop();
     }
 
+    public void StopAmbient(string name)
+    {
+        Stop(name, ambientSounds);
+    }
+
+    public void StopAction(string name)
+    {
+        Stop(name, actionSounds);
+    }
+
+    public void StopDialogue(string name)
+    {
+        Stop(name, dialogueSounds);
+    }
+
+    public void StopMusic(string name)
+    {
+        Stop(name, musicSounds);
+    }
+    #endregion
+
     public void SetLevel(float sliderValue)
     {
         sliderValue = Mathf.Log10(sliderValue) * 20;
-        mixer.audioMixer.SetFloat("SFXVol", sliderValue);
+        masterMixer.audioMixer.SetFloat("SFXVol", sliderValue);
     }
 }
 
