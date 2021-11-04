@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: mat_vfx_fog
-  m_Shader: {fileID: -6465566751694194690, guid: 87fbf8d1719922b41b077c106984b913, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: c53fda578c628fc42b6d7391ad56bc3a, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -19,16 +19,8 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _Distortion_Texture:
-        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 7f69b0af9050bf349981c1dcf1bde149, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Textured_Pattern:
-        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
+        m_Texture: {fileID: 2800000, guid: abfcfdc4bf0b8ce4baf08a75340ed2f7, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -44,20 +36,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_d4b47f7ffabf4334b362fb77ffe15984: 1
-    - _Alt_Pattern: 0
-    - _Distortion: 0
-    - _Distortion_Lerp: 1
-    - _Distortion_Noise_Scale: 2
-    - _Fresnel_Power: -0.25
-    - _Noise_Offset: 1
-    - _Noise_Scale: 10
-    - _Opacity: 0.24
+    - Vector1_75fecdaba7dd4bac9950c10e5cbaa660: 1
+    - _Depth_Fade: 30
+    - _Opacity: 1
     m_Colors:
-    - _Color: {r: 1.0648196, g: 1.0648196, b: 1.0648196, a: 0}
-    - _Distortion_Color: {r: 0.7490196, g: 0.7490196, b: 0.7490196, a: 1}
-    - _Distortion_Offset_1: {r: 2, g: 0, b: 0, a: 0}
-    - _Distortion_Offset_2: {r: 0, g: 0, b: 0, a: 0}
-    - _Noise_Speed: {r: 0, g: 0.25, b: 0, a: 0}
-    - _Noise_Tiling: {r: 1, g: 1, b: 0, a: 0}
+    - Color_3b9f2e0b5ba0409c825c0b134cac467d: {r: 0.22, g: 0.22, b: 0.22, a: 0}
+    - _Color: {r: 0.376, g: 0.376, b: 0.376, a: 0}
   m_BuildTextureStacks: []
