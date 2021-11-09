@@ -5,12 +5,13 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "State", menuName = "ScriptableObjects/GameState", order = 1)]
 public class GameState : ScriptableObject
 {
-    
-    //Player values
+
+    [Header("Player Values")]
     public int playerHealth;
     public int playerDamage;
+    public Vector3 spawnPoint;
 
-    //Crystal values
+    [Header("Crystal Values")]
     public Object[] crystalCores;
     public float crystalProgress;
 

@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyAverageSpeed: 1
   enemyAverageDamage: 1
-  enemyAverageHealth: 10
+  enemyAverageHealth: 5
   spawnPoints:
   - {x: 1, y: 3, z: 0}
   - {x: 1, y: 6, z: 0}
   enemiesPerWave: 0200000003000000
-  enemiesRemainingInWave: 0
-  currentWave: 707
+  enemiesRemainingInWave: -1
+  currentWave: 5548
