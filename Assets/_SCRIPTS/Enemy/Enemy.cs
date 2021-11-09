@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
 {
     public EnemyManager enemyManager;
     public GameState gameState;
+    public MeleeAttack meleeAttack;
 
     private GameObject playerObj;
     private NavMeshAgent navMeshAgent;
@@ -19,6 +20,7 @@ public class Enemy : MonoBehaviour
 
     [Header("Customize Attack")]
     [SerializeField] float meleeAttackSpeed = 1f;
+    public float meleeAttackInterval = 1f;
     //[SerializeField] float ogDrag = 10;
 
     [Header("Enemy Scalable Stats (Don't edit here, set in EnemyManager)")]
@@ -51,6 +53,10 @@ public class Enemy : MonoBehaviour
             //TakeDamage(gameState.playerDamage);
             TakeDamage(1);
         }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
         if (other.gameObject.CompareTag("Player") && isAttacking)
         {
             attackSuccessful = true;
@@ -92,6 +98,7 @@ public class Enemy : MonoBehaviour
 
     public void MeleeAttack()
     {
+        meleeAttack.currentlyMeleeAttacking = true;
         navMeshAgent.isStopped = true;
         navMeshAgent.ResetPath();
         isAttacking = true;
@@ -102,18 +109,25 @@ public class Enemy : MonoBehaviour
 
     private void FinishedAttack()
     {
-        if (attackSuccessful) gameState.playerHealth -= damage;
-        if (gameState.playerHealth <= 0)
+        if (attackSuccessful)
         {
-            Debug.Log("Player died");
-            gameState.playerHealth = 0;
-            playerObj.GetComponent<PlayerController>().Die();
+            gameState.playerHealth -= damage;
+
+            if (gameState.playerHealth <= 0)
+            {
+                Debug.Log("Player died");
+                gameState.playerHealth = 0;
+                playerObj.GetComponent<PlayerController>().Die();
+            }
         }
 
         this.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
         //this.GetComponent<Rigidbody>().drag = ogDrag;
         isAttacking = false;
         attackSuccessful = false;
+        meleeAttack.currentlyMeleeAttacking = false;
+
+        meleeAttack.DoAttack();
     }
 
     private void SetArc(Rigidbody obj, Vector3 start, Vector3 end, float t)
