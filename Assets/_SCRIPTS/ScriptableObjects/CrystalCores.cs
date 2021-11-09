@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "CrystalData", menuName = "CrystalCores", order = 1)]
+[CreateAssetMenu(fileName = "CrystalData", menuName = "ScriptableObjects/CrystalCores", order = 1)]
 public class CrystalCores : ScriptableObject
 {
 

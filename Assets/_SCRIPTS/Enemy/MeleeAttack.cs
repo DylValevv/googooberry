@@ -22,7 +22,7 @@ public class MeleeAttack : MonoBehaviour
 
     public void DoAttack()
     {
-        Debug.Log("DOING ATTACK");
+        //Debug.Log("DOING ATTACK");
         Sequence mySequence = DOTween.Sequence();
         mySequence.AppendInterval(transform.parent.GetComponent<Enemy>().meleeAttackInterval).OnComplete(() => AttackHelper());
     }
