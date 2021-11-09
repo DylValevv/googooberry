@@ -50,8 +50,8 @@ public class Enemy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Weapon"))
         {
-            //TakeDamage(gameState.playerDamage);
-            TakeDamage(1);
+            TakeDamage(gameState.playerDamage);
+            //TakeDamage(1);
         }
     }
 
