@@ -21,7 +21,7 @@ public class EnemyHitCollider : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player") && enemy.isAttacking)
         {
-            Debug.Log("??????");
+            //Debug.Log("??????");
             enemy.attackSuccessful = true;
         }
     }

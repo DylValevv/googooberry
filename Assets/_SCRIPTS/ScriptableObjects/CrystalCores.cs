@@ -6,7 +6,7 @@ using UnityEngine;
 public class CrystalCores : ScriptableObject
 {
 
-    public int maxHealth = 10;
+    public int Health = 10;
 
     public int isMined = 0; //0 if not mined, 1 if mined
 
