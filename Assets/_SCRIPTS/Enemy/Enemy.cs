@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 using DG.Tweening;
+using System.Collections;
 
 public class Enemy : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Enemy : MonoBehaviour
     private GameObject playerObj;
     private NavMeshAgent navMeshAgent;
     private bool isAttacking = false;
+    private bool attackSuccessful = false;
 
     [Header("Attack Ranges")]
     [SerializeField] CapsuleCollider meleeRange;
@@ -39,6 +41,7 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         if (isAttacking == false) SetDestination(); //Reroute towards player 
+        //isCollidingWithPlayer = false;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -48,15 +51,9 @@ public class Enemy : MonoBehaviour
             //TakeDamage(gameState.playerDamage);
             TakeDamage(1);
         }
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && isAttacking)
         {
-            gameState.playerHealth -= damage;
-            if (gameState.playerHealth <= 0)
-            {
-                Debug.Log("Player died");
-                gameState.playerHealth = 0;
-                playerObj.GetComponent<PlayerController>().Die();
-            }
+            attackSuccessful = true;
         }
     }
 
@@ -105,9 +102,18 @@ public class Enemy : MonoBehaviour
 
     private void FinishedAttack()
     {
+        if (attackSuccessful) gameState.playerHealth -= damage;
+        if (gameState.playerHealth <= 0)
+        {
+            Debug.Log("Player died");
+            gameState.playerHealth = 0;
+            playerObj.GetComponent<PlayerController>().Die();
+        }
+
         this.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
         //this.GetComponent<Rigidbody>().drag = ogDrag;
         isAttacking = false;
+        attackSuccessful = false;
     }
 
     private void SetArc(Rigidbody obj, Vector3 start, Vector3 end, float t)

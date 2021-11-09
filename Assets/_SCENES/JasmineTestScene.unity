@@ -739,7 +739,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4058565970394789144, guid: 92e30bfde88642f4c9522d40ddcf8115, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4058565970394789145, guid: 92e30bfde88642f4c9522d40ddcf8115, type: 3}
       propertyPath: m_Name
@@ -753,6 +753,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4058565970394789147, guid: 92e30bfde88642f4c9522d40ddcf8115, type: 3}
+      propertyPath: gameState
+      value: 
+      objectReference: {fileID: 11400000, guid: 421f2503328688b4982544ae74681dd8, type: 2}
     - target: {fileID: 4058565970394789147, guid: 92e30bfde88642f4c9522d40ddcf8115, type: 3}
       propertyPath: meleeRange
       value: 
