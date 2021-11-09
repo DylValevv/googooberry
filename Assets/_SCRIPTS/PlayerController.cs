@@ -234,7 +234,6 @@ public class PlayerController : MonoBehaviour
             // if on the ground, jump
             if (CanJump() || CanContinueJump())
             {
-                Debug.Log("jump hoe");
                 playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
                 //playerVelocity.y = jumpHeight;
                 jumpElapsedTime += Time.deltaTime;
