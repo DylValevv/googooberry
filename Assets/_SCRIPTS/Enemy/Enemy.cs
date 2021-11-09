@@ -11,8 +11,8 @@ public class Enemy : MonoBehaviour
 
     private GameObject playerObj;
     private NavMeshAgent navMeshAgent;
-    private bool isAttacking = false;
-    private bool attackSuccessful = false;
+    [HideInInspector] public bool isAttacking = false;
+    [HideInInspector] public bool attackSuccessful = false;
 
     [Header("Attack Ranges")]
     [SerializeField] CapsuleCollider meleeRange;
@@ -52,14 +52,6 @@ public class Enemy : MonoBehaviour
         {
             //TakeDamage(gameState.playerDamage);
             TakeDamage(1);
-        }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player") && isAttacking)
-        {
-            attackSuccessful = true;
         }
     }
 
