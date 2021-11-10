@@ -133,7 +133,5 @@ public class Enemy : MonoBehaviour
         vel.y = ((end.y - start.y) / t) - ((Physics.gravity.y / 2) * t);
 
         obj.velocity = vel;
-
-        
     }
 }
