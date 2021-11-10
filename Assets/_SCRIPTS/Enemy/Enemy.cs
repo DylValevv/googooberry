@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     public GameState gameState;
     public MeleeAttack meleeAttack;
 
-    private GameObject playerObj;
+    public GameObject playerObj;
     private NavMeshAgent navMeshAgent;
     [HideInInspector] public bool isAttacking = false;
     [HideInInspector] public bool attackSuccessful = false;
@@ -84,33 +84,49 @@ public class Enemy : MonoBehaviour
 
     private void Death()
     {
+        
         enemyManager.enemiesRemainingInWave -= 1;
         gameObject.SetActive(false);
     }
 
+    /// <summary>
+    /// turns off navmesh to stop movement
+    /// </summary>
+    public void RangedAttack(bool active)
+    {
+        if (active)
+        {
+            navMeshAgent.isStopped = active;
+            navMeshAgent.ResetPath();
+            isAttacking = active;
+            this.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+        }
+        else
+        {
+            FinishedAttack();
+        }
+
+    }
+
     public void MeleeAttack()
     {
-        meleeAttack.currentlyMeleeAttacking = true;
-        navMeshAgent.isStopped = true;
-        navMeshAgent.ResetPath();
-        isAttacking = true;
-        SetArc(this.GetComponent<Rigidbody>(), this.transform.position, playerObj.transform.position, meleeAttackSpeed);
-        Sequence mySequence = DOTween.Sequence();
-        mySequence.AppendInterval(meleeAttackSpeed).OnComplete(()=>FinishedAttack());
+        if (this.gameObject.activeSelf)
+        {
+            meleeAttack.currentlyMeleeAttacking = true;
+            navMeshAgent.isStopped = true;
+            navMeshAgent.ResetPath();
+            isAttacking = true;
+            SetArc(this.GetComponent<Rigidbody>(), this.transform.position, playerObj.transform.position, meleeAttackSpeed);
+            Sequence mySequence = DOTween.Sequence();
+            mySequence.AppendInterval(meleeAttackSpeed).OnComplete(() => FinishedAttack());
+        }
     }
 
     private void FinishedAttack()
     {
         if (attackSuccessful)
         {
-            gameState.playerHealth -= damage;
-
-            if (gameState.playerHealth <= 0)
-            {
-                Debug.Log("Player died");
-                gameState.playerHealth = 0;
-                playerObj.GetComponent<PlayerController>().Die();
-            }
+            DealDamange(damage);
         }
 
         this.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
@@ -120,6 +136,22 @@ public class Enemy : MonoBehaviour
         meleeAttack.currentlyMeleeAttacking = false;
 
         meleeAttack.DoAttack();
+    }
+
+    /// <summary>
+    /// Function to deal set amount of damage to player and calls player death
+    /// </summary>
+    /// <param name="damageAmt">the amount of damage</param>
+    public void DealDamange(int damageAmt)
+    {
+        gameState.playerHealth -= damageAmt;
+
+        if (gameState.playerHealth <= 0)
+        {
+            Debug.Log("Player died");
+            gameState.playerHealth = 0;
+            playerObj.GetComponent<PlayerController>().Die();
+        }
     }
 
     private void SetArc(Rigidbody obj, Vector3 start, Vector3 end, float t)
@@ -133,7 +165,5 @@ public class Enemy : MonoBehaviour
         vel.y = ((end.y - start.y) / t) - ((Physics.gravity.y / 2) * t);
 
         obj.velocity = vel;
-
-        
     }
 }
