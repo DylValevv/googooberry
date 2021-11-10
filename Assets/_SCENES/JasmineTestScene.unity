@@ -380,7 +380,7 @@ GameObject:
   - component: {fileID: 413263394}
   m_Layer: 0
   m_Name: obstacle (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
@@ -550,7 +550,7 @@ GameObject:
   - component: {fileID: 562666762}
   m_Layer: 0
   m_Name: obstacle (2)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
@@ -1145,7 +1145,6 @@ RectTransform:
   - {fileID: 1434549922}
   - {fileID: 54160086}
   - {fileID: 1327997566}
-  - {fileID: 1482196701}
   m_Father: {fileID: 873358282}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1643,81 +1642,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1434549921}
   m_CullTransparentMesh: 1
---- !u!1 &1482196700
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1482196701}
-  - component: {fileID: 1482196703}
-  - component: {fileID: 1482196702}
-  m_Layer: 5
-  m_Name: Image (10)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1482196701
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1482196700}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1175785194}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1482196702
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1482196700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6d40746924fb9d9458e7edc2dae4d3da, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1482196703
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1482196700}
-  m_CullTransparentMesh: 1
 --- !u!1 &1554189089
 GameObject:
   m_ObjectHideFlags: 0
@@ -1843,8 +1767,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameState: {fileID: 11400000, guid: 421f2503328688b4982544ae74681dd8, type: 2}
   healthUI: {fileID: 1175785194}
-  healthFullColor: {r: 1, g: 1, b: 1, a: 0}
-  healthEmptyColor: {r: 0, g: 0, b: 0, a: 0}
+  healthFullColor: {r: 1, g: 1, b: 1, a: 1}
+  healthEmptyColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1001 &1712986159
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2172,7 +2096,7 @@ GameObject:
   - component: {fileID: 1963351877}
   m_Layer: 0
   m_Name: obstacle
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
@@ -2324,13 +2248,32 @@ GameObject:
   m_Component:
   - component: {fileID: 1221471805209357311}
   - component: {fileID: 1221471805209357310}
+  - component: {fileID: 1221471805209357306}
   m_Layer: 0
   m_Name: RangedRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
+--- !u!114 &1221471805209357306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221471805209357305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 423659d402a9fad4baa250e561f79f81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 10
+  rangedCooldownTime: 3
+  failedReDoRangedCooldownTime: 1
+  rangedAttackDuration: 4
+  enemy: {fileID: 1221471806331894080}
+  projectilePrefab: {fileID: 7599234873246790589, guid: 722525d98860f6747ac5850af288b2ba, type: 3}
 --- !u!136 &1221471805209357310
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2374,11 +2317,12 @@ MonoBehaviour:
   enemyManager: {fileID: 11400000, guid: 549d8923c9962a94eafd6c1b13bc5bac, type: 2}
   gameState: {fileID: 11400000, guid: 421f2503328688b4982544ae74681dd8, type: 2}
   meleeAttack: {fileID: 1221471806636129137}
+  playerObj: {fileID: 0}
   isAttacking: 0
   attackSuccessful: 0
   meleeRange: {fileID: 1221471806636129139}
   rangedRange: {fileID: 1221471805209357310}
-  meleeAttackSpeed: 0.5
+  meleeAttackSpeed: 0.2
   meleeAttackInterval: 1
   speed: 0
   damage: 0
