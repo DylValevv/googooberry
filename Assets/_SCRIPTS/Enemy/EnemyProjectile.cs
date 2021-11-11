@@ -35,7 +35,7 @@ public class EnemyProjectile : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            enemy.DealDamange(damage);
+            enemy.DealDamage(damage);
             Destroy(gameObject);
         }
         if(other.gameObject.CompareTag("Environment"))

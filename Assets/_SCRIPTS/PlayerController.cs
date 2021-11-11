@@ -26,7 +26,8 @@ public class PlayerController : MonoBehaviour
 
     // jump variables
     [SerializeField] private InputActionReference jumpControl;
-    private bool groundedPlayer;
+    [SerializeField] private bool groundedPlayer;
+    [SerializeField] private bool canAirAttack;
     private int jumpTimes = 0;
     [SerializeField] private float jumpTimer = 0.2f;
     [SerializeField] private float jumpHeight = 1.0f;
@@ -153,9 +154,16 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        groundedPlayer = controller.isGrounded;
+
+        // airattack condition detection
+        RaycastHit hit;
+        Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity);
+        canAirAttack = hit.distance > 2;
+
         #region<Gravity Check>
         // see if the player should fall and if they are touching the ground
-        groundedPlayer = controller.isGrounded;
+
         if (groundedPlayer && playerVelocity.y < 0)
         {
             playerVelocity.y = 0f;
@@ -212,7 +220,6 @@ public class PlayerController : MonoBehaviour
             jumpTimes = 0;
             anim.SetBool("InAir", false);
         }
-
         // return if the player is pressing and holding jump
         jumpButtonPressed = jumpControl.action.ReadValue<float>() > 0 ? true : false;
 
@@ -304,15 +311,15 @@ public class PlayerController : MonoBehaviour
             comboCount = 0;
             comboCount++;
         }
-        // ground combos
-        if (groundedPlayer)
-        {
-            PlayAnim("GroundAttack" + comboCount, true);
-        }
         // air combos
-        else
+        if (canAirAttack)
         {
             PlayAnim("AirAttack" + comboCount, true);
+        }
+        // ground combos
+        else
+        {
+            PlayAnim("GroundAttack" + comboCount, true);
         }
 
         // toggle on the collider of the weapon
@@ -532,4 +539,5 @@ public class PlayerController : MonoBehaviour
     {
         PlayAnim("RAbility", true);
     }
+
 }

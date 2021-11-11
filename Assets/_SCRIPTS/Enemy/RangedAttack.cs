@@ -11,6 +11,7 @@ public class RangedAttack : MonoBehaviour
     [SerializeField] float rangedAttackDuration;
     [SerializeField] private Enemy enemy;
     [SerializeField] private GameObject projectilePrefab;
+    private Coroutine BeamCoroutine;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,27 +37,25 @@ public class RangedAttack : MonoBehaviour
     /// <summary>
     /// triggers the VFX/the physical attack itself
     /// </summary>
-    public void DoRangedAttack()
+    public IEnumerator DoRangedAttack()
     {
-         Debug.Log("RANGED ATTACK BOOM WOAH OMG");
-        
-        // do the animation
+        enemy.RangedAttack(true);
+
+        yield return new WaitForSeconds(rangedAttackDuration);
+
+        if(!enemy.gameObject.activeSelf)
+        {
+            StopCoroutine(BeamCoroutine);
+        }
 
         // instantiate the beam
         GameObject beam = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
         beam.GetComponent<EnemyProjectile>().InitializeProjectile(enemy);
 
-        enemy.RangedAttack(true);
+        // reset the cooldown
+        if (rangedCoroutine != null) rangedCoroutine = StartCoroutine(CooldownCountdown(rangedCooldownTime));
 
-        Invoke("ResetCooldown", rangedAttackDuration);
-    }
-
-    /// <summary>
-    /// resets the cooldown after a set amount of time. called in DoRangedAttack()
-    /// </summary>
-    private void ResetCooldown()
-    {
-        rangedCoroutine = StartCoroutine(CooldownCountdown(rangedCooldownTime));
+        yield return null;
     }
 
     /// <summary>
@@ -82,7 +81,7 @@ public class RangedAttack : MonoBehaviour
             // see if there is a wall in the way
             if(CheckAttack())
             {
-                DoRangedAttack();
+                BeamCoroutine = StartCoroutine(DoRangedAttack());
             }
             // else reset timer
             else

@@ -111,7 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileVFX: {fileID: 0}
   damage: 2
-  speed: 20
+  speed: 10
 --- !u!96 &2576819554282430896
 TrailRenderer:
   serializedVersion: 2
