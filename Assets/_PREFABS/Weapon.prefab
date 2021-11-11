@@ -4820,7 +4820,7 @@ GameObject:
   - component: {fileID: 6611059926287980675}
   m_Layer: 0
   m_Name: Weapon
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4933,5 +4933,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   damage: 1
-  sheathDelay: 1
+  sheathDelay: 2.5
   particleTrail: {fileID: 6611059925284246774}
