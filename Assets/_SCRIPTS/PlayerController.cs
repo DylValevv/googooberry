@@ -70,7 +70,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float[] timeBetweenNextAttack;
     float totalTime;
 
-    [SerializeField] Weapon weapon;
+    [SerializeField] Weapon leftWeapon;
+    [SerializeField] Weapon rightWeapon;
 
     private bool isAttacking;
     #endregion
@@ -289,7 +290,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void AttackHandler()
     {
-        if (attackControl.action.triggered && !isAttacking)
+        if (attackControl.action.triggered && !isAttacking && !canAirAttack)
         {
             attackCoroutine = StartCoroutine(Attack());
         }
@@ -320,11 +321,14 @@ public class PlayerController : MonoBehaviour
         else
         {
             PlayAnim("GroundAttack" + comboCount, true);
+            // wolverine type shit here
+
         }
 
         // toggle on the collider of the weapon
         isAttacking = true;
-        weapon.ToggleCollider(isAttacking);
+        leftWeapon.ToggleCollider(isAttacking);
+        rightWeapon.ToggleCollider(isAttacking);
 
         // play the animation which moves this attacking object
         Debug.Log("weapon anim calls here");
@@ -348,6 +352,8 @@ public class PlayerController : MonoBehaviour
         }
 
         comboCount = 0;
+        leftWeapon.SheathWeapon();
+        rightWeapon.SheathWeapon();
     }
 
     /// <summary>
@@ -363,7 +369,7 @@ public class PlayerController : MonoBehaviour
         canDash = false;
         dashes++;
 
-        movementControl.action.Disable();
+        //movementControl.action.Disable();
         Vector3 moveDirection = transform.TransformDirection(Vector3.forward);
 
         while (dashTotalTime <= dashTime)
@@ -373,7 +379,7 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
 
-        movementControl.action.Enable();
+        //movementControl.action.Enable();
 
         yield return new WaitForSeconds(dashAgainCooldown);
         // dash refractory period end
@@ -521,7 +527,8 @@ public class PlayerController : MonoBehaviour
 
         // toggle off the collider of the weapon
         isAttacking = false;
-        weapon.ToggleCollider(isAttacking);
+        leftWeapon.ToggleCollider(isAttacking);
+        rightWeapon.ToggleCollider(isAttacking);
     }
     #endregion
 
