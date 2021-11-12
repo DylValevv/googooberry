@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System;
+using UnityEngine.VFX;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
@@ -74,6 +75,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Weapon rightWeapon;
 
     private bool isAttacking;
+
+    [SerializeField] private VisualEffect particleVisual;
+    [SerializeField] private GameObject particleCollision;
+
+    // abilitiy unlocks
+    private bool thirdHit;
     #endregion
 
     [Header("Animation")]
@@ -150,6 +157,11 @@ public class PlayerController : MonoBehaviour
         dashes = 0;
 
         OGplayerSpeed = playerSpeed;
+
+        Debug.Log("turn off third hit");
+        thirdHit = true;
+
+        particleVisual.Stop();
     }
     #endregion
 
@@ -301,14 +313,23 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private IEnumerator Attack()
     {
+       
         totalTime = 0;
         comboCooldownCoroutine = StartCoroutine(CooldownCountdown(attackCooldown));
         if (comboCount < 3)
         {
             comboCount++;
+            Debug.Log(comboCount);
+            if(comboCount == 3)
+            {
+                // unleash weapon attack here
+                if (thirdHit) ThirdHit();
+            }
         }
         else
         {
+            
+
             comboCount = 0;
             comboCount++;
         }
@@ -321,8 +342,6 @@ public class PlayerController : MonoBehaviour
         else
         {
             PlayAnim("GroundAttack" + comboCount, true);
-            // wolverine type shit here
-
         }
 
         // toggle on the collider of the weapon
@@ -547,4 +566,15 @@ public class PlayerController : MonoBehaviour
         PlayAnim("RAbility", true);
     }
 
+    /// <summary>
+    /// unleashes the third hit ability
+    /// </summary>
+    public void ThirdHit()
+    {
+        //particleCollision.Shoot!
+        particleVisual.Play();
+        Debug.Log("emit");
+        // 
+
+    }
 }

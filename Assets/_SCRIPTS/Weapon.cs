@@ -14,6 +14,7 @@ public class Weapon : MonoBehaviour
 
     [SerializeField] private ParticleSystem particleTrail;
 
+
     private void Start()
     {
         myCollider = GetComponent<Collider>();
@@ -21,9 +22,9 @@ public class Weapon : MonoBehaviour
 
         anim = GetComponent<Animation>();
 
-        particleTrail.Stop();
-
         unsheathed = false;
+
+        particleTrail.Stop();
     }
 
     /// <summary>
