@@ -56,11 +56,6 @@ public class DialogueStart : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Debug.Log("What the waht");
-
-        }
         if (ready && Input.GetKeyDown(KeyCode.E))
         {
             DialogueZone.instance.gameObject.SetActive(true);
