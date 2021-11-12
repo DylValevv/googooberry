@@ -3051,6 +3051,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c888e227c481be94c88272d902bb4f48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathPanel: {fileID: 0}
+  gameState: {fileID: 11400000, guid: 421f2503328688b4982544ae74681dd8, type: 2}
   movementControl: {fileID: 2779603551843232698, guid: 63360a84d4c33944c9537399f12ea8f1, type: 3}
   playerSpeed: 10
   rotationSpeed: 5
