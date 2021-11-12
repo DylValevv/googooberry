@@ -16,8 +16,8 @@ MonoBehaviour:
   enemyAverageDamage: 1
   enemyAverageHealth: 5
   spawnPoints:
-  - {x: 1, y: 3, z: 0}
-  - {x: 1, y: 6, z: 0}
+  - {x: 5.43, y: 3.14, z: -19.15}
+  - {x: -14.11, y: 3.14, z: 11.64}
   enemiesPerWave: 0200000003000000
-  enemiesRemainingInWave: -1
-  currentWave: 5548
+  enemiesRemainingInWave: -9
+  currentWave: 1748
