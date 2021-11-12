@@ -20,6 +20,9 @@ public class Hud : MonoBehaviour
     {
         gameState.playerHealth = 10;
         updateHealth();
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame

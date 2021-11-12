@@ -54,7 +54,7 @@ Material:
     - _Noise_Scale: 10
     - _Opacity: 1
     m_Colors:
-    - _Color: {r: 0, g: 1.340314, b: 7.999999, a: 0}
+    - _Color: {r: 0.21568628, g: 0.6117647, b: 0.30980393, a: 0}
     - _Distortion_Color: {r: 0.7490196, g: 0.7490196, b: 0.7490196, a: 1}
     - _Distortion_Offset_1: {r: 2, g: 0, b: 0, a: 0}
     - _Distortion_Offset_2: {r: 0, g: 0, b: 0, a: 0}
