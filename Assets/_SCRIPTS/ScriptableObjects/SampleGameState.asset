@@ -15,7 +15,7 @@ MonoBehaviour:
   playerHealth: 10
   maxPlayerHealth: 10
   playerDamage: 1
-  spawnPoint: {x: 0, y: 0, z: 0}
+  spawnPoint: {x: -241.7, y: 38.46, z: 16}
   crystalCores:
   - {fileID: 11400000, guid: 4963ce23f7f981743a84695fe7f2940f, type: 2}
   crystalProgress: 0
