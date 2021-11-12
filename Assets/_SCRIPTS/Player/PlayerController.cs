@@ -4,12 +4,17 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System;
 using UnityEngine.VFX;
+using DG.Tweening;
+using UnityEngine.UI;
+using TMPro;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
     // main camera
     private Transform cameraMainTransform;
+    public Image deathPanel;
+    public GameState gameState;
 
     [Header("Locomotion")]
     #region<Locomotion Variables>
@@ -556,6 +561,23 @@ public class PlayerController : MonoBehaviour
     public void Die()
     {
         PlayAnim("Die", true);
+        Sequence mySequence = DOTween.Sequence();
+        deathPanel.gameObject.SetActive(true);
+
+        TextMeshProUGUI deathText = deathPanel.gameObject.GetComponentInChildren<TextMeshProUGUI>();
+        Debug.Log("DEAHT PANEL: ", deathText);
+
+        mySequence.Append(deathPanel.DOFade(1f, 0.5f));
+        mySequence.Append(deathText.DOFade(1f, 0.5f));
+
+        mySequence.AppendInterval(1.5f).OnComplete(() => Respawn());
+    }
+
+    private void Respawn()
+    {
+        gameObject.transform.position = gameState.spawnPoint;
+        gameState.playerHealth = gameState.maxPlayerHealth;
+        deathPanel.gameObject.SetActive(false);
     }
 
     public void ShiftAbility()

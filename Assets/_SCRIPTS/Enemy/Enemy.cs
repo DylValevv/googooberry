@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     private NavMeshAgent navMeshAgent;
     [HideInInspector] public bool isAttacking = false;
     [HideInInspector] public bool attackSuccessful = false;
+    private bool hasTakenDamage = false;
 
     [Header("Attack Ranges")]
     [SerializeField] CapsuleCollider meleeRange;
@@ -91,12 +92,23 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int hitDamage)
     {
-        health -= hitDamage;
-        Debug.Log("Take Damage");
-        if (health <= 0)
+        if (!hasTakenDamage)
         {
-            Death();
+            health -= hitDamage;
+            Debug.Log("Take Damage");
+            if (health <= 0)
+            {
+                Death();
+            }
+            hasTakenDamage = true;
+            Sequence mySequence = DOTween.Sequence();
+            mySequence.AppendInterval(0.15f).OnComplete(() => CanTakeDamage());
         }
+    }
+
+    private void CanTakeDamage()
+    {
+        hasTakenDamage = false;
     }
 
     private void Death()
