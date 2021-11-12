@@ -12,6 +12,8 @@ public class StoryManager : MonoBehaviour
     [SerializeField] DialogueStart Miak;
     [SerializeField] DialogueStart Olent;
     [SerializeField] GameState gameState;
+    [SerializeField] PlayerController player;
+
 
     public static StoryManager instance;
 
@@ -59,6 +61,7 @@ public class StoryManager : MonoBehaviour
     private void ActivatePlayerFinisher()
     {
         StepOdeiDialogue();
+        player.SetThirdHit();
     }
 
     //call after speaking with Tilak

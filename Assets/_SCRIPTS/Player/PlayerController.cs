@@ -164,8 +164,8 @@ public class PlayerController : MonoBehaviour
 
         OGplayerSpeed = playerSpeed;
 
-        Debug.Log("turn off third hit");
-        thirdHit = true;
+        //Debug.Log("turn off third hit");
+        //thirdHit = true;
 
         particleVisual.SetActive(false);
     }
@@ -602,5 +602,13 @@ public class PlayerController : MonoBehaviour
         // instantiate the collision particle
         GameObject particle = Instantiate(particleCollisionPrefab, transform.position + transform.forward, transform.rotation);
         particle.GetComponent<ParticleCollision>().InitializeParticle(this, thirdHitDamage, particleVisual);
+    }
+
+    /// <summary>
+    /// turn on ability
+    /// </summary>
+    public void SetThirdHit()
+    {
+        thirdHit = true;
     }
 }
