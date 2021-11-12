@@ -14,8 +14,8 @@ public class EnemyManager : ScriptableObject
     public Vector3[] spawnPoints;
     public int[] enemiesPerWave;
 
-    [HideInInspector] public int enemiesRemainingInWave = 0;
-    [HideInInspector] public int currentWave = 0;
+    public int enemiesRemainingInWave = 0;
+    public int currentWave = 0;
 
     public int ObjectPoolerEnemiesToSpawn()
     {

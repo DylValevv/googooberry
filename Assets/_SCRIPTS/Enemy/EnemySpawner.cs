@@ -8,18 +8,24 @@ public class EnemySpawner : MonoBehaviour
     public GameObject entityToSpawn;
     private int instanceNumber = 0;
     public GameObject[] enemies;
+    public GameObject playerObj;
+    private bool combatTime = false;
+
 
     // Start is called before the first frame update
     void Start()
     {
         enemies = new GameObject[enemyManager.ObjectPoolerEnemiesToSpawn()];
+        playerObj = GameObject.FindWithTag("Player");
+        enemyManager.currentWave = 0;
+        enemyManager.enemiesRemainingInWave = -1;
         InitEnemies();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (enemyManager.enemiesRemainingInWave <= 0)
+        if (enemyManager.enemiesRemainingInWave <= 0 && combatTime)
         {
             enemyManager.currentWave++;
             SpawnWave();
@@ -59,6 +65,15 @@ public class EnemySpawner : MonoBehaviour
             }
             enemyManager.SetEnemiesRemaining();
 
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            combatTime = true;
+            //SpawnWave();
         }
     }
 }
