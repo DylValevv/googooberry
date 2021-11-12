@@ -19,8 +19,6 @@ public class VolumetricSpotLight : MonoBehaviour
         Color lightColor = spotLight.color;// new Color(spotLight.color.r / darkness, spotLight.color.g / darkness, spotLight.color.b / darkness);
         temp.SetColor("Color_", lightColor);
         volume.GetComponent<MeshRenderer>().material = temp;
-        Debug.Log("Here");
-
     }
 
     // Update is called once per frame
