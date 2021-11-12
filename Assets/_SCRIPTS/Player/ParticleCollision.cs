@@ -55,10 +55,15 @@ public class ParticleCollision : MonoBehaviour
             col.enabled = false;
         }
 
-        //if(other.CompareTag("Obstacle"))
-        //{
-        //    // do story thing
-        //}
+        if(other.CompareTag("Obstacle"))
+        {
+            Destroy(other.gameObject);
+
+            impactInstan = Instantiate(impactVFX, transform.position, Quaternion.identity);
+            impactInstan.GetComponent<VisualEffect>().Play();
+            particleVis.SetActive(false);
+            col.enabled = false;
+        }
     }
 
     /// <summary>
