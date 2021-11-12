@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using DG.Tweening;
-
+using UnityEngine.Events;
 
 public class DialogueStart : MonoBehaviour
 {
@@ -23,6 +23,9 @@ public class DialogueStart : MonoBehaviour
     public bool ready = false;
     [SerializeField]
     private GameObject talkIcon;
+
+    [SerializeField]
+    public UnityEvent[] events;
 
     [SerializeField]
     private AudioManager audioManager;

@@ -15,51 +15,118 @@ the original text file won’t care. Happy writing!
 Possible scene naming convention: CORE0, CORE1, CORE2, CORE3 for different dialogue events, and the npc name, so like CORE0_ILA for a conversation with her;
 SCENE1;
 
-//BRIGHTSQUARE//]
-<b>I like peas]
-<i>Give them to me]
-poop]
+C.0.ODEI;
 
-//PLAYER//]
-No man. Leave me alone.]
+//Odei]
+You might be my favorite little moth. Wow, what a workhorse you are! Amazing. The village will be moon-sighted soon!]
 
-//BRIGHTSQUARE//]
-<color=green>Come</color> <color=blue><b>on bro.]
+//Mairu]
+Yeah.]
 
-//PLAYER//]
-*shrugs*];
+//Odei]
+Tight-lipped as always, hah! You look a bit hurt, but not too bad. You could visit the village crazy under the shrine to get healed up.]
 
-OTHERSCENE;
-//BRIGHTSQUARE//]
-<b>I REALLY like peas]
-<i>Give them to me]
+<i> But between you and me, I’d take any opportunity to skip a conversation with that one. <i>];
 
-//PLAYER//]
-No man. Leave me alone.]
-//BRIGHTSQUARE//]
+C.0.ILA;
 
-Come on.]
+//Mairu]
+Hey, Ila.]
 
-//PLAYER//]
+//Ila]
+Need a heal, I assume?]
 
-*shrugs*];
+//Mairu]
+Need? No, no, of course not.]
+…]
+But it’d be nice.]
 
-SCENE2;
+//Ila]
+Of course it would. I can’t remember the last time you came just to chat.]
 
-//PLAYER//]
-Why are you staring up at the ceiling?]
+//Mairu]
+Well, that’s only because you’re such a downer.]
 
-//MOTH//]
-If you watch closely, the mushrooms sway, don't they?]
-The pulsing light, it's mesmerizing.]
+//Ila]
+I’ll pretend I didn’t hear that one.]
 
-//PLAYER//]
-I'm glad you enjoy it, but our moon, our true home -]
-It must a thousand times better, right?]
+//*event]
 
-//MOTH//]
-Your eyes see the future. But mine see what is here for us now.]
+//Ila]
+Run along. ]
 
+C.0.TILAK;
+
+//Tilak]
+Morning you loser!
+
+//Mairu]
+You mean the guy who just got another crystal for town?]
+
+//Tilak]
+Hah! But where would you be without me?]
+
+//Mairu]
+Probably enjoying my life 200% more.]
+
+//Tilak]
+Lies, lies! I know you love me.]
+
+//Mairu]
+Love’s a rather strong word.]
+
+//Tilak]
+Alright, alright big guy, here’s your prize.]
+//*event]
+
+//Mairu]
+Thanks Tilak, keep it real.]
+
+//Tilak]
+Couldn’t live any other way. By the way, the big guy wants to speak with you again.]
+
+//Mairu] Odei? Got it, thanks for the heads up.];
+
+C.0.ODEI2;
+
+//Odei]
+Work’s not done yet.]
+
+//Mairu]
+Of course. Wouldn’t have it any other way.]
+
+//Odei]
+The next Ilarkia crystal lies beyond that tunnel there. You should be able to get through with your finisher. Go for it.];
+
+C.0.OLENT;
+
+//Olent]
+I heard you enter with quite a bang, Mairu.]
+
+//Mairu]
+I don’t have time for the subtleties. I’m on the job.]
+
+//Olent]
+Odei still has you running in circles it seems.]
+
+//Mairu]
+You can see it how you wish to, but I live my own life.]
+
+//Olent]
+Well, I’m concerned for all moths, moon-sighted or not. So let me tell you this.]
+All that crystal you’ve been eating, you might like it, but so do the Uskerra. They’ll leave me alone, but you - they’ll tear you to shreds if they can. They’re just beyond this tunnel.]
+
+//Mairu]
+I can deal. No need to be concerned for me.]
+
+//Olent]
+Whatever you say.]
+
+//Mairu]
+But thank you for the tip. I hope you come back to the village, we’d love to have you.]
+
+//Olent]
+Well that’s unexpectedly thoughtful, Mairu, but that’s not how everyone feels. Thank you for the kind words, but I’ll pass.];
 
 
 
