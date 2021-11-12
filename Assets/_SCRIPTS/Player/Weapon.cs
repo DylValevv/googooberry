@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class Weapon : MonoBehaviour
 {
@@ -12,8 +13,8 @@ public class Weapon : MonoBehaviour
     Animation anim;
     Collider myCollider;
 
-    [SerializeField] private ParticleSystem particleTrail;
-
+    [SerializeField] private GameObject particleTrail;
+    [SerializeField] private VisualEffect impactVFX;
 
     private void Start()
     {
@@ -24,7 +25,7 @@ public class Weapon : MonoBehaviour
 
         unsheathed = false;
 
-        particleTrail.Stop();
+        particleTrail.GetComponent<TrailRenderer>().emitting = false;
     }
 
     /// <summary>
@@ -46,11 +47,19 @@ public class Weapon : MonoBehaviour
         // sheath weapon
         if(active && !unsheathed)
         {
-            particleTrail.Play();
+            particleTrail.GetComponent<TrailRenderer>().emitting = true;
 
             unsheathed = true;
 
             anim.Play("anim_weapon_unsheath");
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Enemy"))
+        {
+            impactVFX.Play();
         }
     }
 
@@ -78,6 +87,6 @@ public class Weapon : MonoBehaviour
     {
         anim.Play("anim_weapon_sheath");
         unsheathed = false;
-        particleTrail.Stop();
+        particleTrail.GetComponent<TrailRenderer>().emitting = false;
     }
 }

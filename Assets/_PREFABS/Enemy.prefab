@@ -174,6 +174,9 @@ MonoBehaviour:
   enemyManager: {fileID: 11400000, guid: 549d8923c9962a94eafd6c1b13bc5bac, type: 2}
   gameState: {fileID: 11400000, guid: 421f2503328688b4982544ae74681dd8, type: 2}
   meleeAttack: {fileID: 8261012497665930593}
+  playerObj: {fileID: 0}
+  isAttacking: 0
+  attackSuccessful: 0
   meleeRange: {fileID: 8261012497665930595}
   rangedRange: {fileID: 8261012499494299118}
   meleeAttackSpeed: 0.5
@@ -181,6 +184,10 @@ MonoBehaviour:
   speed: 0
   damage: 0
   health: 0
+  animatedMesh: {fileID: 0}
+  anim: {fileID: 0}
+  utilClip: {fileID: 0}
+  anims: []
 --- !u!195 &8261012498435733331
 NavMeshAgent:
   m_ObjectHideFlags: 0

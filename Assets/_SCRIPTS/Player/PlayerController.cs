@@ -76,11 +76,12 @@ public class PlayerController : MonoBehaviour
 
     private bool isAttacking;
 
-    [SerializeField] private VisualEffect particleVisual;
-    [SerializeField] private GameObject particleCollision;
+    [SerializeField] private GameObject particleVisual;
 
     // abilitiy unlocks
+    [SerializeField] private GameObject particleCollisionPrefab;
     private bool thirdHit;
+    [SerializeField] private int thirdHitDamage;
     #endregion
 
     [Header("Animation")]
@@ -161,7 +162,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log("turn off third hit");
         thirdHit = true;
 
-        particleVisual.Stop();
+        particleVisual.SetActive(false);
     }
     #endregion
 
@@ -315,12 +316,12 @@ public class PlayerController : MonoBehaviour
     {
        
         totalTime = 0;
-        comboCooldownCoroutine = StartCoroutine(CooldownCountdown(attackCooldown));
+        if(comboCooldownCoroutine == null) comboCooldownCoroutine = StartCoroutine(CooldownCountdown(attackCooldown));
         if (comboCount < 3)
         {
             comboCount++;
-            Debug.Log(comboCount);
-            if(comboCount == 3)
+
+            if (comboCount == 3)
             {
                 // unleash weapon attack here
                 if (thirdHit) ThirdHit();
@@ -349,9 +350,6 @@ public class PlayerController : MonoBehaviour
         leftWeapon.ToggleCollider(isAttacking);
         rightWeapon.ToggleCollider(isAttacking);
 
-        // play the animation which moves this attacking object
-        Debug.Log("weapon anim calls here");
-
         // have the correct pause between the attack sequence to align with the attack animations. both ground and air combos should have the same timing with their respecitve indices
         // room for future implementation of ground slam and different handling dependent on that
         StopMovementTemporarily(timeBetweenNextAttack[comboCount - 1], true);
@@ -370,9 +368,13 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
 
+        particleVisual.SetActive(false);
+
         comboCount = 0;
         leftWeapon.SheathWeapon();
         rightWeapon.SheathWeapon();
+
+        comboCooldownCoroutine = null;
     }
 
     /// <summary>
@@ -571,10 +573,12 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void ThirdHit()
     {
-        //particleCollision.Shoot!
-        particleVisual.Play();
-        Debug.Log("emit");
-        // 
+        // play the visual
+        particleVisual.SetActive(false);
+        particleVisual.SetActive(true);
 
+        // instantiate the collision particle
+        GameObject particle = Instantiate(particleCollisionPrefab, transform.position + transform.forward, transform.rotation);
+        particle.GetComponent<ParticleCollision>().InitializeParticle(this, thirdHitDamage, particleVisual);
     }
 }
