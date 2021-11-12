@@ -11,8 +11,24 @@ public class StoryManager : MonoBehaviour
     [SerializeField] DialogueStart Odei;
     [SerializeField] DialogueStart Miak;
     [SerializeField] DialogueStart Olent;
-    [SerializeField] DialogueStart[] NPC;
     [SerializeField] GameState gameState;
+
+    public static StoryManager instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        DontDestroyOnLoad(gameObject);
+    }
 
     #region Helper
     #endregion

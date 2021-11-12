@@ -10,9 +10,6 @@ public class DialogueStart : MonoBehaviour
 {
     //Dialogue start must access scene, and serve dialogue to a single dialogue zone
     public Dialogue dialogue;//allows dialogue trigger to use dialogue constructor class we set up
-    public DialogueZone dialogueZone;
-    [SerializeField]
-    private StoryManager storyManager;
     public string scene;
     private int index = 0;
 
@@ -25,9 +22,6 @@ public class DialogueStart : MonoBehaviour
     [SerializeField]
     private GameObject talkIcon;
 
-    [SerializeField]
-    private AudioManager audioManager;
-
     private Character character;
 
     // Start is called before the first frame update
@@ -36,14 +30,13 @@ public class DialogueStart : MonoBehaviour
         index = 0;
         dialogue = new Dialogue(scene, "Conversation");//we now have the dialogue
         talkIcon.transform.localScale.Set(0, 0, 0);
-        audioManager = FindObjectOfType<AudioManager>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         {
-            audioManager.PlayDialogue("moth4");
+            AudioManager.instance.PlayDialogue("moth4");
             ready = true;
             talkIcon.SetActive(true);
             talkIcon.transform.DOScale(1f, .3f);
@@ -70,8 +63,8 @@ public class DialogueStart : MonoBehaviour
         }
         if (ready && Input.GetKeyDown(KeyCode.E))
         {
-            dialogueZone.gameObject.SetActive(true);
-            dialogueZone.transform.DOMoveY(80, .2f);
+            DialogueZone.instance.gameObject.SetActive(true);
+            DialogueZone.instance.transform.DOMoveY(80, .2f);
             NextSentence();
         }
     }
@@ -80,12 +73,11 @@ public class DialogueStart : MonoBehaviour
     {
         //set speaker
         string s = dialogue.sentences[index];
-
         while (dialogue.sentences[index].Contains("//"))
         {
             if (dialogue.sentences[index].Contains("//:"))
             {
-                storyManager.Execute(s.TrimStart('/', ':'));
+                StoryManager.instance.Execute(s.TrimStart('/', ':'));
                 index++;
             }
             else
@@ -96,8 +88,8 @@ public class DialogueStart : MonoBehaviour
 
 
 
-        audioManager.PlayDialogue("moth" + character.sounds[character.soundIndex++ % character.sounds.Length]);
-        if (!typeSentence) dialogueZone.content.text = dialogue.sentences[index];
+        AudioManager.instance.PlayDialogue("moth" + character.sounds[character.soundIndex++ % character.sounds.Length]);
+        if (!typeSentence) DialogueZone.instance.content.text = dialogue.sentences[index];
         else { StopAllCoroutines(); StartCoroutine(TypeSentence(dialogue.sentences[index])); }
 
         //next sentence, check if conversation is over
@@ -112,27 +104,27 @@ public class DialogueStart : MonoBehaviour
     private void ExitDialogue()
     {
         index = 0;
-        dialogueZone.transform.DOMoveY(-80f, .3f).OnComplete(() => dialogueZone.gameObject.SetActive(false));
+        DialogueZone.instance.transform.DOMoveY(-80f, .3f).OnComplete(() => DialogueZone.instance.gameObject.SetActive(false));
     }
 
     private void switchSpeaker(string s)
     {
-        dialogueZone.transform.DOMoveY(-80, .2f);
+        DialogueZone.instance.transform.DOMoveY(-80, .2f);
         s = s.Trim('/');
         index++;//skip the speaker tag so it does not display
         character = Resources.Load<Character>("CHARACTERS/" + s) ?? Resources.Load<Character>("CHARACTERS/DEFAULT");
-        dialogueZone.speakerName.color = character.textColor;
-        dialogueZone.content.color = character.textColor;
+        DialogueZone.instance.speakerName.color = character.textColor;
+        DialogueZone.instance.content.color = character.textColor;
 
-        dialogueZone.speakerName.text = s;
-        dialogueZone.portrait.sprite = character.portrait;
-        dialogueZone.transform.DOMoveY(80, .2f);
+        DialogueZone.instance.speakerName.text = s;
+        DialogueZone.instance.portrait.sprite = character.portrait;
+        DialogueZone.instance.transform.DOMoveY(80, .2f);
 
     }
 
     IEnumerator TypeSentence(string line)
     {
-        dialogueZone.content.text = "";
+        DialogueZone.instance.content.text = "";
         string s = "";
         char letter;
         for (int i = 0; i < line.Length; i++)
@@ -148,12 +140,12 @@ public class DialogueStart : MonoBehaviour
                     letter = line.ToCharArray()[i];
                 }
                 s += letter;
-                dialogueZone.content.text += s;
+                DialogueZone.instance.content.text += s;
                 yield return null;
             }
             else
             {
-                dialogueZone.content.text += letter;
+                DialogueZone.instance.content.text += letter;
                 yield return null;
             }
         }

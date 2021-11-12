@@ -15,112 +15,79 @@ the original text file won't care. Happy writing!
 Possible scene naming convention: CORE0, CORE1, CORE2, CORE3 for different dialogue events, and the npc name, so like CORE0_ILA for a conversation with her;
 
 ;C.0.ODEI;
-
 //Odei]
 Another crystal harvested, you might be my favorite little moth. Wow, what a workhorse! Amazing. The village will be completely moon-sighted soon enough.]
-
 //Mairu]
 Yeah.]
-
 //Odei]
 Tight-lipped as always, hah! You look a bit hurt, but not too bad. You could visit the village crazy under the shrine to get healed up.]
-
-<i> But between you and me, I'd take any opportunity to skip a conversation with that one. <i>]
+But between you and me, I'd take any opportunity to skip a conversation with that one.]
 
 ;C.0.ILA;
-
 //Mairu]
 Hey, Ila.]
-
 //Ila]
 Need a heal, I assume?]
-
 //Mairu]
 Need? No.]
 But it'd be nice.]
-
 //Ila]
 Of course it would. I can't remember the last time you came just to chat.]
-
 //Mairu]
 Well, that's only because you're such a downer.]
-
 //Ila]
 I'll pretend I didn't hear that one.]
-
 //:FullHealCharacter]
 Run along.]
 
 ;C.0.TILAK;
-
 //Tilak]
 Ah, it's the fucker.]
-
 //Mairu]
 You mean the guy who just got another crystal for town?]
-
 //Tilak]
 Hah! But where would you be without me?]
-
 //Mairu]
 Probably enjoying my life 200% more.]
-
 //Tilak]
 Lies, lies! I know you love me.]
-
 //Mairu]
 Love's a rather strong word.]
-
 //Tilak]
 Alright, alright big guy, here's your prize.]
 //:ActivatePlayerFinisher]
-
 //Mairu]
 Thanks Tilak, keep it real.]
-
 //Tilak]
 Couldn't live any other way. By the way, the big guy wants to speak with you again.]
-
 //Mairu] Odei? Got it, thanks for the heads up.]
 
 ;C.0.ODEI+;
-
 //Odei]
 Work's not done yet.]
-
 //Mairu]
 Of course. Wouldn't have it any other way.]
-
 //Odei]
 The next Ilarkia crystal lies beyond that tunnel there. You should be able to get through with your finisher. Go for it.]
 
 ;C.0.OLENT;
-
 //Olent]
 I heard you enter with quite a bang, Mairu.]
-
 //Mairu]
 I don't have time for the subtleties. I'm on the job.]
-
 //Olent]
 Odei still has you running in circles it seems.]
-
 //Mairu]
 You can see it how you wish to, but I live my own life.]
-
 //Olent]
 Well, I'm concerned for all moths, moon-sighted or not. So let me tell you this.]
 All that crystal you've been eating, you might like it, but so do the Uskerra. They'll leave me alone, but you - they'll tear you to shreds if they can. They're just beyond this tunnel.]
-
 //Mairu]
 I can deal. No need to be concerned for me.]
-
 //Olent]
 Whatever you say.]
-
 //Mairu]
 But thank you for the tip. I hope you come back to the village, we'd love to have you.]
-
 //Olent]
 Well that's unexpectedly thoughtful, Mairu, but that's not how everyone feels. Thank you for the kind words, but I'll pass.];
 
