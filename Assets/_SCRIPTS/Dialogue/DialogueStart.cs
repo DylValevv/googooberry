@@ -9,10 +9,11 @@ using UnityEngine.Events;
 public class DialogueStart : MonoBehaviour
 {
     //Dialogue start must access scene, and serve dialogue to a single dialogue zone
-    Dialogue dialogue;//allows dialogue trigger to use dialogue constructor class we set up
+    public Dialogue dialogue;//allows dialogue trigger to use dialogue constructor class we set up
     public DialogueZone dialogueZone;
     [SerializeField]
-    private string SceneInCaps;
+    private StoryManager storyManager;
+    public string scene;
     private int index = 0;
 
     //PUBLIC options for Inspector
@@ -25,9 +26,6 @@ public class DialogueStart : MonoBehaviour
     private GameObject talkIcon;
 
     [SerializeField]
-    public UnityEvent[] events;
-
-    [SerializeField]
     private AudioManager audioManager;
 
     private Character character;
@@ -36,7 +34,7 @@ public class DialogueStart : MonoBehaviour
     void Start()
     {
         index = 0;
-        dialogue = new Dialogue(SceneInCaps, "Conversation");//we now have the dialogue
+        dialogue = new Dialogue(scene, "Conversation");//we now have the dialogue
         talkIcon.transform.localScale.Set(0, 0, 0);
         audioManager = FindObjectOfType<AudioManager>();
     }
@@ -81,12 +79,24 @@ public class DialogueStart : MonoBehaviour
     private void NextSentence()
     {
         //set speaker
-        if (dialogue.sentences[index].Contains("//"))
-            switchSpeaker(dialogue.sentences[index]);
+        string s = dialogue.sentences[index];
+
+        while (dialogue.sentences[index].Contains("//"))
+        {
+            if (dialogue.sentences[index].Contains("//:"))
+            {
+                storyManager.Execute(s.TrimStart('/', ':'));
+                index++;
+            }
+            else
+            {
+                switchSpeaker(dialogue.sentences[index]);
+            }
+        }
+
+
 
         audioManager.PlayDialogue("moth" + character.sounds[character.soundIndex++ % character.sounds.Length]);
-
-
         if (!typeSentence) dialogueZone.content.text = dialogue.sentences[index];
         else { StopAllCoroutines(); StartCoroutine(TypeSentence(dialogue.sentences[index])); }
 

@@ -14,6 +14,9 @@ public class StoryManager : MonoBehaviour
     [SerializeField] DialogueStart[] NPC;
     [SerializeField] GameState gameState;
 
+    #region Helper
+    #endregion
+
     #region Universal
     public void Execute(string function)
     {
@@ -30,9 +33,27 @@ public class StoryManager : MonoBehaviour
     #endregion
 
     #region Core0
+    //TLDR:
+    //Go to odei to turn in crystal
+    //Go to Ila to heal 
+    //Go to Tilak to gain finisher
+    //Odei will tell him to explore new area
+    //Use finisher to open up blockade
+    //Enter area 1, there is a room fight some baddies, once you click
     private void ActivatePlayerFinisher()
     {
+        StepOdeiDialogue();
+    }
 
+    //call after speaking with Tilak
+    private void StepOdeiDialogue()
+    {
+        Odei.dialogue = new Dialogue("C.0.ODEI+", "Conversation");
+    }
+
+    private void StepTilakDialogue()
+    {
+        //Odei.dialogue = new Dialogue("C.0.TILAK1", "Conversation");
     }
     #endregion
 

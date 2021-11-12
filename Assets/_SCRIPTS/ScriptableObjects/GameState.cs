@@ -8,7 +8,8 @@ public class GameState : ScriptableObject
 
     [Header("Player Values")]
     public int playerHealth;
-    public int maxPlayerHealth;
+    [HideInInspector]
+    public int maxPlayerHealth = 10;
     public int playerDamage;
     public Vector3 spawnPoint;
 
