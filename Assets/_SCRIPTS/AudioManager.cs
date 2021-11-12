@@ -46,6 +46,11 @@ public class AudioManager : MonoBehaviour
         setup(musicSounds, musicMixer);
     }
 
+    private void Start()
+    {
+        PlayMusic("village");
+    }
+
     private void setup(Sound[] sounds, AudioMixerGroup audioMixer)
     {
         foreach (Sound s in sounds)

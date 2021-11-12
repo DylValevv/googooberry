@@ -8,6 +8,8 @@ public class GameState : ScriptableObject
 
     [Header("Player Values")]
     public int playerHealth;
+    [HideInInspector]
+    public int maxPlayerHealth = 10;
     public int playerDamage;
     public Vector3 spawnPoint;
 
@@ -23,5 +25,11 @@ public class GameState : ScriptableObject
             //progress += i.isMined;
         }
         crystalProgress = progress;
+    }
+
+    public void AddPlayerHealth(int amount)
+    {
+        int res = playerHealth + amount;
+        playerHealth = Mathf.Clamp(amount, 0, maxPlayerHealth);
     }
 }
