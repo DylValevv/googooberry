@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 877fe2dae6bba1b419dea96f3bc16319, type: 3}
   m_Name: SampleGameState
   m_EditorClassIdentifier: 
-  playerHealth: 1
+  playerHealth: 10
+  maxPlayerHealth: 10
   playerDamage: 1
   spawnPoint: {x: 0, y: 0, z: 0}
   crystalCores:

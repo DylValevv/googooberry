@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6500588734579318650}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -87,4 +87,10 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   musicMixer: {fileID: -2102648953317553773, guid: 4d78c0ff4b4f99647ad6b2dce1f21f47, type: 2}
-  musicSounds: []
+  musicSounds:
+  - name: village
+    clip: {fileID: 8300000, guid: 9a0d13a2a87e30348ba66a3d3ca422d3, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}

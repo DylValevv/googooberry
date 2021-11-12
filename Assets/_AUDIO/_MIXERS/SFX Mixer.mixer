@@ -33,6 +33,48 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!244 &-4696254302682112223
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 13e0350cf53b018448b78bede5cdb8d4
+  m_EffectName: SFX Reverb
+  m_MixLevel: 1fd91fa011d92724a8b2f60aa09e637f
+  m_Parameters:
+  - m_ParameterName: Dry Level
+    m_GUID: c9725e478eb21dd4ab68aa787aa6d37e
+  - m_ParameterName: Room
+    m_GUID: 622331235c9606f4286a4210e617b26c
+  - m_ParameterName: Room HF
+    m_GUID: dad23330cf4aee44c882cb2303b2b9cc
+  - m_ParameterName: Decay Time
+    m_GUID: 2aecb1c2a0fd7ec4abe91354c7852178
+  - m_ParameterName: Decay HF Ratio
+    m_GUID: c48f3432c127b9d429c7a3d304a8c76e
+  - m_ParameterName: Reflections
+    m_GUID: 3a4dac0ad21477a419d9a2fbf4a13d59
+  - m_ParameterName: Reflect Delay
+    m_GUID: cf90418fc68a7434abfcd3d745c05633
+  - m_ParameterName: Reverb
+    m_GUID: a3d2af1caab1fe34db5f11016b24cefb
+  - m_ParameterName: Reverb Delay
+    m_GUID: 4b960a9b99b595444bc8da1d0451a56b
+  - m_ParameterName: Diffusion
+    m_GUID: 5848a8993f286ed4d89bf2bef811d92a
+  - m_ParameterName: Density
+    m_GUID: 7cb9f6509ba657f459711e381e60aa49
+  - m_ParameterName: HF Reference
+    m_GUID: 30d8294774cee2a46a880a6c3fc319e4
+  - m_ParameterName: Room LF
+    m_GUID: f374a871c67fec1449cec52fbffc41d5
+  - m_ParameterName: LF Reference
+    m_GUID: e4643d82133f3d8418ec024b0496c9bf
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!243 &-4204815170117952932
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -110,6 +152,7 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 2513260477817029543}
+  - {fileID: -4696254302682112223}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -186,7 +229,13 @@ AudioMixerSnapshotController:
   m_Name: Snapshot
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 669fafb801d01414a990277c7d5356f3
-  m_FloatValues: {}
+  m_FloatValues:
+    2aecb1c2a0fd7ec4abe91354c7852178: 5.7
+    622331235c9606f4286a4210e617b26c: -880
+    c9725e478eb21dd4ab68aa787aa6d37e: -4272
+    3a4dac0ad21477a419d9a2fbf4a13d59: -10000
+    4b960a9b99b595444bc8da1d0451a56b: 0.0139
+    a3d2af1caab1fe34db5f11016b24cefb: 306
   m_TransitionOverrides: {}
 --- !u!244 &2513260477817029543
 AudioMixerEffectController:

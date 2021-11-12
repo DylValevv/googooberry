@@ -208,11 +208,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueZone: {fileID: 0}
-  SceneInCaps: OTHERSCENE
+  scene: 
   oneTimeDialogue: 0
   typeSentence: 1
   ready: 0
   talkIcon: {fileID: 1896880080572959411}
+  audioManager: {fileID: 0}
 --- !u!65 &1896880081718300263
 BoxCollider:
   m_ObjectHideFlags: 0
