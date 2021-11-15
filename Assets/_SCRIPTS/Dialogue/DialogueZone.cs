@@ -10,6 +10,9 @@ public class DialogueZone : MonoBehaviour
     public Image portrait;
     public TextMeshProUGUI speakerName;
     public static DialogueZone instance;
+    public Image portrait2;
+    public int position;
+    public bool typeSentence;
     private void Awake()
     {
         if (instance == null)
@@ -26,9 +29,27 @@ public class DialogueZone : MonoBehaviour
     }
     private void Start()
     {
-        transform.position.Set(transform.position.x, -80, transform.position.z);
+        transform.position.Set(transform.position.x, -position, transform.position.z);
         gameObject.SetActive(false);
     }
 
+    public void setCharacter(Character character, string name)
+    {
+        if (character.portraitRight)
+        {
+            portrait2.sprite = character.portrait;   
 
+        }
+        else
+        {
+            portrait.sprite = character.portrait;
+        }
+        portrait.gameObject.SetActive(!character.portraitRight);
+        portrait2.gameObject.SetActive(character.portraitRight);
+
+        speakerName.color = character.textColor;
+        content.color = character.textColor;
+        portrait.sprite = character.portrait;
+        speakerName.text = name;
+    }
 }
