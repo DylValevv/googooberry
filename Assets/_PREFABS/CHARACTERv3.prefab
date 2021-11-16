@@ -152,6 +152,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2580814299971086662}
   - component: {fileID: 2619509021386733120}
+  - component: {fileID: 1323055070}
   m_Layer: 0
   m_Name: CharAnims
   m_TagString: Ignore
@@ -194,6 +195,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1323055070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2925989841109136380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7da16f7f4bfe3e348b4eb5c57acee0dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
 --- !u!1 &4031267638670976097
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,9 +487,9 @@ MonoBehaviour:
   attackCooldown: 1
   comboTimer: 3
   timeBetweenNextAttack:
-  - 0.25
-  - 0.25
-  - 0.25
+  - 1
+  - 1
+  - 2
   leftWeapon: {fileID: 5792931255476215099}
   rightWeapon: {fileID: 5792931255272474170}
   particleVisual: {fileID: 2619509022633020424}
@@ -493,9 +507,11 @@ MonoBehaviour:
   - {fileID: 7400000, guid: 778962292ea6f4546b6cf11b1d8784c4, type: 2}
   - {fileID: 7400000, guid: 81d938a385e5314439bbd93d6505943d, type: 2}
   - {fileID: 7400000, guid: 7d46a6a8e7c0367479e581232daf7221, type: 2}
-  - {fileID: 7400000, guid: 1d715b9e56a391e49b462555242b5e37, type: 2}
-  - {fileID: 7400000, guid: c5c7b3803ccd5b34587e319a88fa2406, type: 2}
-  - {fileID: 7400000, guid: 9b00cced64ca3314b93bc60bc0b92043, type: 2}
+  - {fileID: 7400000, guid: d842fc350d43b6e40b7e3b4d02330799, type: 2}
+  - {fileID: 7400000, guid: ef7bf1cebd760184bb7485e1ac458396, type: 2}
+  - {fileID: 7400000, guid: 3aa0eb19053009d44b5965d3eb980139, type: 2}
+  - {fileID: 7400000, guid: e73cfd5f964e59147916882b3fd81ba0, type: 2}
+  - {fileID: 7400000, guid: f50fe334f4c03194392399ba1a45b93b, type: 2}
   footsteps: []
   attacks: []
   impacts: []
