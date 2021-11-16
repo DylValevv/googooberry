@@ -624,8 +624,10 @@ public class PlayerController : MonoBehaviour
 
     public void Die()
     {
+        Debug.Log("player should die");
         PlayAnim("Die", true);
         Sequence mySequence = DOTween.Sequence();
+
         deathPanel.gameObject.SetActive(true);
 
         TextMeshProUGUI deathText = deathPanel.gameObject.GetComponentInChildren<TextMeshProUGUI>();
@@ -639,8 +641,15 @@ public class PlayerController : MonoBehaviour
 
     private void Respawn()
     {
+        Debug.Log("RESPAWN TIME!");
+        GetComponent<CharacterController>().enabled = false;
         gameObject.transform.position = gameState.spawnPoint;
+        GetComponent<CharacterController>().enabled = true;
         gameState.playerHealth = gameState.maxPlayerHealth;
+        //TODO: reset death panel and text alpha to 0
+        deathPanel.color = new Color(0,0,0,0);
+        TextMeshProUGUI deathText = deathPanel.gameObject.GetComponentInChildren<TextMeshProUGUI>();
+        deathText.color = new Color(1, 1, 1, 0); 
         deathPanel.gameObject.SetActive(false);
     }
 }

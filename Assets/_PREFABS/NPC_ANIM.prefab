@@ -1488,6 +1488,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c888e227c481be94c88272d902bb4f48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathPanel: {fileID: 0}
+  gameState: {fileID: 0}
   movementControl: {fileID: 2779603551843232698, guid: 63360a84d4c33944c9537399f12ea8f1, type: 3}
   playerSpeed: 10
   rotationSpeed: 5
@@ -1947,7 +1949,7 @@ GameObject:
   - component: {fileID: 4222485095762402494}
   m_Layer: 0
   m_Name: RightWing
-  m_TagString: Player
+  m_TagString: Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1981,7 +1983,7 @@ GameObject:
   - component: {fileID: 4222485095808050492}
   m_Layer: 0
   m_Name: LeftWingBottom
-  m_TagString: Player
+  m_TagString: Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2077,7 +2079,7 @@ GameObject:
   - component: {fileID: 4222485095981872037}
   m_Layer: 0
   m_Name: LeftWingTop
-  m_TagString: Player
+  m_TagString: Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2173,7 +2175,7 @@ GameObject:
   - component: {fileID: 4222485096184293155}
   m_Layer: 0
   m_Name: RightWingTop
-  m_TagString: Player
+  m_TagString: Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2266,7 +2268,7 @@ GameObject:
   - component: {fileID: 4222485096256967165}
   m_Layer: 0
   m_Name: LeftWing
-  m_TagString: Player
+  m_TagString: Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2300,7 +2302,7 @@ GameObject:
   - component: {fileID: 4222485097000541189}
   m_Layer: 0
   m_Name: RightWingBottom
-  m_TagString: Player
+  m_TagString: Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

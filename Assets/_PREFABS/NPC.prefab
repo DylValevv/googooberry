@@ -521,7 +521,7 @@ GameObject:
   - component: {fileID: 6051669840403797730}
   m_Layer: 0
   m_Name: LeftWingTop
-  m_TagString: Player
+  m_TagString: Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -617,7 +617,7 @@ GameObject:
   - component: {fileID: 330368213683489512}
   m_Layer: 0
   m_Name: LeftWingBottom
-  m_TagString: Player
+  m_TagString: Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1308,7 +1308,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scene: 
   oneTimeDialogue: 0
-  typeSentence: 1
   ready: 0
   talkIcon: {fileID: 1896880080572959411}
 --- !u!65 &1896880081718300263
@@ -1335,7 +1334,7 @@ GameObject:
   - component: {fileID: 1060883561685945349}
   m_Layer: 0
   m_Name: LeftWing
-  m_TagString: Player
+  m_TagString: Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1485,7 +1484,7 @@ GameObject:
   - component: {fileID: 6080828190236121451}
   m_Layer: 0
   m_Name: RightWing
-  m_TagString: Player
+  m_TagString: Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2104,7 +2103,7 @@ GameObject:
   - component: {fileID: 8702960795300187332}
   m_Layer: 0
   m_Name: RightWingTop
-  m_TagString: Player
+  m_TagString: Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3130,7 +3129,6 @@ GameObject:
   - component: {fileID: 7229738463036144592}
   - component: {fileID: 4158982878808065821}
   - component: {fileID: 6005321058473820142}
-  - component: {fileID: 6941576543977127342}
   m_Layer: 0
   m_Name: playermesh
   m_TagString: Untagged
@@ -3217,24 +3215,6 @@ CapsuleCollider:
   m_Height: 2.4607751
   m_Direction: 1
   m_Center: {x: 0, y: 1.0145787, z: 0}
---- !u!143 &6941576543977127342
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6931633786139108620}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Height: 2
-  m_Radius: 0.5000001
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6936075346384493785
 GameObject:
   m_ObjectHideFlags: 0
@@ -3956,7 +3936,7 @@ GameObject:
   - component: {fileID: 2441737011243961577}
   m_Layer: 0
   m_Name: RightWingBottom
-  m_TagString: Player
+  m_TagString: Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
