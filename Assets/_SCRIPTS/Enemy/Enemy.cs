@@ -43,7 +43,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerObj = GameObject.FindWithTag("Player");
+        playerObj = FindObjectOfType<PlayerController>().gameObject;
         if (playerObj == null) Debug.LogError("Missing player object in scene");
         navMeshAgent = GetComponent<NavMeshAgent>();
         if (navMeshAgent == null) Debug.LogError("The nav mesh agent component is missing from " + gameObject.name);

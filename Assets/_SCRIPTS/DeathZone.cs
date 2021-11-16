@@ -9,7 +9,7 @@ public class DeathZone : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerObj = GameObject.FindWithTag("Player");
+        playerObj = FindObjectOfType<PlayerController>().gameObject;
 
     }
 
@@ -23,7 +23,14 @@ public class DeathZone : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            playerObj.GetComponent<PlayerController>().Die();
+            if (other.GetComponent<PlayerController>() == null)
+            {
+                Debug.Log("this is a wing boyssss: " + other.name);
+            }
+            else
+            {
+                playerObj.GetComponent<PlayerController>().Die();
+            }
         }
     }
 }

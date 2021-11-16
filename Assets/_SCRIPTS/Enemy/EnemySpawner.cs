@@ -16,7 +16,7 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         enemies = new GameObject[enemyManager.ObjectPoolerEnemiesToSpawn()];
-        playerObj = GameObject.FindWithTag("Player");
+        playerObj = FindObjectOfType<PlayerController>().gameObject;
         enemyManager.currentWave = 0;
         enemyManager.enemiesRemainingInWave = -1;
         InitEnemies();
