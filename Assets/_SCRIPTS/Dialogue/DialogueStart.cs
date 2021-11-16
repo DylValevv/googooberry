@@ -16,13 +16,12 @@ public class DialogueStart : MonoBehaviour
     //PUBLIC options for Inspector
     [SerializeField]
     private bool oneTimeDialogue;
-    [SerializeField]
     private bool typeSentence;
     public bool ready = false;
     [SerializeField]
     private GameObject talkIcon;
-
     private Character character;
+    private int screenPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +29,8 @@ public class DialogueStart : MonoBehaviour
         index = 0;
         dialogue = new Dialogue(scene, "Conversation");//we now have the dialogue
         talkIcon.transform.localScale.Set(0, 0, 0);
+        screenPosition = DialogueZone.instance.position;
+        typeSentence = DialogueZone.instance.typeSentence;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -59,7 +60,7 @@ public class DialogueStart : MonoBehaviour
         if (ready && Input.GetKeyDown(KeyCode.E))
         {
             DialogueZone.instance.gameObject.SetActive(true);
-            DialogueZone.instance.transform.DOMoveY(80, .2f);
+            DialogueZone.instance.transform.DOMoveY(screenPosition, .2f);
             NextSentence();
         }
     }
@@ -85,7 +86,9 @@ public class DialogueStart : MonoBehaviour
 
         AudioManager.instance.PlayDialogue("moth" + character.sounds[character.soundIndex++ % character.sounds.Length]);
         if (!typeSentence) DialogueZone.instance.content.text = dialogue.sentences[index];
-        else { StopAllCoroutines(); StartCoroutine(TypeSentence(dialogue.sentences[index])); }
+        else { 
+            StopAllCoroutines(); StartCoroutine(TypeSentence(dialogue.sentences[index])); 
+        }
 
         //next sentence, check if conversation is over
         index++;
@@ -99,22 +102,17 @@ public class DialogueStart : MonoBehaviour
     private void ExitDialogue()
     {
         index = 0;
-        DialogueZone.instance.transform.DOMoveY(-80f, .3f).OnComplete(() => DialogueZone.instance.gameObject.SetActive(false));
+        DialogueZone.instance.transform.DOMoveY(-screenPosition, .3f).OnComplete(() => DialogueZone.instance.gameObject.SetActive(false));
     }
 
     private void switchSpeaker(string s)
     {
-        DialogueZone.instance.transform.DOMoveY(-80, .2f);
+        DialogueZone.instance.transform.DOMoveY(-screenPosition, .2f);
         s = s.Trim('/');
         index++;//skip the speaker tag so it does not display
         character = Resources.Load<Character>("CHARACTERS/" + s) ?? Resources.Load<Character>("CHARACTERS/DEFAULT");
-        DialogueZone.instance.speakerName.color = character.textColor;
-        DialogueZone.instance.content.color = character.textColor;
-
-        DialogueZone.instance.speakerName.text = s;
-        DialogueZone.instance.portrait.sprite = character.portrait;
-        DialogueZone.instance.transform.DOMoveY(80, .2f);
-
+        DialogueZone.instance.setCharacter(character, s);
+        DialogueZone.instance.transform.DOMoveY(screenPosition, .2f);
     }
 
     IEnumerator TypeSentence(string line)

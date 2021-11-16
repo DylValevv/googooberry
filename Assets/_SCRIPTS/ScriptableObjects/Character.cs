@@ -8,5 +8,6 @@ public class Character : ScriptableObject
     public Sprite portrait;
     public int soundIndex;
     public float[] sounds;
+    public bool portraitRight;
     public Color textColor;
 }

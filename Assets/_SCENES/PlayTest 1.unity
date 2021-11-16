@@ -7449,6 +7449,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: CHARACTERv3
       objectReference: {fileID: 0}
+    - target: {fileID: 4031267640425174269, guid: 69a5d9d26727e884b9bc15368d9e5c95, type: 3}
+      propertyPath: anims.Array.data[0]
+      value: 
+      objectReference: {fileID: 7400000, guid: d9cc30971138f4342a91cc25c4c0c167, type: 2}
+    - target: {fileID: 4031267640425174269, guid: 69a5d9d26727e884b9bc15368d9e5c95, type: 3}
+      propertyPath: anims.Array.data[5]
+      value: 
+      objectReference: {fileID: 7400000, guid: d9cc30971138f4342a91cc25c4c0c167, type: 2}
+    - target: {fileID: 4031267640425174269, guid: 69a5d9d26727e884b9bc15368d9e5c95, type: 3}
+      propertyPath: timeBetweenNextAttack.Array.data[0]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4031267640425174269, guid: 69a5d9d26727e884b9bc15368d9e5c95, type: 3}
+      propertyPath: timeBetweenNextAttack.Array.data[1]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4031267640425174269, guid: 69a5d9d26727e884b9bc15368d9e5c95, type: 3}
+      propertyPath: timeBetweenNextAttack.Array.data[2]
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5792931254244304931, guid: 69a5d9d26727e884b9bc15368d9e5c95, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
