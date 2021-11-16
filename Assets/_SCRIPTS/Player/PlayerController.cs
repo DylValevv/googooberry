@@ -308,6 +308,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void AttackHandler()
     {
+        Debug.Log(isAttacking);
         if (attackControl.action.triggered && !isAttacking && !canAirAttack)
         {
             attackCoroutine = StartCoroutine(Attack());
@@ -319,18 +320,14 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private IEnumerator Attack()
     {
-       
+        // toggle on the collider of the weapon
+        isAttacking = true;
+
         totalTime = 0;
         if(comboCooldownCoroutine == null) comboCooldownCoroutine = StartCoroutine(CooldownCountdown(attackCooldown));
         if (comboCount < 3)
         {
             comboCount++;
-
-            if (comboCount == 3)
-            {
-                // unleash weapon attack here
-                if (thirdHit) ThirdHit();
-            }
         }
         else
         {
@@ -347,11 +344,18 @@ public class PlayerController : MonoBehaviour
         // ground combos
         else
         {
-            PlayAnim("GroundAttack" + comboCount, true);
+            if(comboCount == 3)
+            {
+                PlayAnim("GroundAttack3", true);
+            }
+            else
+            {
+                float rand = UnityEngine.Random.Range(1, 2);
+                PlayAnim("GroundAttack" + comboCount + "_" + rand, true);
+            }
+
         }
 
-        // toggle on the collider of the weapon
-        isAttacking = true;
         leftWeapon.ToggleCollider(isAttacking);
         rightWeapon.ToggleCollider(isAttacking);
 
@@ -410,6 +414,30 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(dashAgainCooldown);
         // dash refractory period end
         canDash = true;
+    }
+
+    public void ShiftAbility()
+    {
+        PlayAnim("ShiftAbility", true);
+    }
+
+    public void RAbility()
+    {
+        PlayAnim("RAbility", true);
+    }
+
+    /// <summary>
+    /// unleashes a ranged attack
+    /// </summary>
+    public void RangedAttack()
+    {
+        // play the visual
+        particleVisual.SetActive(false);
+        particleVisual.SetActive(true);
+
+        // instantiate the collision particle
+        GameObject particle = Instantiate(particleCollisionPrefab, transform.position + transform.forward, transform.rotation);
+        particle.GetComponent<ParticleCollision>().InitializeParticle(this, thirdHitDamage, particleVisual);
     }
     #endregion
 
@@ -512,6 +540,11 @@ public class PlayerController : MonoBehaviour
         float timeElapsed = 0;
         float currentPlayerSpeed = playerSpeed;
 
+        if(comboCount == 3)
+        {
+            attackSmoothingIn *= 2;
+        }
+
         if (fade)
         {
             // slow the player down to a temporary stop
@@ -551,10 +584,41 @@ public class PlayerController : MonoBehaviour
             playerSpeed = OGplayerSpeed;
         }
 
+        if (comboCount == 3)
+        {
+            attackSmoothingIn /= 2;
+        }
+        float offset = attackSmoothingIn + attackSmoothingOut;
+        yield return new WaitForSeconds(noFadeDelay - offset);
+
         // toggle off the collider of the weapon
         isAttacking = false;
         leftWeapon.ToggleCollider(isAttacking);
         rightWeapon.ToggleCollider(isAttacking);
+    }
+    #endregion
+
+    #region<MISC>
+    /// <summary>
+    /// called in the animation event of "GroundedAttack3" to stop and resume player speed for more impact
+    /// </summary>
+    /// <param name="newSpeed">the speed to slow the player to</param>
+    /// <param name="backToNormal">whether the player should be slowed or resume to their normal speed</param>
+    public void ThirdHitHelper(float newSpeed, bool backToNormal)
+    {
+        if (!backToNormal)
+        {
+            playerSpeed = newSpeed;
+        }
+        else playerSpeed = OGplayerSpeed;
+    }
+
+    /// <summary>
+    /// turn on ability
+    /// </summary>
+    public void SetThirdHit()
+    {
+        thirdHit = true;
     }
     #endregion
 
@@ -578,37 +642,5 @@ public class PlayerController : MonoBehaviour
         gameObject.transform.position = gameState.spawnPoint;
         gameState.playerHealth = gameState.maxPlayerHealth;
         deathPanel.gameObject.SetActive(false);
-    }
-
-    public void ShiftAbility()
-    {
-        PlayAnim("ShiftAbility", true);
-    }
-
-    public void RAbility()
-    {
-        PlayAnim("RAbility", true);
-    }
-
-    /// <summary>
-    /// unleashes the third hit ability
-    /// </summary>
-    public void ThirdHit()
-    {
-        // play the visual
-        particleVisual.SetActive(false);
-        particleVisual.SetActive(true);
-
-        // instantiate the collision particle
-        GameObject particle = Instantiate(particleCollisionPrefab, transform.position + transform.forward, transform.rotation);
-        particle.GetComponent<ParticleCollision>().InitializeParticle(this, thirdHitDamage, particleVisual);
-    }
-
-    /// <summary>
-    /// turn on ability
-    /// </summary>
-    public void SetThirdHit()
-    {
-        thirdHit = true;
     }
 }
