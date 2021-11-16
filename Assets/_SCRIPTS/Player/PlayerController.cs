@@ -261,7 +261,7 @@ public class PlayerController : MonoBehaviour
             dir = Direction.Zero;
         }
         #endregion
-        Debug.Log(dir);
+        //Debug.Log(dir);
 
         // statemachine handling
         anim.SetBool("UtilStop", true);
