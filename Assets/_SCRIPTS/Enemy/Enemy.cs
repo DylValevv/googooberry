@@ -60,7 +60,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isAttacking == false) SetDestination(); //Reroute towards player 
+        if (isAttacking == false && !dead) SetDestination(); //Reroute towards player 
         //isCollidingWithPlayer = false;
     }
 
@@ -119,7 +119,7 @@ public class Enemy : MonoBehaviour
 
         // stop moving 
         navMeshAgent.isStopped = true;
-        isAttacking = true;
+        isAttacking = false;
         this.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
 
         // after animation is done add it back to pool
@@ -174,7 +174,7 @@ public class Enemy : MonoBehaviour
 
     private void FinishedAttack()
     {
-        if (attackSuccessful)
+        if (attackSuccessful && !dead)
         {
             DealDamage(damage);
         }
