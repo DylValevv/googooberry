@@ -24,6 +24,16 @@ public class PlayerController : MonoBehaviour
     // player locomotion variables
     private CharacterController controller;
     private Vector3 playerVelocity;
+    enum Direction { Up, Down, Left, Right, UpLeft, UpRight, DownLeft, DownRight, Zero };
+    Direction dir;
+    Vector2 up = new Vector2(0, 1);
+    Vector2 down = new Vector2(0, -1);
+    Vector2 left = new Vector2(-1, 0);
+    Vector2 right = new Vector2(1, 0);
+    Vector2 upleft = new Vector2(-0.7f, 0.7f);
+    Vector2 upright = new Vector2(0.7f, 0.7f);
+    Vector2 downleft = new Vector2(-0.7f, -0.7f);
+    Vector2 downright = new Vector2(0.7f, -0.7f);
 
     // adjustable player movement values
     [SerializeField] private float playerSpeed = 2.0f;
@@ -168,6 +178,8 @@ public class PlayerController : MonoBehaviour
         //thirdHit = true;
 
         particleVisual.SetActive(false);
+
+        dir = Direction.Zero;
     }
     #endregion
 
@@ -210,6 +222,46 @@ public class PlayerController : MonoBehaviour
         // ensure that the player is not randomly moving upward
         move.y = 0;
         controller.Move(move * Time.deltaTime * playerSpeed);
+
+        #region<Enum Direction Handling>
+        if (movement == up)
+        {
+            dir = Direction.Up;
+        }
+        if (movement == down)
+        {
+            dir = Direction.Down;
+        }
+        if (movement == left)
+        {
+            dir = Direction.Left;
+        }
+        if (movement == right)
+        {
+            dir = Direction.Right;
+        }
+        if (movement.x < 0 && movement.y > 0)
+        {
+            dir = Direction.UpLeft;
+        }
+        if (movement.x > 0 && movement.y > 0)
+        {
+            dir = Direction.UpRight;
+        }
+        if (movement.x < 0 && movement.y < 0)
+        {
+            dir = Direction.DownLeft;
+        }
+        if (movement.x > 0 && movement.y < 0)
+        {
+            dir = Direction.DownRight;
+        }
+        if (controller.velocity == Vector3.zero)
+        {
+            dir = Direction.Zero;
+        }
+        #endregion
+        Debug.Log(dir);
 
         // statemachine handling
         anim.SetBool("UtilStop", true);
@@ -260,7 +312,7 @@ public class PlayerController : MonoBehaviour
             // if on the ground, jump
             if (CanJump() || CanContinueJump())
             {
-                playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+                playerVelocity.y += Mathf.Sqrt(jumpHeight * -2.0f * gravityValue);
                 //playerVelocity.y = jumpHeight;
                 jumpElapsedTime += Time.deltaTime;
             }
@@ -308,7 +360,6 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void AttackHandler()
     {
-        Debug.Log(isAttacking);
         if (attackControl.action.triggered && !isAttacking && !canAirAttack)
         {
             attackCoroutine = StartCoroutine(Attack());
@@ -350,7 +401,8 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                float rand = UnityEngine.Random.Range(1, 2);
+                float rand = UnityEngine.Random.Range(1, 3);
+                Debug.Log(rand);
                 PlayAnim("GroundAttack" + comboCount + "_" + rand, true);
             }
 

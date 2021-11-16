@@ -15912,7 +15912,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 883370293}
-  m_LocalRotation: {x: 0.24935997, y: -0.00000001862961, z: 0.0000000047969237, w: 0.96841085}
+  m_LocalRotation: {x: 0.24935997, y: 0.000000018635328, z: -0.000000004795326, w: 0.96841085}
   m_LocalPosition: {x: 0.26390088, y: 7.4709053, z: -73.597534}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -16859,7 +16859,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2925989841109136380, guid: 69a5d9d26727e884b9bc15368d9e5c95, type: 3}
   m_PrefabInstance: {fileID: 5792931254345933256}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1323055068
+--- !u!114 &1323055070
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16871,6 +16871,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7da16f7f4bfe3e348b4eb5c57acee0dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
 --- !u!1 &1453529843
 GameObject:
   m_ObjectHideFlags: 3
@@ -16895,7 +16896,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1453529843}
-  m_LocalRotation: {x: 0.23175052, y: 0.000000003845201, z: -9.160685e-10, w: 0.9727753}
+  m_LocalRotation: {x: 0.2317505, y: -0.000000025399654, z: 0.0000000060511227, w: 0.9727753}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -17112,7 +17113,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1466026643}
-  m_LocalRotation: {x: 0.24935995, y: -0.000000018629624, z: 0.0000000047970157, w: 0.9684109}
+  m_LocalRotation: {x: 0.24935995, y: 0.000000018629626, z: -0.0000000047970166, w: 0.9684109}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -18139,7 +18140,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2129989846}
-  m_LocalRotation: {x: 0.2669336, y: -3.4238033e-15, z: 1.836517e-15, w: 0.96371496}
+  m_LocalRotation: {x: 0.26693356, y: -0.000000028720944, z: 0.00000000795524, w: 0.96371496}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -18349,8 +18350,20 @@ PrefabInstance:
       value: CHARACTERv3
       objectReference: {fileID: 0}
     - target: {fileID: 4031267640425174269, guid: 69a5d9d26727e884b9bc15368d9e5c95, type: 3}
+      propertyPath: Sfsdiojfsa
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4031267640425174269, guid: 69a5d9d26727e884b9bc15368d9e5c95, type: 3}
+      propertyPath: jumpHeight
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 4031267640425174269, guid: 69a5d9d26727e884b9bc15368d9e5c95, type: 3}
       propertyPath: anims.Array.size
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4031267640425174269, guid: 69a5d9d26727e884b9bc15368d9e5c95, type: 3}
+      propertyPath: initialJumpImpulse
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4031267640425174269, guid: 69a5d9d26727e884b9bc15368d9e5c95, type: 3}
       propertyPath: anims.Array.data[3]
