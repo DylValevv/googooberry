@@ -5,7 +5,9 @@ using UnityEngine;
 public class RangedAttack : MonoBehaviour
 {
     private Coroutine rangedCoroutine;
-    [SerializeField] private float range;
+    [SerializeField] private float closeRange;
+    [SerializeField] private float longRange;
+
     [SerializeField] private float rangedCooldownTime;
     [SerializeField] private float failedReDoRangedCooldownTime;
     [SerializeField] float rangedAttackDuration;
@@ -24,13 +26,13 @@ public class RangedAttack : MonoBehaviour
     private bool CheckAttack()
     {
         RaycastHit hit;
-        if(Physics.Raycast(this.transform.localPosition, enemy.playerObj.transform.position, out hit, Mathf.Infinity))
+        if(Physics.Raycast(transform.position, enemy.playerObj.transform.position, out hit, longRange))
         {
             return (hit.collider.gameObject.CompareTag("Player"));
         }
-        else
+        else //if it doesn't hit a wall, but misses the player
         {
-            return false;
+            return true;
         }
     }
 
@@ -64,7 +66,7 @@ public class RangedAttack : MonoBehaviour
     public bool CalculateDistanceToPlayer()
     {
         float dist = Vector3.Distance(enemy.playerObj.transform.position, transform.position);
-        return dist >= range;
+        return dist > closeRange && dist < longRange;
     }
 
     /// <summary>
