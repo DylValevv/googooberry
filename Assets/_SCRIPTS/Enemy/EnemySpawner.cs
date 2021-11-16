@@ -17,7 +17,7 @@ public class EnemySpawner : MonoBehaviour
     {
         enemies = new GameObject[enemyManager.ObjectPoolerEnemiesToSpawn()];
         playerObj = FindObjectOfType<PlayerController>().gameObject;
-        enemyManager.currentWave = 0;
+        enemyManager.currentWave = -1;
         enemyManager.enemiesRemainingInWave = -1;
         InitEnemies();
     }
@@ -25,9 +25,18 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (enemyManager.enemiesRemainingInWave <= 0 && combatTime)
+        bool enemiesAllDead = true;
+        foreach (GameObject enemy in enemies)
+        {
+            if (enemy.activeSelf)
+            {
+                enemiesAllDead = false;
+            }
+        }
+        if (enemiesAllDead && combatTime)
         {
             enemyManager.currentWave++;
+            Debug.Log("SPAWNING WAVE");
             SpawnWave();
         }
     }
@@ -38,7 +47,7 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < enemyManager.ObjectPoolerEnemiesToSpawn(); i++)
         {
             // Creates an instance of the prefab at the current spawn point.
-            GameObject currentEntity = Instantiate(entityToSpawn, enemyManager.spawnPoints[0], Quaternion.identity);
+            GameObject currentEntity = Instantiate(entityToSpawn, enemyManager.spawnPoints[i % enemyManager.spawnPoints.Length], Quaternion.identity);
 
             // Sets the name of the instantiated entity to be the string defined in the ScriptableObject and then appends it with a unique number. 
             currentEntity.name = "Enemy" + instanceNumber;
@@ -56,15 +65,17 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnWave()
     {
+        //Debug.Log("current wave: " + enemyManager.currentWave);
         if (enemyManager.currentWave < enemyManager.enemiesPerWave.Length)
         {
+            enemyManager.SetEnemiesRemaining();
             Debug.Log("New Wave");
             for (int i = 0; i < enemyManager.enemiesPerWave[enemyManager.currentWave]; i++)
             {
+                enemies[i].GetComponent<Enemy>().health = enemyManager.enemyAverageHealth;
+                enemies[i].GetComponent<Enemy>().firstDelayedDeathInvoke = false;
                 enemies[i].SetActive(true);
             }
-            enemyManager.SetEnemiesRemaining();
-
         }
     }
 

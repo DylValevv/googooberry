@@ -39,6 +39,7 @@ public class Enemy : MonoBehaviour
     // this lets you keep the same state machines across all charactersa
     private AnimatorOverrideController animOverride;
     private bool dead;
+    [HideInInspector] public bool firstDelayedDeathInvoke = false;
 
     // Start is called before the first frame update
     void Start()
@@ -115,7 +116,6 @@ public class Enemy : MonoBehaviour
     {
         dead = true;
         anim.SetBool("Death", dead);
-        enemyManager.enemiesRemainingInWave -= 1;
 
         // stop moving 
         navMeshAgent.isStopped = true;
@@ -123,7 +123,11 @@ public class Enemy : MonoBehaviour
         this.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
 
         // after animation is done add it back to pool
-        Invoke("DelayedDeath", 3);
+        if (!firstDelayedDeathInvoke)
+        {
+            Invoke(nameof(DelayedDeath), 3);
+            firstDelayedDeathInvoke = true;
+        }
     }
 
     /// <summary>
@@ -131,10 +135,12 @@ public class Enemy : MonoBehaviour
     /// </summary>
     private void DelayedDeath()
     {
+        Debug.Log("DELAYEDDEATH!!! on: "+ gameObject.name);
         FinishedAttack();
         anim.SetBool("Death", false);
         dead = false;
         gameObject.SetActive(false);
+        enemyManager.enemiesRemainingInWave -= 1;
     }
 
     /// <summary>
