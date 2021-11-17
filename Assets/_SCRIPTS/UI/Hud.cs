@@ -18,7 +18,7 @@ public class Hud : MonoBehaviour
     private Color healthEmptyColor;
     void Start()
     {
-        gameState.playerHealth = 4;
+        //gameState.playerHealth = 4;
         updateHealth();
 
         Cursor.lockState = CursorLockMode.Locked;
