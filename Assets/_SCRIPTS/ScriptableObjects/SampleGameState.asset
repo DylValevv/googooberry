@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SampleGameState
   m_EditorClassIdentifier: 
   playerHealth: 10
-  maxPlayerHealth: 10
+  maxPlayerHealth: 15
   playerDamage: 1
   spawnPoint: {x: -241.7, y: 38.46, z: 16}
   crystalCores:

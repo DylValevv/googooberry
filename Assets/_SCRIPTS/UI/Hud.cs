@@ -16,9 +16,12 @@ public class Hud : MonoBehaviour
     private Color healthFullColor;
     [SerializeField]
     private Color healthEmptyColor;
+    [SerializeField]
+    private GameObject lifeOrb;
     void Start()
     {
         //gameState.playerHealth = 4;
+        createHealthOrbs();
         updateHealth();
 
         Cursor.lockState = CursorLockMode.Locked;
@@ -55,6 +58,22 @@ public class Hud : MonoBehaviour
                 healthUI.transform.GetChild(i).GetComponent<Image>().color = healthEmptyColor;
 
             }
+        }
+    }
+
+    /// <summary>
+    /// creates health based off of player max health
+    /// </summary>
+    private void createHealthOrbs()
+    {
+        foreach (Transform child in healthUI.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        for (int i = 0; i < gameState.maxPlayerHealth; i++)
+        {
+            Instantiate(lifeOrb, healthUI.transform);
         }
     }
 }

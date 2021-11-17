@@ -148,7 +148,6 @@ public class DialogueStart : MonoBehaviour
                 }
                 //<b> or </b>
                 s += letter;
-                Debug.Log(s);
                 DialogueZone.instance.content.text += s;
                 yield return null;
             }

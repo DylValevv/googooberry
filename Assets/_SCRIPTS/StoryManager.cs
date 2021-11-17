@@ -13,6 +13,7 @@ public class StoryManager : MonoBehaviour
     [SerializeField] DialogueStart Olent;
     [SerializeField] GameState gameState;
     [SerializeField] PlayerController player;
+    [SerializeField] Notification notification;
 
 
     public static StoryManager instance;
@@ -29,7 +30,7 @@ public class StoryManager : MonoBehaviour
             return;
         }
 
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(transform.parent);
     }
 
     #region Helper
@@ -40,6 +41,12 @@ public class StoryManager : MonoBehaviour
     {
         Invoke(function, 0);
     }
+
+    private void Notify(string message)
+    {
+        notification.Notify(message);
+    }
+
     private void FullHealCharacter()
     {
         gameState.AddPlayerHealth(gameState.maxPlayerHealth);
@@ -62,6 +69,7 @@ public class StoryManager : MonoBehaviour
     {
         StepOdeiDialogue();
         player.SetThirdHit();
+        Notify("Three Hit Finisher Activated");
     }
 
     //call after speaking with Tilak
