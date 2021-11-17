@@ -287,7 +287,7 @@ public class PlayerController : MonoBehaviour
     private void CameraHandler()
     {
         // if the player is standing still and is not in combat
-        if(dir == Direction.Zero && !isAttacking)
+        if((dir == Direction.Zero && !isAttacking) || canAirAttack)
         {
             // switch action maps
             freelookCam.GetComponent<CinemachineInputProvider>().XYAxis = mouselookActionMap;
