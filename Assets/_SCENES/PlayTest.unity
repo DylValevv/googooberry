@@ -3410,6 +3410,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5836548497744638790, guid: f6ed5ca1db22dab4596a7c34eb22dd79, type: 3}
+      propertyPath: typeSentence
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5836548497761488841, guid: f6ed5ca1db22dab4596a7c34eb22dd79, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3433,6 +3437,11 @@ PrefabInstance:
     - target: {fileID: 5836548497761488841, guid: f6ed5ca1db22dab4596a7c34eb22dd79, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5836548497792345035, guid: f6ed5ca1db22dab4596a7c34eb22dd79, type: 3}
+      propertyPath: m_text
+      value: This is a sample amount of text and one way to <b>communicate</b> dialogue
+        stuff. eowieuroweuroewiurowerewuroewuroiewuroweiuroiweroiweuriwueorw
       objectReference: {fileID: 0}
     - target: {fileID: 5836548497805761297, guid: f6ed5ca1db22dab4596a7c34eb22dd79, type: 3}
       propertyPath: m_AnchorMax.y
