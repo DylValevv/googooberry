@@ -7,14 +7,21 @@ using UnityEngine.VFX;
 using DG.Tweening;
 using UnityEngine.UI;
 using TMPro;
+using Cinemachine;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
-    // main camera
-    private Transform cameraMainTransform;
-    public Image deathPanel;
+    [Header("Camera/HUD")]
+    #region<Camera/HUD Variables>
     public GameState gameState;
+    [SerializeField] private CinemachineFreeLook freelookCam;
+    [SerializeField] private InputActionReference cameraActionMap;
+    [SerializeField] private InputActionReference mouselookActionMap;
+    
+    public Image deathPanel;
+    private Transform cameraMainTransform;
+    #endregion
 
     [Header("Locomotion")]
     #region<Locomotion Variables>
@@ -174,9 +181,6 @@ public class PlayerController : MonoBehaviour
 
         OGplayerSpeed = playerSpeed;
 
-        //Debug.Log("turn off third hit");
-        //thirdHit = true;
-
         particleVisual.SetActive(false);
 
         dir = Direction.Zero;
@@ -204,6 +208,8 @@ public class PlayerController : MonoBehaviour
 
         WalkHandler();
         JumpHandler();
+
+        CameraHandler();
 
         // attack handler functions
         AttackHandler();
@@ -261,7 +267,6 @@ public class PlayerController : MonoBehaviour
             dir = Direction.Zero;
         }
         #endregion
-        Debug.Log(dir);
 
         // statemachine handling
         anim.SetBool("UtilStop", true);
@@ -273,6 +278,24 @@ public class PlayerController : MonoBehaviour
             float targetAngle = Mathf.Atan2(movement.x, movement.y) * Mathf.Rad2Deg + cameraMainTransform.eulerAngles.y;
             Quaternion rotation = Quaternion.Euler(0f, targetAngle, 0f);
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotationSpeed);
+        }
+    }
+
+    /// <summary>
+    /// switches between cinemachine camera based off whether the player is moving||attacking OR standing still
+    /// </summary>
+    private void CameraHandler()
+    {
+        // if the player is standing still and is not in combat
+        if(dir == Direction.Zero && !isAttacking)
+        {
+            // switch action maps
+            freelookCam.GetComponent<CinemachineInputProvider>().XYAxis = mouselookActionMap;
+        }
+        else
+        {
+            // switch action maps
+            freelookCam.GetComponent<CinemachineInputProvider>().XYAxis = cameraActionMap;
         }
     }
 
