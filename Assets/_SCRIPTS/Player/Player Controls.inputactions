@@ -44,6 +44,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Dodge",
+                    "type": "Value",
+                    "id": "ad378dce-04d5-4fdd-ae5c-82c87cbfbeb9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -462,6 +470,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Camera",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8df2258b-2860-430c-9f22-f0f58b881511",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dodge",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "299f893e-05bb-4db9-b2c4-2a363d5a9666",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dodge",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

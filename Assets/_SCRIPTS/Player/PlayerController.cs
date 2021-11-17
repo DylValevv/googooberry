@@ -37,10 +37,12 @@ public class PlayerController : MonoBehaviour
     Vector2 down = new Vector2(0, -1);
     Vector2 left = new Vector2(-1, 0);
     Vector2 right = new Vector2(1, 0);
-    Vector2 upleft = new Vector2(-0.7f, 0.7f);
-    Vector2 upright = new Vector2(0.7f, 0.7f);
-    Vector2 downleft = new Vector2(-0.7f, -0.7f);
-    Vector2 downright = new Vector2(0.7f, -0.7f);
+
+
+    Vector3 upleft = new Vector3(-0.7f, 0.7f);
+    Vector3 upright = new Vector3(0.7f, 0.7f);
+    Vector3 downleft = new Vector3(-0.7f, -0.7f);
+    Vector3 downright = new Vector3(0.7f, -0.7f);
 
     // adjustable player movement values
     [SerializeField] private float playerSpeed = 2.0f;
@@ -77,6 +79,20 @@ public class PlayerController : MonoBehaviour
     private bool canDash;
     // dash variables
     private int dashes;
+    #endregion
+
+    [Header("Dodging")]
+    #region<Dashing Variables>
+    [SerializeField] private InputActionReference dodgeControl;
+    // the speed of the dodge
+    [SerializeField] private float dodgeSpeed;
+    // how long to dodge for
+    [SerializeField] private float dodgeTime;
+    // the time before the player can dodge again
+    [SerializeField] private float dodgeAgainCooldown;
+    Coroutine dodgeCoroutine;
+    // used after the dodgeAgain cooldown is done
+    private bool canDodge;
     #endregion
 
     [Header("Attack")]
@@ -143,6 +159,7 @@ public class PlayerController : MonoBehaviour
         movementControl.action.Enable();
         jumpControl.action.Enable();
         attackControl.action.Enable();
+        dodgeControl.action.Enable();
     }
 
     /// <summary>
@@ -153,6 +170,7 @@ public class PlayerController : MonoBehaviour
         movementControl.action.Disable();
         jumpControl.action.Disable();
         attackControl.action.Disable();
+        dodgeControl.action.Disable();
     }
 
     /// <summary>
@@ -184,6 +202,8 @@ public class PlayerController : MonoBehaviour
         particleVisual.SetActive(false);
 
         dir = Direction.Zero;
+
+        canDodge = true;
     }
     #endregion
 
@@ -213,8 +233,11 @@ public class PlayerController : MonoBehaviour
 
         // attack handler functions
         AttackHandler();
+
+        DodgeHandler();
     }
 
+    #region<Locomotion Handlers>
     /// <summary>
     /// handles player input of movement along the x and z axes
     /// </summary>
@@ -298,6 +321,81 @@ public class PlayerController : MonoBehaviour
             freelookCam.GetComponent<CinemachineInputProvider>().XYAxis = cameraActionMap;
         }
     }
+
+    /// <summary>
+    /// reads and begins player dodging
+    /// </summary>
+    private void DodgeHandler()
+    {
+        if (dodgeControl.action.triggered)
+        {
+            // action map input
+            if(canDodge && !canAirAttack)
+            {
+                dodgeCoroutine = StartCoroutine(Dodge(dir));
+            }
+        }
+    }
+
+    /// <summary>
+    /// calculates the vector3 of the current move direction 
+    /// </summary>
+    /// <param name="direction">the enum of the player's direction derived from the action map's readvalue</param>
+    /// <returns>the player direction as a vector3</returns>
+    private Vector3 DodgeHelper(Direction direction)
+    {
+        if (direction == Direction.Up || direction == Direction.Down || direction == Direction.DownLeft || direction == Direction.DownRight)
+        {
+            return transform.forward; //Vector3.forward;
+        }
+        if (direction == Direction.Left || direction == Direction.UpLeft)
+        {
+            return -transform.right; //Vector3.left;
+        }
+        if (direction == Direction.Right || direction == Direction.UpRight)
+        {
+            return transform.right; //Vector3.right;
+        }
+        else
+        {
+            return Vector3.zero;
+        }
+    }
+
+    /// <summary>
+    /// countdown & handling for player dodge
+    /// </summary>
+    private IEnumerator Dodge(Direction direction)
+    {
+        string dirStr = direction.ToString();
+
+        PlayAnim("Dodge" + "_" + dirStr, true);
+
+        float dodgeTotalTime = 0;
+
+        // dodge refractory period begin
+        canDodge = false;
+
+        //movementControl.action.Disable();
+        Vector3 moveDirection = DodgeHelper(direction);
+        if (direction == Direction.Zero) moveDirection = transform.forward;
+
+        while (dodgeTotalTime <= dodgeTime)
+        {
+            // direction enum cases here
+            Debug.Log("Direction: " + dir + " Vector3: " + moveDirection);
+            controller.Move(moveDirection * dodgeSpeed * Time.deltaTime);
+            dodgeTotalTime += Time.deltaTime;
+            yield return null;
+        }
+
+        //movementControl.action.Enable();
+
+        yield return new WaitForSeconds(dodgeAgainCooldown);
+        // dash refractory period end
+        canDodge = true;
+    }
+    #endregion
 
     #region<Jump Functions>
     /// <summary>
