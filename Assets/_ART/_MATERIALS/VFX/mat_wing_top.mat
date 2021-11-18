@@ -50,15 +50,18 @@ Material:
     m_Floats:
     - Vector1_d4b47f7ffabf4334b362fb77ffe15984: 0
     - _Alt_Pattern: 0
+    - _Bottom_Tiling: 0.82
     - _Distortion: 0
     - _Distortion_Lerp: 1
     - _Distortion_Noise_Scale: 2
-    - _Emissive_Power: 11
+    - _Emissive_Power: 8.172435
     - _Fresnel_Power: 1
     - _Noise_Scale: 5
     - _Opacity: 1
     - _TopOrBottom: 1
+    - _Top_Tiling: 0.6
     m_Colors:
+    - _Bottom_Offset: {r: 1.46, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 0}
     - _Distortion_Color: {r: 0.7490196, g: 0.7490196, b: 0.7490196, a: 1}
     - _Distortion_Offset_1: {r: 2, g: 0, b: 0, a: 0}
@@ -68,5 +71,6 @@ Material:
     - _Offset: {r: 0, g: 0, b: 0, a: 0}
     - _Specular_Color: {r: 0, g: 0, b: 0, a: 1}
     - _Tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _Top_Offset: {r: 0, g: 0.5, b: 0, a: 0}
     - _Wing_Color: {r: 0.49416864, g: 0.49416864, b: 0.49416864, a: 1}
   m_BuildTextureStacks: []
