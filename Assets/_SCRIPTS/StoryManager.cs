@@ -33,6 +33,11 @@ public class StoryManager : MonoBehaviour
         DontDestroyOnLoad(transform.parent);
     }
 
+    private void Start()
+    {
+        player = FindObjectOfType<PlayerController>();
+    }
+
     #region Helper
     #endregion
 
