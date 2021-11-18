@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 playerVelocity;
     enum Direction { Up, Down, Left, Right, UpLeft, UpRight, DownLeft, DownRight, Zero };
     Direction dir;
+    
     Vector2 up = new Vector2(0, 1);
     Vector2 down = new Vector2(0, -1);
     Vector2 left = new Vector2(-1, 0);
@@ -344,16 +345,19 @@ public class PlayerController : MonoBehaviour
     /// <returns>the player direction as a vector3</returns>
     private Vector3 DodgeHelper(Direction direction)
     {
-        if (direction == Direction.Up || direction == Direction.Down || direction == Direction.DownLeft || direction == Direction.DownRight)
+        if (direction == Direction.Up || direction == Direction.Down || direction == Direction.DownLeft || direction == Direction.DownRight || direction == Direction.Zero)
         {
+            PlayAnim("DodgeForward", true);
             return transform.forward; //Vector3.forward;
         }
         if (direction == Direction.Left || direction == Direction.UpLeft)
         {
+            PlayAnim("DodgeLeft", true);
             return -transform.right; //Vector3.left;
         }
         if (direction == Direction.Right || direction == Direction.UpRight)
         {
+            PlayAnim("DodgeRight", true);
             return transform.right; //Vector3.right;
         }
         else
@@ -367,10 +371,6 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private IEnumerator Dodge(Direction direction)
     {
-        string dirStr = direction.ToString();
-
-        PlayAnim("Dodge" + "_" + dirStr, true);
-
         float dodgeTotalTime = 0;
 
         // dodge refractory period begin
@@ -378,7 +378,6 @@ public class PlayerController : MonoBehaviour
 
         //movementControl.action.Disable();
         Vector3 moveDirection = DodgeHelper(direction);
-        if (direction == Direction.Zero) moveDirection = transform.forward;
 
         while (dodgeTotalTime <= dodgeTime)
         {
@@ -406,6 +405,11 @@ public class PlayerController : MonoBehaviour
         // reset the sustained jump if on the ground
         if (groundedPlayer)
         {
+            if(jumpTimes != 0)
+            {
+                PlayAnim("JumpLand", true);
+            }
+
             jumpElapsedTime = 0;
             dashes = 0;
             canDash = true;
@@ -797,8 +801,7 @@ public class PlayerController : MonoBehaviour
 
     public void Die()
     {
-        Debug.Log("player should die");
-        PlayAnim("Die", true);
+        PlayAnim("Death", true);
         Sequence mySequence = DOTween.Sequence();
 
         deathPanel.gameObject.SetActive(true);
