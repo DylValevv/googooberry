@@ -21,4 +21,12 @@ public class AnimationEvents : MonoBehaviour
     {
         player.ThirdHitHelper(0, true);
     }
+
+    /// <summary>
+    /// play foot noises
+    /// </summary>
+    public void Foot()
+    {
+        player.PlayFootSteps();
+    }
 }

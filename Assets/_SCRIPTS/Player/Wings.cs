@@ -24,8 +24,8 @@ public class Wings : MonoBehaviour
     private void Start()
     {
         anims = GetComponent<Animation>();
-
-        startingEmissivePower = mat.GetFloat("_Emissive_Power");
+        startingEmissivePower = 11;
+        mat.SetFloat("_Emissive_Power", 11);
     }
 
     /// <summary>
