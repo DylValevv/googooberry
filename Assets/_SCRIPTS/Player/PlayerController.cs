@@ -128,6 +128,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject particleCollisionPrefab;
     private bool thirdHit;
     [SerializeField] private int thirdHitDamage;
+    [SerializeField] private GameObject impactVFX;
     #endregion
 
     [Header("-----------------------Animation-----------------------")]
@@ -831,14 +832,24 @@ public class PlayerController : MonoBehaviour
     {
         if (!backToNormal)
         {
+            Invoke("DelayThirdImpactVFX", 0.1f);
             PlayImpact();
             playerSpeed = newSpeed;
         }
 
         else
         {
+            impactVFX.SetActive(false);
             playerSpeed = OGplayerSpeed;
         }
+    }
+
+    /// <summary>
+    /// delayed for animation timing
+    /// </summary>
+    private void DelayThirdImpactVFX()
+    {
+        impactVFX.SetActive(true);
     }
 
     /// <summary>

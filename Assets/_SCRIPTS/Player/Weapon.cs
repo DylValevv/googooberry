@@ -79,7 +79,6 @@ public class Weapon : MonoBehaviour
     /// </summary>
     public void SheathWeapon()
     {
-        Debug.Log("SHEATH!!");
         // Invoke("DelayedSheath", sheathDelay);
         if (DelayedSheathCo == null) DelayedSheathCo = StartCoroutine(DelayedSheath());
     }
@@ -89,8 +88,8 @@ public class Weapon : MonoBehaviour
     /// </summary>
     public void StopSheath()
     {
-        Debug.Log("STOP SHEATH");
         if (DelayedSheathCo != null) StopCoroutine(DelayedSheathCo);
+        DelayedSheathCo = null;
     }
 
     /// <summary>
