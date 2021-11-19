@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 423659d402a9fad4baa250e561f79f81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  closeRange: 10
+  closeRange: 5
   longRange: 50
   rangedCooldownTime: 3
   failedReDoRangedCooldownTime: 1
