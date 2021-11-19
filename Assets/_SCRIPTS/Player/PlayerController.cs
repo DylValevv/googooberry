@@ -588,10 +588,11 @@ public class PlayerController : MonoBehaviour
             {
                 float rand = UnityEngine.Random.Range(1, 3);
                 PlayAnim("GroundAttack" + comboCount + "_" + rand, true);
+                PlaySwing();
             }
 
         }
-        PlaySwing();
+        
 
         leftWeapon.ToggleCollider(isAttacking);
         rightWeapon.ToggleCollider(isAttacking);
@@ -671,12 +672,20 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
+    /// when the player starts combo 3rd hit, play a charging up sound
+    /// </summary>
+    public void PlayChargeup()
+    {
+        AudioManager.instance.PlayAction("ComboChargeup");
+    }
+
+    /// <summary>
     /// when the player hits an enemy, play a randomized impact noise
     /// </summary>
     public void PlayImpact()
     {
         int num = UnityEngine.Random.Range(1, 3);
-        AudioManager.instance.PlayAction("Impact" + num.ToString());
+        AudioManager.instance.PlayAction("ComboSlam2");
     }
     #endregion
 

@@ -29,4 +29,9 @@ public class AnimationEvents : MonoBehaviour
     {
         player.PlayFootSteps();
     }
+
+    public void PlayChargeup()
+    {
+        player.PlayChargeup();
+    }
 }
