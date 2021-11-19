@@ -89,6 +89,15 @@ public class StoryManager : MonoBehaviour
     {
         //Odei.dialogue = new Dialogue("C.0.TILAK1", "Conversation");
     }
+    public void EnemiesEliminatedNotification()
+    {
+        Notify("Uskerra Eliminated", "Smash the crystal to harvest the ilarka shards.");
+    }
+    public void EnemiesSpottedNotification()
+    {
+        Notify("Uskerra Spotted", "The dangerous creatures defend the ilarka core. Defeat them to harvest its shards.");
+
+    }
     #endregion
 
     #region Core1
