@@ -514,9 +514,12 @@ public class PlayerController : MonoBehaviour
 
         //movementControl.action.Enable();
 
+        PlayAnim("Dash", false);
+
         yield return new WaitForSeconds(dashAgainCooldown);
         // dash refractory period end
         canDash = true;
+        
     }
 
     /// <summary>
