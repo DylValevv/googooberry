@@ -70,10 +70,10 @@ public class StoryManager : MonoBehaviour
     //Odei will tell him to explore new area
     //Use finisher to open up blockade
     //Enter area 1, there is a room fight some baddies, once you click
-    private void ActivatePlayerFinisher()
+    private void ActivatePlayerDash()
     {
         StepOdeiDialogue();
-        player.SetThirdHit();
+        player.UnlockDash();
         Notify("Air Dash Unlocked", "Press <sprite name=\"A\"> in the air. Zoom forward and use the power in your wings.");
 
     }

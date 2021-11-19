@@ -25,7 +25,7 @@ Glad to be of help.]
 Hah, that's the spirit!]
  Speaking of which, I've got some leads on new <b>ilarka</b> deposits near town, meaning I got another job for you.]
 Why don't you go pay Ila a visit over at her shrine first?]
- Despite all her ravings about how these crystals are killin' us, her healing powers are a great way to prepare for an outing.]
+Despite all her ravings about how these crystals are killin' us, her healing powers are a great way to prepare for an outing.]
 Just between you and me, I'd take any opportunity to skip a conversation with that one. Hah!]
 
 ;C.0.ODEI+;
@@ -70,9 +70,9 @@ On that note ... you and Odei bringin' in a new shipment of <b>ilarka</b> soon? 
 //Mairu]
 Yep, I'm just about to head out on another outing.]
 //Tilak]
-Marvelous. Just bring those crystals back to me and I can get cooking. I'll even hook you up with a little extra to boost your <b>moonsight</b> powers!
+Marvelous. Just bring those crystals back to me and I can get cooking. I'll even hook you up with a little extra to boost your <b>moonsight</b> powers!]
 Actually, ya know what? I've got a little bit of candy left over, why don't you take this now as an advanced thank-you?]
-//:ActivatePlayerFinisher]
+//:ActivatePlayerDash]
 //Mairu]
 Thanks, Tilak. I'll be back with that <b>ilarka</b> before you know it.]
 
