@@ -85,6 +85,8 @@ public class PlayerController : MonoBehaviour
     private bool canDash;
     // dash variables
     private int dashes;
+    // allows the player do dash at all
+    private bool unlockDash;
     #endregion
 
     [Header("-----------------------Dodging-----------------------")]
@@ -556,6 +558,9 @@ public class PlayerController : MonoBehaviour
         // toggle on the collider of the weapon
         isAttacking = true;
 
+        leftWeapon.StopSheath();
+        rightWeapon.StopSheath();
+
         totalTime = 0;
         if(comboCooldownCoroutine == null) comboCooldownCoroutine = StartCoroutine(CooldownCountdown(attackCooldown));
         if (comboCount < 3)
@@ -653,10 +658,6 @@ public class PlayerController : MonoBehaviour
         {
             int num = UnityEngine.Random.Range(1, 4);
             AudioManager.instance.PlayAction("Footstep" + num.ToString());
-        }
-        else
-        {
-            Debug.Log("standing still");
         }
     }
 
@@ -863,5 +864,13 @@ public class PlayerController : MonoBehaviour
         TextMeshProUGUI deathText = deathPanel.gameObject.GetComponentInChildren<TextMeshProUGUI>();
         deathText.color = new Color(1, 1, 1, 0); 
         deathPanel.gameObject.SetActive(false);
+    }
+
+    /// <summary>
+    /// unlocks the ability to dash
+    /// </summary>
+    public void UnlockDash()
+    {
+        unlockDash = true;
     }
 }

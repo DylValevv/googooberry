@@ -54,7 +54,7 @@ Material:
     - _Distortion: 0
     - _Distortion_Lerp: 1
     - _Distortion_Noise_Scale: 2
-    - _Emissive_Power: 0
+    - _Emissive_Power: 11
     - _Fresnel_Power: 1
     - _Noise_Scale: 5
     - _Opacity: 1
