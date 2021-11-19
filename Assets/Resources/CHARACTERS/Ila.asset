@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Ila
   m_EditorClassIdentifier: 
   portrait: {fileID: 21300000, guid: 14a5277bcd06d7c4aa373e20ec7d9bd7, type: 3}
-  soundIndex: 96
+  soundIndex: 106
   sounds:
   - 4
-  portraitRight: 1
-  textColor: {r: 0.80037, g: 0.6650944, b: 1, a: 1}
+  portraitRight: 0
+  textColor: {r: 1, g: 0.77155054, b: 0.6666667, a: 1}
