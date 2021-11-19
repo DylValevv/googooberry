@@ -36,7 +36,9 @@ public class StoryManager : MonoBehaviour
     private void Start()
     {
         player = FindObjectOfType<PlayerController>();
-        Notify("Welcome to Moon-Sighted.", "<sprite name=\"L_ANALOG\"> to move.\n <sprite name=\"R_ANALOG\"> to look.\n <sprite name=\"A\"> to jump.\n <sprite name=\"X\"> to attack/interact.\n");
+        Notify("Welcome to Moon-Sighted.", 
+            "<sprite name=\"L_ANALOG\"> to move. <sprite name=\"R_ANALOG\"> to look.\n <sprite name=\"A\"> " +
+            "to jump.\n <sprite name=\"X\"> to attack/interact.\n <sprite name=\"B\"> to dodge.\n");
     }
 
     #region Helper
