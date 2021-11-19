@@ -12,7 +12,9 @@ public class Notification : MonoBehaviour
 {
     Sequence mySequence;
     [SerializeField]
-    private TextMeshProUGUI textMeshPro;
+    private TextMeshProUGUI title;
+    [SerializeField]
+    private TextMeshProUGUI content;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,9 +35,10 @@ public class Notification : MonoBehaviour
     }
 
 
-    public void Notify(string message)
+    public void Notify(string title, string message)
     {
-        textMeshPro.text = message;
+        this.title.text = title;
+        content.text = message;
         mySequence.Restart();
     }
 }

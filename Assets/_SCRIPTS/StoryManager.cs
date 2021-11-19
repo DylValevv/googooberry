@@ -47,9 +47,9 @@ public class StoryManager : MonoBehaviour
         Invoke(function, 0);
     }
 
-    private void Notify(string message)
+    private void Notify(string title, string message)
     {
-        notification.Notify(message);
+        notification.Notify(title, message);
     }
 
     private void FullHealCharacter()
@@ -74,7 +74,8 @@ public class StoryManager : MonoBehaviour
     {
         StepOdeiDialogue();
         player.SetThirdHit();
-        Notify("Three Hit Finisher Activated");
+        Notify("Air Dash Unlocked", "Press <sprite name=\"A\"> in the air. Zoom forward and use the power in your wings.");
+
     }
 
     //call after speaking with Tilak
