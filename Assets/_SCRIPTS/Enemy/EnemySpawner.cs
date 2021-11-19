@@ -6,6 +6,7 @@ public class EnemySpawner : MonoBehaviour
 {
     public EnemyManager enemyManager;
     public GameObject entityToSpawn;
+    public DamageCrystal crystalCore;
     private int instanceNumber = 0;
     public GameObject[] enemies;
     public GameObject playerObj;
@@ -36,7 +37,7 @@ public class EnemySpawner : MonoBehaviour
         if (enemiesAllDead && combatTime)
         {
             enemyManager.currentWave++;
-            Debug.Log("SPAWNING WAVE");
+            //Debug.Log("SPAWNING WAVE");
             SpawnWave();
         }
     }
@@ -53,6 +54,8 @@ public class EnemySpawner : MonoBehaviour
             currentEntity.name = "Enemy" + instanceNumber;
 
             currentEntity.GetComponent<Enemy>().enemyManager = enemyManager;
+
+            currentEntity.GetComponent<Enemy>().LifeBar.max = enemyManager.enemyAverageHealth;
 
             enemies[instanceNumber] = currentEntity;
 
@@ -75,7 +78,13 @@ public class EnemySpawner : MonoBehaviour
                 enemies[i].GetComponent<Enemy>().health = enemyManager.enemyAverageHealth;
                 enemies[i].GetComponent<Enemy>().firstDelayedDeathInvoke = false;
                 enemies[i].SetActive(true);
+                enemies[i].GetComponent<Enemy>().LifeBar.gameObject.SetActive(true);
             }
+        }
+        else
+        {
+            Debug.Log("Able to attack crystal");
+            crystalCore.enemiesDefeated = true;
         }
     }
 
