@@ -14679,6 +14679,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crystalData: {fileID: 11400000, guid: 4963ce23f7f981743a84695fe7f2940f, type: 2}
   enemiesDefeated: 0
+  destroyedParticleEffect: {fileID: 136621670}
+  crystalMesh: {fileID: 3180885140047525588}
 --- !u!136 &1278419488
 CapsuleCollider:
   m_ObjectHideFlags: 0

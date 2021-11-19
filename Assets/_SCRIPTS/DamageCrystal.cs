@@ -6,6 +6,8 @@ public class DamageCrystal : MonoBehaviour
 {
     public CrystalCores crystalData;
     public bool enemiesDefeated = false;
+    public GameObject destroyedParticleEffect;
+    public GameObject crystalMesh;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +42,7 @@ public class DamageCrystal : MonoBehaviour
     private void Destroyed()
     {
         crystalData.isMined = 1;
-        gameObject.SetActive(false);
+        destroyedParticleEffect.SetActive(true);
+        crystalMesh.SetActive(false);
     }
 }
