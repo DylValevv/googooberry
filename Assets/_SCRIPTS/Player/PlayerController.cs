@@ -12,7 +12,7 @@ using Cinemachine;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
-    [Header("Camera/HUD")]
+    [Header("-----------------------Camera/HUD-----------------------")]
     #region<Camera/HUD Variables>
     public GameState gameState;
     [SerializeField] private CinemachineFreeLook freelookCam;
@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     private Transform cameraMainTransform;
     #endregion
 
-    [Header("Locomotion")]
+    [Header("-----------------------Locomotion-----------------------")]
     #region<Locomotion Variables>
     // input system variables
     [SerializeField] private InputActionReference movementControl;
@@ -53,7 +53,8 @@ public class PlayerController : MonoBehaviour
     // jump variables
     [SerializeField] private InputActionReference jumpControl;
     [SerializeField] private bool groundedPlayer;
-    [SerializeField] private bool canAirAttack;
+    private bool canAirAttack;
+    [SerializeField] private bool playLandAnim;
     private int jumpTimes = 0;
     [SerializeField] private float jumpTimer = 0.2f;
     [SerializeField] private float jumpHeight = 1.0f;
@@ -63,9 +64,13 @@ public class PlayerController : MonoBehaviour
     private bool jumpButtonPressed;
     [SerializeField] private float gravityValue = -9.81f;
     [SerializeField] private float gravityFallMultipler;
+
+    // wing variables
+    [SerializeField] private Wings[] wings = new Wings[4];
+    [SerializeField] private ParticleSystem wingGlideTrail;
     #endregion
 
-    [Header("Dashing")]
+    [Header("-----------------------Dashing-----------------------")]
     #region<Dashing Variables>
     // the amount of times the player can dash consecutively while in the air
     [SerializeField] private int dashAmountMax;
@@ -80,9 +85,11 @@ public class PlayerController : MonoBehaviour
     private bool canDash;
     // dash variables
     private int dashes;
+    // allows the player do dash at all
+    private bool unlockDash;
     #endregion
 
-    [Header("Dodging")]
+    [Header("-----------------------Dodging-----------------------")]
     #region<Dashing Variables>
     [SerializeField] private InputActionReference dodgeControl;
     // the speed of the dodge
@@ -96,7 +103,7 @@ public class PlayerController : MonoBehaviour
     private bool canDodge;
     #endregion
 
-    [Header("Attack")]
+    [Header("-----------------------Attack-----------------------")]
     #region<Attack Variables>
     [SerializeField] private InputActionReference attackControl;
     [SerializeField] float attackCooldown;
@@ -123,7 +130,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int thirdHitDamage;
     #endregion
 
-    [Header("Animation")]
+    [Header("-----------------------Animation-----------------------")]
     #region<Animation Variables>
     [SerializeField] private GameObject animatedMesh;
     [SerializeField] private Animator anim;
@@ -142,13 +149,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AnimationClip utilClip;
     [SerializeField] private AnimationClip[] anims;
     private Coroutine blendTreeCoroutine;
-    #endregion
-
-    [Header("SFX")]
-    #region<SFX Variables>
-    public List<AudioClip> footsteps;
-    public List<AudioClip> attacks;
-    public List<AudioClip> impacts;
     #endregion
 
     #region<Initializing Functions>
@@ -216,6 +216,7 @@ public class PlayerController : MonoBehaviour
         RaycastHit hit;
         Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity);
         canAirAttack = hit.distance > 2;
+        if (hit.distance > 3) playLandAnim = true;
 
         #region<Gravity Check>
         // see if the player should fall and if they are touching the ground
@@ -371,6 +372,8 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private IEnumerator Dodge(Direction direction)
     {
+        AudioManager.instance.PlayAction("Dodge");
+
         float dodgeTotalTime = 0;
 
         // dodge refractory period begin
@@ -382,7 +385,6 @@ public class PlayerController : MonoBehaviour
         while (dodgeTotalTime <= dodgeTime)
         {
             // direction enum cases here
-            Debug.Log("Direction: " + dir + " Vector3: " + moveDirection);
             controller.Move(moveDirection * dodgeSpeed * Time.deltaTime);
             dodgeTotalTime += Time.deltaTime;
             yield return null;
@@ -407,14 +409,23 @@ public class PlayerController : MonoBehaviour
         {
             if(jumpTimes != 0)
             {
-                PlayAnim("JumpLand", true);
+                AudioManager.instance.PlayAction("JumpLand");
+                if (playLandAnim) PlayAnim("JumpLand", true);
+                playLandAnim = false;
             }
+
 
             jumpElapsedTime = 0;
             dashes = 0;
             canDash = true;
             jumpTimes = 0;
             anim.SetBool("InAir", false);
+
+            foreach (Wings wing in wings)
+            {
+                wing.EmissiveLerp(true);
+            }
+
         }
         // return if the player is pressing and holding jump
         jumpButtonPressed = jumpControl.action.ReadValue<float>() > 0 ? true : false;
@@ -437,9 +448,15 @@ public class PlayerController : MonoBehaviour
             // if on the ground, jump
             if (CanJump() || CanContinueJump())
             {
+                AudioManager.instance.PlayAction("Jump");
                 playerVelocity.y += Mathf.Sqrt(jumpHeight * -2.0f * gravityValue);
                 //playerVelocity.y = jumpHeight;
                 jumpElapsedTime += Time.deltaTime;
+
+                foreach(Wings wing in wings)
+                {
+                    wing.Jump();
+                }
             }
         }
         // else dash
@@ -453,11 +470,53 @@ public class PlayerController : MonoBehaviour
         }
 
         gravityValue = jumpButtonPressed ? -9.81f : -9.81f * gravityFallMultipler;
+        if(gravityValue > -9.81f)
+        {
+            //wingGlideTrail.Play();
+            Debug.Log("glide trail here");
+        }
+        else //wingGlideTrail.Stop();
 
         playerVelocity.y = playerVelocity.y + (gravityValue * Time.deltaTime);
         controller.Move(playerVelocity * Time.deltaTime);
 
         previousButtonState = jumpButtonPressed ? ButtonState.Held : ButtonState.Released;
+    }
+
+    /// <summary>
+    /// countdown for player dash combo & dash functionality
+    /// </summary>
+    private IEnumerator Dash()
+    {
+        foreach (Wings wing in wings)
+        {
+            wing.Dash();
+            wing.EmissiveLerp(false);
+        }
+        AudioManager.instance.PlayAction("Dash");
+        PlayAnim("Dash", true);
+
+        float dashTotalTime = 0;
+
+        // dash refractory period begin
+        canDash = false;
+        dashes++;
+
+        //movementControl.action.Disable();
+        Vector3 moveDirection = transform.TransformDirection(Vector3.forward);
+
+        while (dashTotalTime <= dashTime)
+        {
+            controller.Move(moveDirection * dashSpeed * Time.deltaTime);
+            dashTotalTime += Time.deltaTime;
+            yield return null;
+        }
+
+        //movementControl.action.Enable();
+
+        yield return new WaitForSeconds(dashAgainCooldown);
+        // dash refractory period end
+        canDash = true;
     }
 
     /// <summary>
@@ -499,6 +558,9 @@ public class PlayerController : MonoBehaviour
         // toggle on the collider of the weapon
         isAttacking = true;
 
+        leftWeapon.StopSheath();
+        rightWeapon.StopSheath();
+
         totalTime = 0;
         if(comboCooldownCoroutine == null) comboCooldownCoroutine = StartCoroutine(CooldownCountdown(attackCooldown));
         if (comboCount < 3)
@@ -507,8 +569,6 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            
-
             comboCount = 0;
             comboCount++;
         }
@@ -527,11 +587,11 @@ public class PlayerController : MonoBehaviour
             else
             {
                 float rand = UnityEngine.Random.Range(1, 3);
-                Debug.Log(rand);
                 PlayAnim("GroundAttack" + comboCount + "_" + rand, true);
             }
 
         }
+        PlaySwing();
 
         leftWeapon.ToggleCollider(isAttacking);
         rightWeapon.ToggleCollider(isAttacking);
@@ -563,36 +623,6 @@ public class PlayerController : MonoBehaviour
         comboCooldownCoroutine = null;
     }
 
-    /// <summary>
-    /// countdown for player dash combo & dash functionality
-    /// </summary>
-    private IEnumerator Dash()
-    {
-        PlayAnim("Dash", true);
-
-        float dashTotalTime = 0;
-
-        // dash refractory period begin
-        canDash = false;
-        dashes++;
-
-        //movementControl.action.Disable();
-        Vector3 moveDirection = transform.TransformDirection(Vector3.forward);
-
-        while (dashTotalTime <= dashTime)
-        {
-            controller.Move(moveDirection * dashSpeed * Time.deltaTime);
-            dashTotalTime += Time.deltaTime;
-            yield return null;
-        }
-
-        //movementControl.action.Enable();
-
-        yield return new WaitForSeconds(dashAgainCooldown);
-        // dash refractory period end
-        canDash = true;
-    }
-
     public void ShiftAbility()
     {
         PlayAnim("ShiftAbility", true);
@@ -619,32 +649,34 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region<SFX Functions>
+    /// <summary>
+    /// if the player is moving, play a randomized footsound effect
+    /// </summary>
     public void PlayFootSteps()
     {
-        if (footsteps.Count > 0)
+        if(dir != Direction.Zero)
         {
-            int num = UnityEngine.Random.Range(0, footsteps.Count);
-            //AudioManager.instance.Play("Footstep" + footsteps[num].ToString());
+            int num = UnityEngine.Random.Range(1, 4);
+            AudioManager.instance.PlayAction("Footstep" + num.ToString());
         }
     }
 
-    public void PlayAttack()
+    /// <summary>
+    /// when the player swings, play a randomized swing sound
+    /// </summary>
+    public void PlaySwing()
     {
-        if (attacks.Count > 0)
-        {
-            int num = UnityEngine.Random.Range(0, attacks.Count);
-            //AudioManager.instance.Play("Attack" + attacks[num].ToString());
-        }
+        int num = UnityEngine.Random.Range(1, 5);
+        AudioManager.instance.PlayAction("Swing" + num.ToString());
     }
 
+    /// <summary>
+    /// when the player hits an enemy, play a randomized impact noise
+    /// </summary>
     public void PlayImpact()
-
     {
-        if (impacts.Count > 0)
-        {
-            int num = UnityEngine.Random.Range(0, impacts.Count);
-            //AudioManager.instance.Play("Impact" + attacks[num].ToString());
-        }
+        int num = UnityEngine.Random.Range(1, 3);
+        AudioManager.instance.PlayAction("Impact" + num.ToString());
     }
     #endregion
 
@@ -785,9 +817,14 @@ public class PlayerController : MonoBehaviour
     {
         if (!backToNormal)
         {
+            PlayImpact();
             playerSpeed = newSpeed;
         }
-        else playerSpeed = OGplayerSpeed;
+
+        else
+        {
+            playerSpeed = OGplayerSpeed;
+        }
     }
 
     /// <summary>
@@ -827,5 +864,13 @@ public class PlayerController : MonoBehaviour
         TextMeshProUGUI deathText = deathPanel.gameObject.GetComponentInChildren<TextMeshProUGUI>();
         deathText.color = new Color(1, 1, 1, 0); 
         deathPanel.gameObject.SetActive(false);
+    }
+
+    /// <summary>
+    /// unlocks the ability to dash
+    /// </summary>
+    public void UnlockDash()
+    {
+        unlockDash = true;
     }
 }

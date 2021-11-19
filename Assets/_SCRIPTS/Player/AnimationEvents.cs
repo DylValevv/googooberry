@@ -5,10 +5,6 @@ using UnityEngine;
 public class AnimationEvents : MonoBehaviour
 {
     public PlayerController player;
-    private void Start()
-    {
-        player = FindObjectOfType<PlayerController>();
-    }
 
     /// <summary>
     /// slow the player to a stop for more impact on the third hit
@@ -24,5 +20,13 @@ public class AnimationEvents : MonoBehaviour
     public void ThirdHitPost()
     {
         player.ThirdHitHelper(0, true);
+    }
+
+    /// <summary>
+    /// play foot noises
+    /// </summary>
+    public void Foot()
+    {
+        player.PlayFootSteps();
     }
 }
