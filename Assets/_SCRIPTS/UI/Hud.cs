@@ -13,6 +13,11 @@ public class Hud : MonoBehaviour
     [SerializeField]
     private Transform healthUI;
     [SerializeField]
+    private Sprite healthFull;
+    [SerializeField]
+    private Sprite healthEmpty;
+
+    [SerializeField]
     private Color healthFullColor;
     [SerializeField]
     private Color healthEmptyColor;
@@ -50,12 +55,12 @@ public class Hud : MonoBehaviour
         {
             if(phealth > 0)
             {
-                healthUI.transform.GetChild(i).GetComponent<Image>().color = healthFullColor;
+                healthUI.transform.GetChild(i).GetComponent<Image>().sprite = healthFull;
                 phealth--;
             }
             else
             {
-                healthUI.transform.GetChild(i).GetComponent<Image>().color = healthEmptyColor;
+                healthUI.transform.GetChild(i).GetComponent<Image>().sprite = healthEmpty;
 
             }
         }
