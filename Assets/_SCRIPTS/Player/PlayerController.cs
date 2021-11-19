@@ -15,12 +15,18 @@ public class PlayerController : MonoBehaviour
     [Header("-----------------------Camera/HUD-----------------------")]
     #region<Camera/HUD Variables>
     public GameState gameState;
+    private Transform cameraMainTransform;
     [SerializeField] private CinemachineFreeLook freelookCam;
     [SerializeField] private InputActionReference cameraActionMap;
     [SerializeField] private InputActionReference mouselookActionMap;
     
     public Image deathPanel;
-    private Transform cameraMainTransform;
+
+    // dialogue variables
+    [SerializeField] private InputActionReference dialogueStartControl;
+    [SerializeField] private InputActionReference dialogueContControl;
+    [SerializeField] private InputActionReference dialogueExitControl;
+    [SerializeField] private bool inDialogue;
     #endregion
 
     [Header("-----------------------Locomotion-----------------------")]
@@ -173,6 +179,9 @@ public class PlayerController : MonoBehaviour
         jumpControl.action.Disable();
         attackControl.action.Disable();
         dodgeControl.action.Disable();
+        dialogueStartControl.action.Disable();
+        dialogueContControl.action.Disable();
+        dialogueExitControl.action.Disable();
     }
 
     /// <summary>
@@ -208,6 +217,8 @@ public class PlayerController : MonoBehaviour
         canDodge = true;
         //for playtest
         unlockDash = false;
+
+        inDialogue = false;
     }
     #endregion
 
@@ -858,6 +869,82 @@ public class PlayerController : MonoBehaviour
     public void SetThirdHit()
     {
         thirdHit = true;
+    }
+    #endregion
+
+    #region<Dialogue Helper Functions>
+    /// <summary>
+    /// toggles input action map dependent if the player is in a conversation or nots
+    /// </summary>
+    /// <param name="isTalking">if true, disable jump enable dialogue. else enable jump disable dialogue</param>
+    public void DialogueHandling(bool isTalking, bool start)
+    {
+        if (isTalking)
+        {
+            if (start)
+            {
+                attackControl.action.Disable();
+                dialogueStartControl.action.Enable();
+                dialogueContControl.action.Disable();
+                dialogueExitControl.action.Disable();
+            }
+            else
+            {
+                inDialogue = true;
+                attackControl.action.Disable();
+                dialogueStartControl.action.Disable();
+                dialogueContControl.action.Enable();
+                dialogueExitControl.action.Enable();
+                jumpControl.action.Disable();
+                dodgeControl.action.Disable();
+            }
+        }
+        else
+        {
+            inDialogue = false;
+            attackControl.action.Enable();
+            dialogueStartControl.action.Disable();
+            dialogueContControl.action.Disable();
+            dialogueExitControl.action.Disable();
+            jumpControl.action.Enable();
+            dodgeControl.action.Enable();
+        }
+    }
+
+    /// <summary>
+    /// starts the dialogue
+    /// </summary>
+    /// <returns>true if player starts dialogue. else false</returns>
+    public bool DialogueStart()
+    {
+        return dialogueStartControl.action.triggered;
+    }
+
+    /// <summary>
+    /// continues the dialogue
+    /// </summary>
+    /// <returns>true if the player continues dialogue</returns>
+    public bool DialogueContinue()
+    {
+        return dialogueContControl.action.triggered;
+    }
+
+    /// <summary>
+    /// exits the dialogue
+    /// </summary>
+    /// <returns>true if the player ends the dialogue</returns>
+    public bool DialogueExit()
+    {
+        return dialogueExitControl.action.triggered;
+    }
+
+    /// <summary>
+    /// whether the player is active in conversation or not
+    /// </summary>
+    /// <returns>true if in conversation. else false</returns>
+    public bool IsInDialogue()
+    {
+        return inDialogue;
     }
     #endregion
 
