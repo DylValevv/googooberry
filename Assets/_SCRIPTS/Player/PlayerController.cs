@@ -205,6 +205,8 @@ public class PlayerController : MonoBehaviour
         dir = Direction.Zero;
 
         canDodge = true;
+        //for playtest
+        unlockDash = false;
     }
     #endregion
 
@@ -463,7 +465,7 @@ public class PlayerController : MonoBehaviour
         else if (jumpButtonPressed && !groundedPlayer)
         {
             // if the player can dash again, dash. else do nothing
-            if (canDash && dashes < dashAmountMax)
+            if (canDash && dashes < dashAmountMax && unlockDash)
             {
                 dashCoroutine = StartCoroutine(Dash());
             }
