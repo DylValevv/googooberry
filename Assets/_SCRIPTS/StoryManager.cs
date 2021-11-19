@@ -36,6 +36,7 @@ public class StoryManager : MonoBehaviour
     private void Start()
     {
         player = FindObjectOfType<PlayerController>();
+        Notify("Welcome to Moon-Sighted.", "<sprite name=\"L_ANALOG\"> to move.\n <sprite name=\"R_ANALOG\"> to look.\n <sprite name=\"A\"> to jump.\n <sprite name=\"X\"> to attack/interact.\n");
     }
 
     #region Helper
@@ -87,6 +88,15 @@ public class StoryManager : MonoBehaviour
     private void StepTilakDialogue()
     {
         //Odei.dialogue = new Dialogue("C.0.TILAK1", "Conversation");
+    }
+    public void EnemiesEliminatedNotification()
+    {
+        Notify("Uskerra Eliminated", "Smash the crystal to harvest the ilarka shards.");
+    }
+    public void EnemiesSpottedNotification()
+    {
+        Notify("Uskerra Spotted", "The dangerous creatures defend the ilarka core. Defeat them to harvest its shards.");
+
     }
     #endregion
 

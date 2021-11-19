@@ -68,6 +68,11 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnWave()
     {
+        if(enemyManager.currentWave == 0)
+        {
+            StoryManager.instance.EnemiesSpottedNotification();
+
+        }
         //Debug.Log("current wave: " + enemyManager.currentWave);
         if (enemyManager.currentWave < enemyManager.enemiesPerWave.Length)
         {
@@ -84,6 +89,7 @@ public class EnemySpawner : MonoBehaviour
         else
         {
             Debug.Log("Able to attack crystal");
+            StoryManager.instance.EnemiesEliminatedNotification();
             crystalCore.enemiesDefeated = true;
         }
     }

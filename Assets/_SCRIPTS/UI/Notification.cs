@@ -16,10 +16,9 @@ public class Notification : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI content;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         transform.localScale = new Vector3(0, 0, 0);
-        createSequence();
     }
     // Update is called once per frame
     void Update()
@@ -29,8 +28,9 @@ public class Notification : MonoBehaviour
 
     private void createSequence()
     {
+        transform.localScale = new Vector3(0, 0, 0);
+        Sequence mySequence;
         mySequence = DOTween.Sequence();
-        mySequence.Pause();
         mySequence.Append(transform.DOScale(new Vector3(1, 1, 1), 1).SetEase(Ease.OutExpo)).AppendInterval(5).Append(transform.DOScale(new Vector3(0, 0, 0), 1).SetEase(Ease.OutExpo));
     }
 
@@ -39,6 +39,6 @@ public class Notification : MonoBehaviour
     {
         this.title.text = title;
         content.text = message;
-        mySequence.Restart();
+        createSequence();
     }
 }
