@@ -100,10 +100,13 @@ public class Enemy : MonoBehaviour
         {
             health -= hitDamage;
             Debug.Log("Take Damage");
-            if (health <= 0)
+            if (health <= 0 && !dead)
             {
                 Death();
             }
+
+            AudioManager.instance.PlayAction("SwordHit");
+
             hasTakenDamage = true;
             Sequence mySequence = DOTween.Sequence();
             mySequence.AppendInterval(0.15f).OnComplete(() => CanTakeDamage());
@@ -119,6 +122,10 @@ public class Enemy : MonoBehaviour
     {
         dead = true;
         anim.SetBool("Death", dead);
+
+        int deathnum = UnityEngine.Random.Range(1, 3);
+        AudioManager.instance.PlayAction("LizardDeath" + deathnum.ToString());
+
 
         // stop moving 
         navMeshAgent.isStopped = true;
@@ -187,6 +194,7 @@ public class Enemy : MonoBehaviour
         if (attackSuccessful && !dead)
         {
             DealDamage(damage);
+
         }
 
         this.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
@@ -205,6 +213,7 @@ public class Enemy : MonoBehaviour
     public void DealDamage(int damageAmt)
     {
         gameState.playerHealth -= damageAmt;
+        AudioManager.instance.PlayAction("PlayerDamage");
 
         if (gameState.playerHealth <= 0)
         {
