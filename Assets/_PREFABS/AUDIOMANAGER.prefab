@@ -136,6 +136,24 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: ComboSlam
+    clip: {fileID: 8300000, guid: 7aa9184102f0aa944b785268d5b9e24a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ComboSlam2
+    clip: {fileID: 8300000, guid: cfb1bfc1b3628ee4ea67e5b25aa7493d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ComboChargeup
+    clip: {fileID: 8300000, guid: c020082cbe15d2f4e829a74e484e32d8, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   ambientMixer: {fileID: 7244315924189732430, guid: 4d78c0ff4b4f99647ad6b2dce1f21f47, type: 2}
   ambientSounds: []
   dialogueMixer: {fileID: -4204815170117952932, guid: 4d78c0ff4b4f99647ad6b2dce1f21f47, type: 2}
