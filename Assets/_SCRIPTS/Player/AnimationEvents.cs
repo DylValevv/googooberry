@@ -5,10 +5,6 @@ using UnityEngine;
 public class AnimationEvents : MonoBehaviour
 {
     public PlayerController player;
-    private void Start()
-    {
-        player = FindObjectOfType<PlayerController>();
-    }
 
     /// <summary>
     /// slow the player to a stop for more impact on the third hit
@@ -16,6 +12,8 @@ public class AnimationEvents : MonoBehaviour
     public void ThirdHit()
     {
         player.ThirdHitHelper(0, false);
+        Invoke("ThirdHitPost", 0.85f);  // This line is to fix a bug where cancelling the third hit animation caused player to freeze, as it would skip that animation event flag
+
     }
 
     /// <summary>
@@ -24,5 +22,18 @@ public class AnimationEvents : MonoBehaviour
     public void ThirdHitPost()
     {
         player.ThirdHitHelper(0, true);
+    }
+
+    /// <summary>
+    /// play foot noises
+    /// </summary>
+    public void Foot()
+    {
+        player.PlayFootSteps();
+    }
+
+    public void PlayChargeup()
+    {
+        player.PlayChargeup();
     }
 }

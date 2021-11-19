@@ -17,6 +17,9 @@ public class DialogueStart : MonoBehaviour
     [SerializeField]
     private bool oneTimeDialogue;
     private bool typeSentence;
+
+    private bool isTalking;
+    private string lastSentence;
     public bool ready = false;
     [SerializeField]
     private GameObject talkIcon;
@@ -27,6 +30,7 @@ public class DialogueStart : MonoBehaviour
     void Start()
     {
         index = 0;
+        isTalking = false;
         dialogue = new Dialogue(scene, "Conversation");//we now have the dialogue
         talkIcon.transform.localScale.Set(0, 0, 0);
         screenPosition = DialogueZone.instance.position;
@@ -67,8 +71,17 @@ public class DialogueStart : MonoBehaviour
 
     private void NextSentence()
     {
+        if (isTalking && typeSentence)//player being impatient
+        {
+            StopAllCoroutines();
+            DialogueZone.instance.content.text = lastSentence;
+            isTalking = false;
+            return;
+        }
         //set speaker
         string s = dialogue.sentences[index];
+        
+
         while (dialogue.sentences[index].Contains("//"))
         {
             if (dialogue.sentences[index].Contains("//:"))
@@ -82,12 +95,11 @@ public class DialogueStart : MonoBehaviour
             }
         }
 
-
-
+        lastSentence = dialogue.sentences[index];
         AudioManager.instance.PlayDialogue("moth" + character.sounds[character.soundIndex++ % character.sounds.Length]);
         if (!typeSentence) DialogueZone.instance.content.text = dialogue.sentences[index];
-        else { 
-            StopAllCoroutines(); StartCoroutine(TypeSentence(dialogue.sentences[index])); 
+        else {
+                StopAllCoroutines(); StartCoroutine(TypeSentence(dialogue.sentences[index]));
         }
 
         //next sentence, check if conversation is over
@@ -117,6 +129,7 @@ public class DialogueStart : MonoBehaviour
 
     IEnumerator TypeSentence(string line)
     {
+        isTalking = true;
         DialogueZone.instance.content.text = "";
         string s = "";
         char letter;
@@ -125,13 +138,15 @@ public class DialogueStart : MonoBehaviour
             letter = line.ToCharArray()[i];
             if (letter == '<')
             {
+                s = "";
+                //make sure entire tag gets printed before 
                 while (letter != '>' && i + 1 < line.Length)
                 {
-
                     s += letter;
                     i++;
                     letter = line.ToCharArray()[i];
                 }
+                //<b> or </b>
                 s += letter;
                 DialogueZone.instance.content.text += s;
                 yield return null;
@@ -139,9 +154,10 @@ public class DialogueStart : MonoBehaviour
             else
             {
                 DialogueZone.instance.content.text += letter;
-                yield return null;
+                yield return new WaitForSeconds(.01f);
             }
         }
+        isTalking = false;
     }
 }
 

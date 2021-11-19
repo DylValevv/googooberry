@@ -13,6 +13,7 @@ public class StoryManager : MonoBehaviour
     [SerializeField] DialogueStart Olent;
     [SerializeField] GameState gameState;
     [SerializeField] PlayerController player;
+    [SerializeField] Notification notification;
 
 
     public static StoryManager instance;
@@ -29,7 +30,12 @@ public class StoryManager : MonoBehaviour
             return;
         }
 
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(transform.parent);
+    }
+
+    private void Start()
+    {
+        player = FindObjectOfType<PlayerController>();
     }
 
     #region Helper
@@ -40,6 +46,12 @@ public class StoryManager : MonoBehaviour
     {
         Invoke(function, 0);
     }
+
+    private void Notify(string title, string message)
+    {
+        notification.Notify(title, message);
+    }
+
     private void FullHealCharacter()
     {
         gameState.AddPlayerHealth(gameState.maxPlayerHealth);
@@ -58,10 +70,12 @@ public class StoryManager : MonoBehaviour
     //Odei will tell him to explore new area
     //Use finisher to open up blockade
     //Enter area 1, there is a room fight some baddies, once you click
-    private void ActivatePlayerFinisher()
+    private void ActivatePlayerDash()
     {
         StepOdeiDialogue();
-        player.SetThirdHit();
+        player.UnlockDash();
+        Notify("Air Dash Unlocked", "Press <sprite name=\"A\"> in the air. Zoom forward and use the power in your wings.");
+
     }
 
     //call after speaking with Tilak

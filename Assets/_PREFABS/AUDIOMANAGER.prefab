@@ -45,7 +45,97 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   masterMixer: {fileID: 24300002, guid: 4d78c0ff4b4f99647ad6b2dce1f21f47, type: 2}
   actionMixer: {fileID: -7613153107081881719, guid: 4d78c0ff4b4f99647ad6b2dce1f21f47, type: 2}
-  actionSounds: []
+  actionSounds:
+  - name: Footstep1
+    clip: {fileID: 8300000, guid: 7f46ba2676c615a4791144b1178efe2e, type: 3}
+    volume: 0.25
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Footstep2
+    clip: {fileID: 8300000, guid: 71b04841bc034db4ca055eb335a10a02, type: 3}
+    volume: 0.25
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Footstep3
+    clip: {fileID: 8300000, guid: 939b6e79a20642e46b26017432c309ef, type: 3}
+    volume: 0.25
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Impact1
+    clip: {fileID: 8300000, guid: ddb271c3eaccd0c448c8a96aa1c2ab6f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Impact2
+    clip: {fileID: 8300000, guid: 9cd3553fca8d4544db8d0e50fe330d88, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Impact3
+    clip: {fileID: 8300000, guid: a482003fd3a9bd741ae04400664bcb2f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Impact4
+    clip: {fileID: 8300000, guid: 05fb48b46ea97044d85bfd49fcdcf22c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Dash
+    clip: {fileID: 8300000, guid: a0a2c96d0debb474c8f45e7c71c02820, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Dodge
+    clip: {fileID: 8300000, guid: 342054e07d930bd43a5138c15fb0c749, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Jump
+    clip: {fileID: 8300000, guid: 0b45c6b53cd7f4e43be4f061bcb852a3, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: JumpLand
+    clip: {fileID: 8300000, guid: f6f84f54d03f8094ea7b0f7617d9daed, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Swing1
+    clip: {fileID: 8300000, guid: cb24ef4e40ac37b48829403fc39d280d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Swing2
+    clip: {fileID: 8300000, guid: f59b9ad3fee970649a2fa87476195d57, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Swing3
+    clip: {fileID: 8300000, guid: d674844fb35e5354ab92d700c5d13f7d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Swing4
+    clip: {fileID: 8300000, guid: 2de417c3a99c89241b955be7b6cbede9, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   ambientMixer: {fileID: 7244315924189732430, guid: 4d78c0ff4b4f99647ad6b2dce1f21f47, type: 2}
   ambientSounds: []
   dialogueMixer: {fileID: -4204815170117952932, guid: 4d78c0ff4b4f99647ad6b2dce1f21f47, type: 2}

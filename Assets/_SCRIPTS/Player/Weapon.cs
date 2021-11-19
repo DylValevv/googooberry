@@ -16,6 +16,8 @@ public class Weapon : MonoBehaviour
     [SerializeField] private GameObject particleTrail;
     [SerializeField] private VisualEffect impactVFX;
 
+    private Coroutine DelayedSheathCo;
+
     private void Start()
     {
         myCollider = GetComponent<Collider>();
@@ -77,16 +79,31 @@ public class Weapon : MonoBehaviour
     /// </summary>
     public void SheathWeapon()
     {
-        Invoke("DelayedSheath", sheathDelay);
+        Debug.Log("SHEATH!!");
+        // Invoke("DelayedSheath", sheathDelay);
+        if (DelayedSheathCo == null) DelayedSheathCo = StartCoroutine(DelayedSheath());
+    }
+
+    /// <summary>
+    /// stops the delayed sheath coroutine
+    /// </summary>
+    public void StopSheath()
+    {
+        Debug.Log("STOP SHEATH");
+        if (DelayedSheathCo != null) StopCoroutine(DelayedSheathCo);
     }
 
     /// <summary>
     /// after a set amount of time the weapon will be retracted. called as an Invoke in SheathWeapon()
     /// </summary>
-    private void DelayedSheath()
+    private IEnumerator DelayedSheath()
     {
+        yield return new WaitForSeconds(sheathDelay);
+
         anim.Play("anim_weapon_sheath");
         unsheathed = false;
         particleTrail.GetComponent<TrailRenderer>().emitting = false;
+        DelayedSheathCo = null;
+        yield return null;
     }
 }

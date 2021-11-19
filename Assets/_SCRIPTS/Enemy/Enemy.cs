@@ -40,6 +40,7 @@ public class Enemy : MonoBehaviour
     private AnimatorOverrideController animOverride;
     private bool dead;
     [HideInInspector] public bool firstDelayedDeathInvoke = false;
+    [SerializeField] private ProgressBar LifeBar;
 
     // Start is called before the first frame update
     void Start()
@@ -56,12 +57,14 @@ public class Enemy : MonoBehaviour
         animOverride = new AnimatorOverrideController(anim.runtimeAnimatorController);
         // assign the override controller back into the animator so it can be manipulated/be used
         anim.runtimeAnimatorController = animOverride;
+        LifeBar.max = health;
     }
 
     // Update is called once per frame
     void Update()
     {
         if (isAttacking == false && !dead) SetDestination(); //Reroute towards player 
+        LifeBar.current = health;
         //isCollidingWithPlayer = false;
     }
 
