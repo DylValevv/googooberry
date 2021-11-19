@@ -31,6 +31,7 @@ public class Notification : MonoBehaviour
         transform.localScale = new Vector3(0, 0, 0);
         Sequence mySequence;
         mySequence = DOTween.Sequence();
+        AudioManager.instance.PlayAction("Impact3");
         mySequence.Append(transform.DOScale(new Vector3(1, 1, 1), 1).SetEase(Ease.OutExpo)).AppendInterval(5).Append(transform.DOScale(new Vector3(0, 0, 0), 1).SetEase(Ease.OutExpo));
     }
 
