@@ -26,6 +26,8 @@ public class DialogueStart : MonoBehaviour
     private Character character;
     private int screenPosition;
 
+    private PlayerController player;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +37,8 @@ public class DialogueStart : MonoBehaviour
         talkIcon.transform.localScale.Set(0, 0, 0);
         screenPosition = DialogueZone.instance.position;
         typeSentence = DialogueZone.instance.typeSentence;
+
+        player = FindObjectOfType<PlayerController>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -45,6 +49,8 @@ public class DialogueStart : MonoBehaviour
             ready = true;
             talkIcon.SetActive(true);
             talkIcon.transform.DOScale(1f, .3f);
+
+            player.DialogueHandling(true, true);
         }
     }
 
@@ -55,17 +61,42 @@ public class DialogueStart : MonoBehaviour
             ready = false;
             talkIcon.transform.DOScale(0f, .3f).OnComplete(()=>talkIcon.SetActive(false));
             ExitDialogue();
+            player.DialogueHandling(false, false);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (ready && Input.GetKeyDown(KeyCode.E))
+        if (ready)
         {
-            DialogueZone.instance.gameObject.SetActive(true);
-            DialogueZone.instance.transform.DOMoveY(screenPosition, .2f);
-            NextSentence();
+            if (!player.IsInDialogue())
+            {
+                if(player.DialogueStart())
+                {
+                    DialogueZone.instance.gameObject.SetActive(true);
+                    DialogueZone.instance.transform.DOMoveY(screenPosition, .2f);
+                    NextSentence();
+                    player.DialogueHandling(true, false);
+                }
+            }
+            else if (player.DialogueContinue())
+            {
+                DialogueZone.instance.gameObject.SetActive(true);
+                DialogueZone.instance.transform.DOMoveY(screenPosition, .2f);
+                NextSentence();
+            }
+            
+        }
+
+        if(player.IsInDialogue())
+        {
+            if(player.DialogueExit())
+            {
+                ready = false;
+                talkIcon.transform.DOScale(0f, .3f).OnComplete(() => talkIcon.SetActive(false));
+                ExitDialogue();
+            }
         }
     }
 
@@ -113,6 +144,9 @@ public class DialogueStart : MonoBehaviour
 
     private void ExitDialogue()
     {
+        ready = false;
+        talkIcon.transform.DOScale(0f, .3f).OnComplete(() => talkIcon.SetActive(false));
+        player.DialogueHandling(false, false);
         index = 0;
         DialogueZone.instance.transform.DOMoveY(-screenPosition, .3f).OnComplete(() => DialogueZone.instance.gameObject.SetActive(false));
     }
