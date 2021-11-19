@@ -149,13 +149,6 @@ public class PlayerController : MonoBehaviour
     private Coroutine blendTreeCoroutine;
     #endregion
 
-    [Header("-----------------------SFX-----------------------")]
-    #region<SFX Variables>
-    public List<AudioClip> footsteps;
-    public List<AudioClip> attacks;
-    public List<AudioClip> impacts;
-    #endregion
-
     #region<Initializing Functions>
     /// <summary>
     /// enable the action before we use it
@@ -377,6 +370,8 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private IEnumerator Dodge(Direction direction)
     {
+        AudioManager.instance.PlayAction("Dodge");
+
         float dodgeTotalTime = 0;
 
         // dodge refractory period begin
@@ -412,6 +407,7 @@ public class PlayerController : MonoBehaviour
         {
             if(jumpTimes != 0)
             {
+                AudioManager.instance.PlayAction("JumpLand");
                 if (playLandAnim) PlayAnim("JumpLand", true);
                 playLandAnim = false;
             }
@@ -450,6 +446,7 @@ public class PlayerController : MonoBehaviour
             // if on the ground, jump
             if (CanJump() || CanContinueJump())
             {
+                AudioManager.instance.PlayAction("Jump");
                 playerVelocity.y += Mathf.Sqrt(jumpHeight * -2.0f * gravityValue);
                 //playerVelocity.y = jumpHeight;
                 jumpElapsedTime += Time.deltaTime;
@@ -494,7 +491,7 @@ public class PlayerController : MonoBehaviour
             wing.Dash();
             wing.EmissiveLerp(false);
         }
-
+        AudioManager.instance.PlayAction("Dash");
         PlayAnim("Dash", true);
 
         float dashTotalTime = 0;
@@ -567,8 +564,6 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            
-
             comboCount = 0;
             comboCount++;
         }
@@ -591,6 +586,7 @@ public class PlayerController : MonoBehaviour
             }
 
         }
+        PlaySwing();
 
         leftWeapon.ToggleCollider(isAttacking);
         rightWeapon.ToggleCollider(isAttacking);
@@ -648,32 +644,38 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region<SFX Functions>
+    /// <summary>
+    /// if the player is moving, play a randomized footsound effect
+    /// </summary>
     public void PlayFootSteps()
     {
-        if (footsteps.Count > 0)
+        if(dir != Direction.Zero)
         {
-            int num = UnityEngine.Random.Range(0, footsteps.Count);
-            //AudioManager.instance.Play("Footstep" + footsteps[num].ToString());
+            int num = UnityEngine.Random.Range(1, 4);
+            AudioManager.instance.PlayAction("Footstep" + num.ToString());
+        }
+        else
+        {
+            Debug.Log("standing still");
         }
     }
 
-    public void PlayAttack()
+    /// <summary>
+    /// when the player swings, play a randomized swing sound
+    /// </summary>
+    public void PlaySwing()
     {
-        if (attacks.Count > 0)
-        {
-            int num = UnityEngine.Random.Range(0, attacks.Count);
-            //AudioManager.instance.Play("Attack" + attacks[num].ToString());
-        }
+        int num = UnityEngine.Random.Range(1, 5);
+        AudioManager.instance.PlayAction("Swing" + num.ToString());
     }
 
+    /// <summary>
+    /// when the player hits an enemy, play a randomized impact noise
+    /// </summary>
     public void PlayImpact()
-
     {
-        if (impacts.Count > 0)
-        {
-            int num = UnityEngine.Random.Range(0, impacts.Count);
-            //AudioManager.instance.Play("Impact" + attacks[num].ToString());
-        }
+        int num = UnityEngine.Random.Range(1, 3);
+        AudioManager.instance.PlayAction("Impact" + num.ToString());
     }
     #endregion
 
@@ -814,10 +816,14 @@ public class PlayerController : MonoBehaviour
     {
         if (!backToNormal)
         {
+            PlayImpact();
             playerSpeed = newSpeed;
         }
 
-        else playerSpeed = OGplayerSpeed;
+        else
+        {
+            playerSpeed = OGplayerSpeed;
+        }
     }
 
     /// <summary>
