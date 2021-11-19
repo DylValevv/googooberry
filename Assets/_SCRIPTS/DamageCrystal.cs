@@ -5,6 +5,8 @@ using UnityEngine;
 public class DamageCrystal : MonoBehaviour
 {
     public CrystalCores crystalData;
+    public bool enemiesDefeated = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,8 +21,9 @@ public class DamageCrystal : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Weapon"))
+        if (other.gameObject.CompareTag("Weapon") && enemiesDefeated)
         {
+            Debug.Log("crystal core hit");
             TakeDamage();
         }
     }

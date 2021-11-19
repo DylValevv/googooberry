@@ -308,6 +308,7 @@ MonoBehaviour:
   - {fileID: 7400000, guid: abec83bd063b0104bb57b10443a68cc5, type: 2}
   - {fileID: 7400000, guid: 1a0fa255f7abe354b89e5553da51c100, type: 2}
   firstDelayedDeathInvoke: 0
+  LifeBar: {fileID: 3030079239651416522}
 --- !u!195 &8937038405492169517
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -491,6 +492,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2266586292662029035, guid: e7921b64d76f4f740941557bf941bc1f, type: 3}
   m_PrefabInstance: {fileID: 3853261842056385325}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3030079239651416522 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2266586292662029031, guid: e7921b64d76f4f740941557bf941bc1f, type: 3}
+  m_PrefabInstance: {fileID: 3853261842056385325}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 008c1878c8dc327419af40c125ad9962, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7851242233707647250
 PrefabInstance:
   m_ObjectHideFlags: 0
