@@ -158,6 +158,12 @@ public class PlayerController : MonoBehaviour
     private Coroutine blendTreeCoroutine;
     #endregion
 
+    [Header("-----------------------Abilities-----------------------")]
+    #region<Ability Variables>
+    [SerializeField] GameObject vfx_crystalSlamAnticip;
+    [SerializeField] GameObject vfx_crystalSlamClimax;
+    #endregion
+
     #region<Initializing Functions>
     /// <summary>
     /// enable the action before we use it
@@ -251,6 +257,11 @@ public class PlayerController : MonoBehaviour
         AttackHandler();
 
         DodgeHandler();
+
+        if(Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            StartSlam();
+        }
     }
 
     #region<Locomotion Handlers>
@@ -641,11 +652,6 @@ public class PlayerController : MonoBehaviour
         comboCooldownCoroutine = null;
     }
 
-    public void ShiftAbility()
-    {
-        PlayAnim("ShiftAbility", true);
-    }
-
     public void RAbility()
     {
         PlayAnim("RAbility", true);
@@ -869,6 +875,42 @@ public class PlayerController : MonoBehaviour
     public void SetThirdHit()
     {
         thirdHit = true;
+    }
+    #endregion
+
+    #region<Ability Functions>
+    /// <summary>
+    /// stops player movement and begins animation and anticipation
+    /// </summary>
+    public void StartSlam()
+    {
+        PlayAnim("Cast", true);
+
+        vfx_crystalSlamAnticip.SetActive(false);
+        vfx_crystalSlamClimax.SetActive(false);
+
+        vfx_crystalSlamAnticip.SetActive(true);
+        vfx_crystalSlamClimax.SetActive(true);
+
+        attackControl.action.Disable();
+        dialogueStartControl.action.Disable();
+        dialogueContControl.action.Disable();
+        dialogueExitControl.action.Disable();
+        jumpControl.action.Disable();
+        dodgeControl.action.Disable();
+    }
+
+    /// <summary>
+    /// turns on player movement and turns off effects
+    /// </summary>
+    public void EndSlam()
+    {
+        attackControl.action.Enable();
+        dialogueStartControl.action.Disable();
+        dialogueContControl.action.Disable();
+        dialogueExitControl.action.Disable();
+        jumpControl.action.Enable();
+        dodgeControl.action.Enable();
     }
     #endregion
 

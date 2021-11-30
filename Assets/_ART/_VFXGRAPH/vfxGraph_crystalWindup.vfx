@@ -13,15 +13,39 @@ MonoBehaviour:
   m_Name: VFXUI
   m_EditorClassIdentifier: 
   groupInfos:
-  - title: CLIMAX GROUND PARTICLES
+  - title: ANTICIPATION PARTICLES
     position:
       serializedVersion: 2
-      x: -1470
-      y: 3812
-      width: 474
-      height: 916
+      x: -1890
+      y: -501
+      width: 1361
+      height: 2346
     contents:
-    - model: {fileID: 8926484042661614627}
+    - model: {fileID: 8926484042661614555}
+      id: 0
+      isStickyNote: 0
+    - model: {fileID: 8926484042661614558}
+      id: 0
+      isStickyNote: 0
+    - model: {fileID: 8926484042661614583}
+      id: 0
+      isStickyNote: 0
+    - model: {fileID: 8926484042661614585}
+      id: 0
+      isStickyNote: 0
+    - model: {fileID: 8926484042661614862}
+      id: 0
+      isStickyNote: 0
+    - model: {fileID: 8926484042661614841}
+      id: 0
+      isStickyNote: 0
+    - model: {fileID: 8926484042661614875}
+      id: 0
+      isStickyNote: 0
+    - model: {fileID: 8926484042661614790}
+      id: 0
+      isStickyNote: 0
+    - model: {fileID: 8926484042661614853}
       id: 0
       isStickyNote: 0
   - title: DISSIPATION
@@ -44,39 +68,24 @@ MonoBehaviour:
     - model: {fileID: 8926484042661614666}
       id: 0
       isStickyNote: 0
-  - title: CLIMAX GROUND MESH
+  - title: ANTICIPATION BEAM
     position:
       serializedVersion: 2
-      x: -960
-      y: 2159
-      width: 1033
-      height: 2750
+      x: -334
+      y: -506
+      width: 474
+      height: 1454
     contents:
-    - model: {fileID: 8926484042661614922}
+    - model: {fileID: 8926484042661614755}
       id: 0
       isStickyNote: 0
-    - model: {fileID: 8926484042661614927}
+    - model: {fileID: 8926484042661614757}
       id: 0
       isStickyNote: 0
-    - model: {fileID: 8926484042661614955}
+    - model: {fileID: 8926484042661614768}
       id: 0
       isStickyNote: 0
-    - model: {fileID: 8926484042661614974}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661615002}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661615008}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661615010}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661615014}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661615115}
+    - model: {fileID: 8926484042661614770}
       id: 0
       isStickyNote: 0
   stickyNoteInfos: []
@@ -86,7 +95,7 @@ MonoBehaviour:
     x: -1890
     y: -506
     width: 4936
-    height: 5415
+    height: 2351
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -97,29 +106,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d4c867f6b72b714dbb5fd1780afe208, type: 3}
-  m_Name: vfxGraph_crystalSlam
+  m_Name: vfxGraph_crystalWindup
   m_EditorClassIdentifier: 
   m_UIIgnoredErrors: []
   m_Parent: {fileID: 0}
   m_Children:
-  - {fileID: 8926484042661614627}
+  - {fileID: 8926484042661614555}
+  - {fileID: 8926484042661614558}
+  - {fileID: 8926484042661614583}
+  - {fileID: 8926484042661614585}
   - {fileID: 8926484042661614635}
   - {fileID: 8926484042661614639}
   - {fileID: 8926484042661614664}
   - {fileID: 8926484042661614666}
+  - {fileID: 8926484042661614755}
+  - {fileID: 8926484042661614757}
+  - {fileID: 8926484042661614768}
+  - {fileID: 8926484042661614770}
+  - {fileID: 8926484042661614790}
+  - {fileID: 8926484042661614841}
   - {fileID: 8926484042661614853}
+  - {fileID: 8926484042661614862}
   - {fileID: 8926484042661614875}
   - {fileID: 8926484042661614893}
   - {fileID: 8926484042661614903}
   - {fileID: 8926484042661614916}
-  - {fileID: 8926484042661614922}
-  - {fileID: 8926484042661614927}
-  - {fileID: 8926484042661614955}
-  - {fileID: 8926484042661614974}
   - {fileID: 8926484042661615002}
-  - {fileID: 8926484042661615008}
-  - {fileID: 8926484042661615010}
-  - {fileID: 8926484042661615014}
   - {fileID: 8926484042661615115}
   m_UIPosition: {x: 0, y: 0}
   m_UICollapsed: 1
@@ -236,7 +248,7 @@ VisualEffectResource:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: vfxGraph_crystalSlam
+  m_Name: vfxGraph_crystalWindup
   m_Graph: {fileID: 114350483966674976}
   m_Infos:
     m_RendererSettings:
@@ -3910,7 +3922,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614753}
   - {fileID: 8926484042661614754}
   m_OutputSlots: []
-  m_Disabled: 1
+  m_Disabled: 0
   Mode: 1
   NoiseType: 0
 --- !u!114 &8926484042661614736
@@ -4606,7 +4618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UIIgnoredErrors: []
-  m_Parent: {fileID: 0}
+  m_Parent: {fileID: 114350483966674976}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
   m_UICollapsed: 1
@@ -4966,7 +4978,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UIIgnoredErrors: []
-  m_Parent: {fileID: 0}
+  m_Parent: {fileID: 114350483966674976}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
   m_UICollapsed: 1
@@ -6141,7 +6153,14 @@ MonoBehaviour:
   m_EnumValues: []
   m_ValueFilter: 0
   m_Tooltip: 
-  m_Nodes: []
+  m_Nodes:
+  - m_Id: 0
+    linkedSlots:
+    - outputSlot: {fileID: 8926484042661614854}
+      inputSlot: {fileID: 8926484042661614858}
+    position: {x: -1809, y: 567}
+    expandedSlots: []
+    expanded: 0
 --- !u!114 &8926484042661614854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6178,7 +6197,8 @@ MonoBehaviour:
       m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
   m_Direction: 1
-  m_LinkedSlots: []
+  m_LinkedSlots:
+  - {fileID: 8926484042661614858}
 --- !u!114 &8926484042661614855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6889,7 +6909,14 @@ MonoBehaviour:
   m_EnumValues: []
   m_ValueFilter: 0
   m_Tooltip: 
-  m_Nodes: []
+  m_Nodes:
+  - m_Id: 0
+    linkedSlots:
+    - outputSlot: {fileID: 8926484042661614876}
+      inputSlot: {fileID: 8926484042661614867}
+    position: {x: -1548, y: 644}
+    expandedSlots: []
+    expanded: 0
 --- !u!114 &8926484042661614876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6926,7 +6953,8 @@ MonoBehaviour:
       m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
   m_Direction: 1
-  m_LinkedSlots: []
+  m_LinkedSlots:
+  - {fileID: 8926484042661614867}
 --- !u!114 &8926484042661614877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8228,14 +8256,7 @@ MonoBehaviour:
   m_EnumValues: []
   m_ValueFilter: 0
   m_Tooltip: 
-  m_Nodes:
-  - m_Id: 2
-    linkedSlots:
-    - outputSlot: {fileID: 8926484042661614917}
-      inputSlot: {fileID: 8926484042661615242}
-    position: {x: -1644, y: 4351}
-    expandedSlots: []
-    expanded: 0
+  m_Nodes: []
 --- !u!114 &8926484042661614917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8273,8 +8294,7 @@ MonoBehaviour:
       m_SerializableType: UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
   m_Direction: 1
-  m_LinkedSlots:
-  - {fileID: 8926484042661615242}
+  m_LinkedSlots: []
 --- !u!114 &8926484042661614918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8454,7 +8474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UIIgnoredErrors: []
-  m_Parent: {fileID: 114350483966674976}
+  m_Parent: {fileID: 0}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
   m_UICollapsed: 1
@@ -8909,7 +8929,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UIIgnoredErrors: []
-  m_Parent: {fileID: 114350483966674976}
+  m_Parent: {fileID: 0}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
   m_UICollapsed: 1
@@ -10155,14 +10175,7 @@ MonoBehaviour:
   m_EnumValues: []
   m_ValueFilter: 0
   m_Tooltip: 
-  m_Nodes:
-  - m_Id: 0
-    linkedSlots:
-    - outputSlot: {fileID: 8926484042661615003}
-      inputSlot: {fileID: 8926484042661615040}
-    position: {x: -640, y: 4044}
-    expandedSlots: []
-    expanded: 0
+  m_Nodes: []
 --- !u!114 &8926484042661615003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10200,8 +10213,7 @@ MonoBehaviour:
       m_SerializableType: UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
   m_Direction: 1
-  m_LinkedSlots:
-  - {fileID: 8926484042661615040}
+  m_LinkedSlots: []
 --- !u!114 &8926484042661615004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12697,14 +12709,7 @@ MonoBehaviour:
   m_EnumValues: []
   m_ValueFilter: 0
   m_Tooltip: 
-  m_Nodes:
-  - m_Id: 0
-    linkedSlots:
-    - outputSlot: {fileID: 8926484042661615116}
-      inputSlot: {fileID: 8926484042661615109}
-    position: {x: -600, y: 4633}
-    expandedSlots: []
-    expanded: 0
+  m_Nodes: []
 --- !u!114 &8926484042661615116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12741,8 +12746,7 @@ MonoBehaviour:
       m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
   m_Direction: 1
-  m_LinkedSlots:
-  - {fileID: 8926484042661615109}
+  m_LinkedSlots: []
 --- !u!114 &8926484042661615117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14865,7 +14869,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.8
+      m_SerializableObject: 1
     m_Space: 2147483647
   m_Property:
     name: Delay
