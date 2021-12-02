@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5712336422345343909
 Transform:
@@ -109,12 +109,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 06b0c4917bd54c74ebe212eb7839429c, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.58
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 06b0c4917bd54c74ebe212eb7839429c, type: 3}
+      propertyPath: m_LightmapParameters
+      value: 
+      objectReference: {fileID: 15201, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: -7511558181221131132, guid: 06b0c4917bd54c74ebe212eb7839429c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f634b16e0b4a3474ab2661bd058ae3b6, type: 2}
     - target: {fileID: 919132149155446097, guid: 06b0c4917bd54c74ebe212eb7839429c, type: 3}
       propertyPath: m_Name
       value: ENV_CaveFloor_02_MESH
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 06b0c4917bd54c74ebe212eb7839429c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06b0c4917bd54c74ebe212eb7839429c, type: 3}
