@@ -38,8 +38,6 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        DontDestroyOnLoad(gameObject);
-
         setup(dialogueSounds, dialogueMixer);
         setup(actionSounds, actionMixer);
         setup(ambientSounds, ambientMixer);

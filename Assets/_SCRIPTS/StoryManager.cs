@@ -66,7 +66,7 @@ public class StoryManager : MonoBehaviour
             return;
         }
 
-        DontDestroyOnLoad(transform.parent);
+        //DontDestroyOnLoad(transform.parent);
     }
 
     private void Start()
