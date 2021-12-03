@@ -35,7 +35,6 @@ public class DialogueStart : MonoBehaviour
         isTalking = false;
         dialogue = new Dialogue(scene, "Conversation");//we now have the dialogue
         talkIcon.transform.localScale.Set(0, 0, 0);
-        screenPosition = DialogueZone.instance.position;
         typeSentence = DialogueZone.instance.typeSentence;
 
         player = FindObjectOfType<PlayerController>();
@@ -70,12 +69,15 @@ public class DialogueStart : MonoBehaviour
     {
         if (ready)
         {
+            screenPosition = Screen.height - (4 * Screen.height / 5);
             if (!player.IsInDialogue())
             {
                 if(player.DialogueStart())
                 {
                     DialogueZone.instance.gameObject.SetActive(true);
                     DialogueZone.instance.transform.DOMoveY(screenPosition, .2f);
+                    Debug.Log(Screen.height - (4 * Screen.height/5));
+                    Debug.Log(screenPosition);
                     NextSentence();
                     player.DialogueHandling(true, false);
                 }

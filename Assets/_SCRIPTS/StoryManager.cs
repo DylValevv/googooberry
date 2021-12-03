@@ -14,6 +14,42 @@ public class StoryManager : MonoBehaviour
     [SerializeField] GameState gameState;
     [SerializeField] PlayerController player;
     [SerializeField] Notification notification;
+    public bool useController = true;
+
+    public struct Control
+    {
+        public Control(string controller, string keyboard)
+        {
+            this.controller = controller;
+            this.keyboard = keyboard;
+        }
+        public string controller;
+        public string keyboard;
+    }
+    Control Look = new Control("R_ANALOG", "MOUSE");
+    Control Move = new Control("L_ANALOG", "WASD");
+    Control Jump = new Control("A", "SPACE");
+    Control Attack = new Control("X", "LMOUSE");
+    Control Dodge = new Control("B", "SHIFT");
+    Control StartTalk = new Control("X", "E");
+    Control ContinueTalk = new Control("X", "E");
+    Control ExitTalk = new Control("B", "ESC");
+
+
+    public string GetSprite(Control control)
+    {
+        string res;
+        if (useController)
+        {
+            res = $"<sprite name=\"{control.controller}\">";
+        }
+        else
+        {
+            res = $"<sprite name=\"{control.keyboard}\">";
+
+        }
+        return res;
+    }
 
 
     public static StoryManager instance;
@@ -30,15 +66,14 @@ public class StoryManager : MonoBehaviour
             return;
         }
 
-        DontDestroyOnLoad(transform.parent);
+        //DontDestroyOnLoad(transform.parent);
     }
 
     private void Start()
     {
         player = FindObjectOfType<PlayerController>();
         Notify("Welcome to Moon-Sighted.", 
-            "<sprite name=\"L_ANALOG\"> to move. <sprite name=\"R_ANALOG\"> to look.\n <sprite name=\"A\"> " +
-            "to jump.\n <sprite name=\"X\"> to attack/interact.\n <sprite name=\"B\"> to dodge.\n");
+            $"{GetSprite(Move)} to move. {GetSprite(Look)} to look.\n {GetSprite(Jump)} to jump.\n {GetSprite(StartTalk)} to interact.\n {GetSprite(Dodge)} to dodge.\n");
     }
 
     #region Helper
@@ -77,7 +112,7 @@ public class StoryManager : MonoBehaviour
     {
         StepOdeiDialogue();
         player.UnlockDash();
-        Notify("Air Dash Unlocked", "Press <sprite name=\"A\"> in the air. Zoom forward and use the power in your wings.");
+        Notify("Air Dash Unlocked", $"Press {GetSprite(Jump)} in the air. Zoom forward and use the power in your wings.");
 
     }
 

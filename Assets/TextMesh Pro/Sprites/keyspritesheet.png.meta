@@ -1,0 +1,1704 @@
+fileFormatVersion: 2
+guid: d08070823b0e4b74abfc78d8672eb52e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3817039824524781911
+    second: keyspritesheet_0
+  - first:
+      213: 2139806701678873461
+    second: keyspritesheet_1
+  - first:
+      213: 2539776485593596160
+    second: keyspritesheet_2
+  - first:
+      213: -3083856735526081560
+    second: keyspritesheet_3
+  - first:
+      213: -4635542387957543126
+    second: keyspritesheet_4
+  - first:
+      213: 5817112875117074055
+    second: keyspritesheet_5
+  - first:
+      213: 4939714435188884198
+    second: keyspritesheet_6
+  - first:
+      213: -6150756733548250074
+    second: keyspritesheet_7
+  - first:
+      213: -7375317281458361351
+    second: keyspritesheet_8
+  - first:
+      213: -7751898298500107527
+    second: keyspritesheet_9
+  - first:
+      213: -7699985664284313080
+    second: keyspritesheet_10
+  - first:
+      213: -1676391102771436052
+    second: keyspritesheet_11
+  - first:
+      213: -3898658272976226017
+    second: keyspritesheet_12
+  - first:
+      213: 7986440288529847108
+    second: keyspritesheet_13
+  - first:
+      213: 5686570301729744987
+    second: keyspritesheet_14
+  - first:
+      213: -3175497351809367652
+    second: keyspritesheet_15
+  - first:
+      213: 688823735063914245
+    second: keyspritesheet_16
+  - first:
+      213: -8068846687302229949
+    second: keyspritesheet_17
+  - first:
+      213: -9091758053458015823
+    second: keyspritesheet_18
+  - first:
+      213: -3589341601159514782
+    second: keyspritesheet_19
+  - first:
+      213: -3691489217892752131
+    second: keyspritesheet_20
+  - first:
+      213: -3915301902824403384
+    second: keyspritesheet_21
+  - first:
+      213: -5682314297408681435
+    second: keyspritesheet_22
+  - first:
+      213: -3033073961385451664
+    second: keyspritesheet_23
+  - first:
+      213: 6621751833751849401
+    second: keyspritesheet_24
+  - first:
+      213: -3932095146707902232
+    second: keyspritesheet_25
+  - first:
+      213: -2325656421192282987
+    second: keyspritesheet_26
+  - first:
+      213: -9122546505790974090
+    second: keyspritesheet_27
+  - first:
+      213: -7429756598878808404
+    second: keyspritesheet_28
+  - first:
+      213: -4836872444734126989
+    second: keyspritesheet_29
+  - first:
+      213: 8073770129269967972
+    second: keyspritesheet_30
+  - first:
+      213: 8860867769952917080
+    second: keyspritesheet_31
+  - first:
+      213: 5106358172191307710
+    second: keyspritesheet_32
+  - first:
+      213: -7707263561568926187
+    second: keyspritesheet_33
+  - first:
+      213: 8091242347528892143
+    second: keyspritesheet_34
+  - first:
+      213: -7481869300928151707
+    second: keyspritesheet_35
+  - first:
+      213: -6171456206982147902
+    second: keyspritesheet_36
+  - first:
+      213: -1662645951154287440
+    second: keyspritesheet_37
+  - first:
+      213: -3482499190217094751
+    second: keyspritesheet_38
+  - first:
+      213: -9044633487522681257
+    second: keyspritesheet_39
+  - first:
+      213: -3061381194398192473
+    second: keyspritesheet_40
+  - first:
+      213: 1871038425192889900
+    second: keyspritesheet_41
+  - first:
+      213: -1987577223475249774
+    second: keyspritesheet_42
+  - first:
+      213: 3041405672132798091
+    second: keyspritesheet_43
+  - first:
+      213: -1672146485883225483
+    second: keyspritesheet_44
+  - first:
+      213: -6295902577294650166
+    second: keyspritesheet_45
+  - first:
+      213: -3618209248315370414
+    second: keyspritesheet_46
+  - first:
+      213: -5134118112308885261
+    second: keyspritesheet_47
+  - first:
+      213: 7949642844497572641
+    second: keyspritesheet_48
+  - first:
+      213: -3271630395638588778
+    second: keyspritesheet_49
+  - first:
+      213: -6476395730262290721
+    second: keyspritesheet_50
+  - first:
+      213: -1725699896589454802
+    second: keyspritesheet_51
+  - first:
+      213: -6704506207267604120
+    second: keyspritesheet_52
+  - first:
+      213: 8303164952776743994
+    second: keyspritesheet_53
+  - first:
+      213: 8883180712107385966
+    second: keyspritesheet_54
+  - first:
+      213: -6942203279898704892
+    second: keyspritesheet_55
+  - first:
+      213: 8443418453268742334
+    second: keyspritesheet_56
+  - first:
+      213: -8552666174038444949
+    second: keyspritesheet_57
+  - first:
+      213: -2130454519258859582
+    second: keyspritesheet_58
+  - first:
+      213: 5363137475469001655
+    second: keyspritesheet_59
+  - first:
+      213: 4910240136362116992
+    second: keyspritesheet_60
+  - first:
+      213: 5401409413297838522
+    second: keyspritesheet_61
+  - first:
+      213: -4869101751518779072
+    second: keyspritesheet_62
+  - first:
+      213: 3880755364420911932
+    second: keyspritesheet_63
+  - first:
+      213: 7868703422810869013
+    second: keyspritesheet_64
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 2
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: keyspritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 514
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a65eadc086270bc0800000000000000
+      internalID: -3817039824524781911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 519
+        width: 90
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57bc195abde12bd10800000000000000
+      internalID: 2139806701678873461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 514
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00142b0e1491f3320800000000000000
+      internalID: 2539776485593596160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 514
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8eba5c453a0f335d0800000000000000
+      internalID: -3083856735526081560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 514
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2f468022ce3bafb0800000000000000
+      internalID: -4635542387957543126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 514
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78654bbe6598ab050800000000000000
+      internalID: 5817112875117074055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 514
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e28d496b146d8440800000000000000
+      internalID: 4939714435188884198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 514
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62cb305c65f14aaa0800000000000000
+      internalID: -6150756733548250074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 519
+        width: 90
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fbefd4320c95a990800000000000000
+      internalID: -7375317281458361351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 519
+        width: 90
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f232fe9199bb6490800000000000000
+      internalID: -7751898298500107527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 1013
+        y: 514
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80abbb8a5d7242590800000000000000
+      internalID: -7699985664284313080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 1113
+        y: 514
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce5eea68c234cb8e0800000000000000
+      internalID: -1676391102771436052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 1213
+        y: 514
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f193d9ae4fe25e9c0800000000000000
+      internalID: -3898658272976226017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 414
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44390b1e02985de60800000000000000
+      internalID: 7986440288529847108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 419
+        width: 90
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5823e88f81caee40800000000000000
+      internalID: 5686570301729744987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 414
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c918538abfd5ee3d0800000000000000
+      internalID: -3175497351809367652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 414
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 507a75999813f8900800000000000000
+      internalID: 688823735063914245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 414
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 340634040b2b50090800000000000000
+      internalID: -8068846687302229949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 409
+        width: 90
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b986d7783693d180800000000000000
+      internalID: -9091758053458015823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 409
+        width: 90
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 265fa55b4d8103ec0800000000000000
+      internalID: -3589341601159514782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 403
+        width: 54
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df4615b5d1235ccc0800000000000000
+      internalID: -3691489217892752131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 813
+        y: 414
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84e8dbdd9ad0aa9c0800000000000000
+      internalID: -3915301902824403384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 913
+        y: 414
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52a05d0b04d5421b0800000000000000
+      internalID: -5682314297408681435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 1013
+        y: 414
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07f12225d4b58e5d0800000000000000
+      internalID: -3033073961385451664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 1113
+        y: 414
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b90291953035eb50800000000000000
+      internalID: 6621751833751849401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_25
+      rect:
+        serializedVersion: 2
+        x: 1213
+        y: 414
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e020751c446e69c0800000000000000
+      internalID: -3932095146707902232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_26
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 314
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59c4a398ecb99bfd0800000000000000
+      internalID: -2325656421192282987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 314
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 677195b4944366180800000000000000
+      internalID: -9122546505790974090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_28
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 314
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca6d634ecb334e890800000000000000
+      internalID: -7429756598878808404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_29
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 314
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3744fbb632affdcb0800000000000000
+      internalID: -4836872444734126989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_30
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 314
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46ccb49e72bcb0070800000000000000
+      internalID: 8073770129269967972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_31
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 314
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85650c53a4028fa70800000000000000
+      internalID: 8860867769952917080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_32
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 314
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb73065f3bd6dd640800000000000000
+      internalID: 5106358172191307710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_33
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 314
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5164f5620ac4a0590800000000000000
+      internalID: -7707263561568926187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_34
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 304
+        width: 68
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: feeae0cbb0ed94070800000000000000
+      internalID: 8091242347528892143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_35
+      rect:
+        serializedVersion: 2
+        x: 916
+        y: 304
+        width: 68
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56ff64ee28f0b2890800000000000000
+      internalID: -7481869300928151707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_36
+      rect:
+        serializedVersion: 2
+        x: 1016
+        y: 304
+        width: 68
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c013fb07459a5aa0800000000000000
+      internalID: -6171456206982147902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_37
+      rect:
+        serializedVersion: 2
+        x: 1116
+        y: 304
+        width: 68
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bc053601581de8e0800000000000000
+      internalID: -1662645951154287440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_38
+      rect:
+        serializedVersion: 2
+        x: 1213
+        y: 314
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a94684007dabafc0800000000000000
+      internalID: -3482499190217094751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_39
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 214
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75eab9c73c10b7280800000000000000
+      internalID: -9044633487522681257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_40
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 214
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7aca5d9060ac385d0800000000000000
+      internalID: -3061381194398192473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_41
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 214
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2e7ab6d88347f910800000000000000
+      internalID: 1871038425192889900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_42
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 214
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29db91fbb05ba64e0800000000000000
+      internalID: -1987577223475249774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_43
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 214
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b866551485e353a20800000000000000
+      internalID: 3041405672132798091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_44
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 214
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57a338861a75bc8e0800000000000000
+      internalID: -1672146485883225483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_45
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 203
+        width: 54
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac4d2eb86f570a8a0800000000000000
+      internalID: -6295902577294650166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_46
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 214
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2541127dbd989cdc0800000000000000
+      internalID: -3618209248315370414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_47
+      rect:
+        serializedVersion: 2
+        x: 813
+        y: 214
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f80ee057c2ffb8b0800000000000000
+      internalID: -5134118112308885261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_48
+      rect:
+        serializedVersion: 2
+        x: 913
+        y: 214
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 123f08d4c0ec25e60800000000000000
+      internalID: 7949642844497572641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_49
+      rect:
+        serializedVersion: 2
+        x: 1013
+        y: 214
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69a579f2d75d892d0800000000000000
+      internalID: -3271630395638588778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_50
+      rect:
+        serializedVersion: 2
+        x: 1113
+        y: 214
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fde0cd095683f16a0800000000000000
+      internalID: -6476395730262290721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_51
+      rect:
+        serializedVersion: 2
+        x: 1202
+        y: 226
+        width: 96
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e227bd256151d08e0800000000000000
+      internalID: -1725699896589454802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_52
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 119
+        width: 90
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 869b961602fc4f2a0800000000000000
+      internalID: -6704506207267604120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_53
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 114
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3c1bb15884ca3370800000000000000
+      internalID: 8303164952776743994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_54
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 126
+        width: 96
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6423c4eac5674b70800000000000000
+      internalID: 8883180712107385966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_55
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 114
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4040617f5e658af90800000000000000
+      internalID: -6942203279898704892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_56
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 119
+        width: 90
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb0cf0d195c0d2570800000000000000
+      internalID: 8443418453268742334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_57
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 114
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6470fdbd63de4980800000000000000
+      internalID: -8552666174038444949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_58
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 114
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c7337107ea1f62e0800000000000000
+      internalID: -2130454519258859582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_59
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 114
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b34aea6e11bd6a40800000000000000
+      internalID: 5363137475469001655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_60
+      rect:
+        serializedVersion: 2
+        x: 813
+        y: 114
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 087cab1736da42440800000000000000
+      internalID: 4910240136362116992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_61
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 120
+        width: 90
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab991165e39a5fa40800000000000000
+      internalID: 5401409413297838522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_62
+      rect:
+        serializedVersion: 2
+        x: 1113
+        y: 114
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 049ad7d21c97d6cb0800000000000000
+      internalID: -4869101751518779072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_63
+      rect:
+        serializedVersion: 2
+        x: 1213
+        y: 114
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c33008c51763bd530800000000000000
+      internalID: 3880755364420911932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keyspritesheet_64
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 14
+        width: 74
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51dca87a210433d60800000000000000
+      internalID: 7868703422810869013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
