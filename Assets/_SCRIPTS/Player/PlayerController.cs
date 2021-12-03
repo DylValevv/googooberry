@@ -162,6 +162,14 @@ public class PlayerController : MonoBehaviour
     #region<Ability Variables>
     [SerializeField] GameObject vfx_crystalSlamAnticip;
     [SerializeField] GameObject vfx_crystalSlamClimax;
+    private Coroutine slamCoroutine;
+    [SerializeField] private InputActionReference slamControl;
+    [SerializeField] private float slamCooldown;
+    private bool canUseSlam;
+    private bool slamUnlocked;
+    [SerializeField] private GameObject slamGameobject;
+
+    private bool rangeUnlocked;
     #endregion
 
     #region<Initializing Functions>
@@ -188,6 +196,7 @@ public class PlayerController : MonoBehaviour
         dialogueStartControl.action.Disable();
         dialogueContControl.action.Disable();
         dialogueExitControl.action.Disable();
+        slamControl.action.Disable();
     }
 
     /// <summary>
@@ -258,10 +267,7 @@ public class PlayerController : MonoBehaviour
 
         DodgeHandler();
 
-        if(Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            StartSlam();
-        }
+        AbilityHandler();
     }
 
     #region<Locomotion Handlers>
@@ -652,11 +658,6 @@ public class PlayerController : MonoBehaviour
         comboCooldownCoroutine = null;
     }
 
-    public void RAbility()
-    {
-        PlayAnim("RAbility", true);
-    }
-
     /// <summary>
     /// unleashes a ranged attack
     /// </summary>
@@ -866,6 +867,10 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void DelayThirdImpactVFX()
     {
+        if(rangeUnlocked)
+        {
+            RangedAttack();
+        }
         impactVFX.SetActive(true);
     }
 
@@ -879,19 +884,51 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region<Ability Functions>
+
+    /// <summary>
+    /// if the player wants to ground slam and if it's unlocked, do it. else do nothing
+    /// </summary>
+    public void AbilityHandler()
+    {
+        if (slamControl.action.triggered && !isAttacking && !canAirAttack && slamUnlocked)
+        {
+            if (canUseSlam) slamCoroutine = StartCoroutine(SlamCooldown());
+        }
+    }
+
+    /// <summary>
+    /// unlocks the slam ability
+    /// </summary>
+    public void UnlockSlam()
+    {
+        slamControl.action.Enable();
+        slamUnlocked = true;
+        canUseSlam = true;
+    }
+
+    /// <summary>
+    /// unlocks the ranged ability
+    /// </summary>
+    public void UnlockRanged()
+    {
+        rangeUnlocked = true;
+    }
+
     /// <summary>
     /// stops player movement and begins animation and anticipation
     /// </summary>
     public void StartSlam()
     {
+        slamGameobject.SetActive(true);
         PlayAnim("Cast", true);
-
+        canUseSlam = false;
         vfx_crystalSlamAnticip.SetActive(false);
         vfx_crystalSlamClimax.SetActive(false);
 
         vfx_crystalSlamAnticip.SetActive(true);
         vfx_crystalSlamClimax.SetActive(true);
 
+        movementControl.action.Disable();
         attackControl.action.Disable();
         dialogueStartControl.action.Disable();
         dialogueContControl.action.Disable();
@@ -905,12 +942,42 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void EndSlam()
     {
+        Invoke("EndSlamDelay", 0.5f);
+    }
+
+    private void EndSlamDelay()
+    {
+        slamGameobject.SetActive(false);
         attackControl.action.Enable();
         dialogueStartControl.action.Disable();
         dialogueContControl.action.Disable();
         dialogueExitControl.action.Disable();
         jumpControl.action.Enable();
         dodgeControl.action.Enable();
+        movementControl.action.Enable();
+    }
+
+    /// <summary>
+    /// cooldown until the player can use the ability again. deals the damage
+    /// </summary>
+    /// <returns></returns>
+    public IEnumerator SlamCooldown()
+    {
+        StartSlam();
+
+        float t = 0;
+
+        while (t <= slamCooldown)
+        {
+            t += Time.deltaTime;
+            yield return null;
+        }
+
+        canUseSlam = true;
+
+        slamCoroutine = null;
+
+        yield return null;
     }
     #endregion
 

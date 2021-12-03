@@ -76,6 +76,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "GroundSlam",
+                    "type": "Button",
+                    "id": "7947aa14-8270-440b-af34-8ec2ef4a8360",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -593,6 +601,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "DialogueExit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b5bcdb3d-0718-4a44-93ab-3a6f297720bb",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GroundSlam",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a21224de-768c-40c0-a6c7-74a13b8e330d",
+                    "path": "<Keyboard>/leftCtrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GroundSlam",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
