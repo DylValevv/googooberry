@@ -36,4 +36,9 @@ public class AnimationEvents : MonoBehaviour
     {
         player.PlayChargeup();
     }
+
+    public void StopSlam()
+    {
+        player.EndSlam();
+    }
 }

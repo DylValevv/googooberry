@@ -42,6 +42,8 @@ public class Enemy : MonoBehaviour
     [HideInInspector] public bool firstDelayedDeathInvoke = false;
     public ProgressBar LifeBar;
 
+    [SerializeField] private GameObject rangedVFX;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -162,6 +164,8 @@ public class Enemy : MonoBehaviour
         if (active && !dead)
         {
             PlayAnim("anim_lizard_ranged");
+            rangedVFX.SetActive(false);
+            rangedVFX.SetActive(true);
             navMeshAgent.isStopped = active;
             navMeshAgent.ResetPath();
             isAttacking = active;
@@ -169,7 +173,10 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            if(!dead) FinishedAttack();
+            if (!dead)
+            {
+                FinishedAttack();
+            }
         }
 
     }
