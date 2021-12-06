@@ -170,6 +170,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject slamGameobject;
 
     private bool rangeUnlocked;
+    private Coroutine rangedCo;
     #endregion
 
     #region<Initializing Functions>
@@ -850,13 +851,16 @@ public class PlayerController : MonoBehaviour
     {
         if (!backToNormal)
         {
-            Invoke("DelayThirdImpactVFX", 0.1f);
+            rangedCo = StartCoroutine(DelayThirdImpactVFX());
+
             PlayImpact();
             playerSpeed = newSpeed;
         }
 
         else
         {
+            rangedCo = null;
+
             impactVFX.SetActive(false);
             playerSpeed = OGplayerSpeed;
         }
@@ -865,13 +869,18 @@ public class PlayerController : MonoBehaviour
     /// <summary>
     /// delayed for animation timing
     /// </summary>
-    private void DelayThirdImpactVFX()
+    private IEnumerator DelayThirdImpactVFX()
     {
-        if(rangeUnlocked)
+        yield return new WaitForSeconds(0.1f);
+
+        if (rangeUnlocked)
         {
             RangedAttack();
         }
+
         impactVFX.SetActive(true);
+
+        yield return null;
     }
 
     /// <summary>
