@@ -14,23 +14,32 @@ the original text file won't care. Happy writing!
 
 Possible scene naming convention: CORE0, CORE1, CORE2, CORE3 for different dialogue events, and the npc name, so like CORE0_ILA for a conversation with her;
 
+;PrologueStuffs (if needed);
+
+
+
+
+;Core 0;
+
+Themes: Introduction, moonsighted, hints of conflict moonsight <-> nonmoonsight, town gossip
+
 ;C.0.ODEI;
 //Odei]
-Ah, there's my favorite miner! I'm still counting all the <b>Ilarka</b> shards from your last haul.]
+Ah, there's my favorite miner! I'm still counting all the <b>ilarka</b> shards from your last haul.]
 Thanks to your work, we'll be able to make the whole town <b>moonsighted</b> in no time!]
-And then some of these freeloaders might be strong enough to actually help us out. . .]
+Maybe then some of these freeloaders will be strong enough to actually help us out. . .]
 //Mairu]
 Glad to be of help.]
 //Odei]
 Hah, that's the spirit!]
  Speaking of which, I've got some leads on new <b>ilarka</b> deposits near town, meaning I got another job for you.]
 Why don't you go pay Ila a visit over at her shrine first?]
-Despite all her ravings about how these crystals are killin' us, her healing powers are a great way to prepare for an outing.]
-Just between you and me, I'd take any opportunity to skip a conversation with that one. Hah!]
+ Despite all of her ravings about how these crystals are killin' us, her healing powers are a great way to prepare for an outing.]
+Can't stand it, but that's why I got you to take the beating instead! Hah!]
 
 ;C.0.ODEI+;
 //Odei]
-You get those crystals yet?]
+You got those crystals yet?]
 //Mairu]
 Still working on it, boss.]
 //Odei]
@@ -40,21 +49,21 @@ Alright, well, let's get a move-on. If you're having a tough time, try talking t
 //Ila]
 Welcome Mairu. How goes your harvesting of those blasted crystals?]
 //Mairu]
-Quite well, actually. The more <b>ilarka</b> we collect the closer we can get to flying up that tunnel and finally escaping this place.]
+Quite well, actually. The more <b>ilarka</b> we collect the closer we are to finally escaping this place.]
 //Ila]
 The <b>Teluna</b> will always be there, we will ascend it and find the moon in time. We don't need to rush it with the <b>moonsight</b>.]
 Our ancestors had patience, and so can we.]
 //Mairu]
 Well, you're <b>moonsighted</b> too, Ila. What's not to like about this power?]
 //Ila]
-It is my curse to bear. I'm glad you are happy with it.]
+A blessing for you, but a curse for me. I'm glad you're happy with it.]
 I take it you're preparing for another expedition?]
 //Mairu]
 Right you are. I'd appreciate a little patching up before heading out.]
 //Ila]
-Of course.]
+Of course. . .]
 //:FullHealCharacter]
-Please be careful. It's dangerous out there, past the walls of our <b>Etsuna</b>.]
+Watch yourself out there, it's dangerous past the walls of our <b>Etsuna</b>.]
 //Mairu]
 Right. Take care Ila.]
 
@@ -65,13 +74,13 @@ Eyy Mairu! How's it hangin'?]
 Hey, not too bad Tilak! What're you cooking up today?]
 //Tilak]
 Oh, just the usual <b>onddargi</b> stew. Those little 'shrooms pack quite the punch of flavor!]
-Although . . . I'm lookin' to make another batch of <b>ilarka</b> candy. More and more folks are looking to become <b>moonsighted</b>, and I gotta satisfy 'em.]
-On that note ... you and Odei bringin' in a new shipment of <b>ilarka</b> soon? I need those crystals to make more of my world-famous candy!]
+Although. . . I'm lookin' to make another batch of <b>ilarka</b> candy. More and more folks are looking to become <b>moonsighted</b>, and I gotta satisfy 'em.]
+Speaking of which, are you and Odei bringin' in a new shipment of <b>ilarka</b> soon? I can't meet those demands without those crystals.]
 //Mairu]
 Yep, I'm just about to head out on another outing.]
 //Tilak]
-Marvelous. Just bring those crystals back to me and I can get cooking. I'll even hook you up with a little extra to boost your <b>moonsight</b> powers!]
-Actually, ya know what? I've got a little bit of candy left over, why don't you take this now as an advanced thank-you?]
+Alright! Just bring those crystals back to me and I can get cooking. I'll even give ya a lil' extra to boost your <b>moonsight</b> powers!
+Actually, ya know what? I've got a bit of candy left over, why don't you take this now as an advanced thank-you?]
 //:ActivatePlayerDash]
 //Mairu]
 Thanks, Tilak. I'll be back with that <b>ilarka</b> before you know it.]
@@ -82,21 +91,186 @@ Ah, hello Mairu. That was quite the entrance there.]
 //Mairu]
 Olent? The town hasn't seen you in months!]
 //Olent]
-Yes, I do regret not visiting more. But I've found life out here, among the flora and fauna, to be much more peaceful.]
+Yes, I do regret not visiting more. But I've found a peaceful life out here among the flora and fauna.]
 You might learn to enjoy it too, if you spent more time enjoying this place than you do destroying it.]
 //Mairu]
 I can't rest easy here in these caves knowing that our true home lies up there, on the surface, under the moonlight.]
 You of all people should know that.]
 //Olent]
 I may be old, but I've never seen the surface. The <b>Etsuna</b> is all I've known, same as you.]
-And if I've learned anything, it's that we're better off trying to make a life in this beautiful place.]
-Not risking ourselves trying to find a home we've never known.]
+And if I've learned anything, it's that we're better off trying to celebrate this beautiful place.]
+Not risking our lives trying to find a home we've never known!]
 //Mairu]
 Alright, you can keep wandering around picking <b>onddargi</b>, I'll be looking for <b>ilarka</b> and actually getting things done.]
 //Olent]
 As you wish. If you must go on, please do mind the <b>Uskerra</b>. They're peaceful creatures, but the <b>ilarka</b> are their food source.]
-If you keep taking it, they're not going to be happy. . .]
+If you keep consuming it, they're not going to be happy. . .]
+
+;C.0.NPC1;
+//Villager]
+One of Odei's moonsighted, eh? You're lucky to have gotten it so soon.]
+
+;C.0.NPC2;
+//Villager]
+Ila likes to pretend that she understands the common moth's issues.]
+//Mairu]
+She's pretending?]
+//Villager]
+Of course! Her father was the village leader, and she inherited his moonsight.]
+She was born powerful. Odei's right. She'll never truly know the struggle.]
+
+;C.0.NPC3;
+//Villager]
+I love staring at the slow sway of the mushrooms. What a peaceful glow they give off.]
+//Mairu]
+Not as good as the moon.]
+//Villager] How can you know when you've never seen it?]
+//Mairu]
+I just know.]
+
+;C.0.NPC4;
+//Villager]
+When I was small, I felt the <b>onddargi</b> give such a powerful glow. It seems they've dimmed.]
+//Mairu]
+Must be your eyes. You're getting old, after all.]
+//Villager] Perhaps. . .]
+
+
+;Core 1;
+Themes, llarka doubt, ilarka craze, sides becoming more polarized, npc comments on mushrooms dimming, seasonal sadness type beat, start of an artificial winter
+
+;C.1.ODEI;
+//Odei] Keep that <b>ilarka</b> coming! This is what I like to see!]
+//Mairu] When can we explore the <b>Teluna</b>? I think we're ready now.]
+//Odei] Not so fast. We need the entire town <b>moonsighted</b> first.]
+To feel the power of the <b>ilarka</b> coursing through my veins. . . I cannot wait.]
+//Mairu] Why not become <b>moonsighted</b> now?]
+//Odei] No no no, Mairu. That would be a bad image. Then I'd be no better than Ila.]
+I need these non-<b>moonsighted</b> moths knowing I'm on their side, right?]
+
+;C.1.TILAK;
+//Tilak] Look at you, the hero of <b>Etsuna</b>! Another crystal for Mairu. Let me give it a look.] 
+Oh, wow. This one's powerful, lots of raw <b>ilarka</b> energy. Let me cook it up.]
+//:ScreenFade]
+Alright, deals a deal. Some <b>ilarka</b> for the miner, and the rest for the village.]
+I don't mean to brag but this looks to be some of my finest work. Eat up!]
+//:ActivatePlayerProjectile]
+//Mairu] Whew, that has a kick! Thanks, Tilak.]
+ 
+;C.1.ILA;
+//Ila] Another crystal destroyed, hmm?]
+//Mairu] Sure thing. We're making progress, it's a good thing Ila.]
+//Ila] I have an uneasy feeling about all this, Mairu. It's almost as if I hear the <b>onddargi's</b> whispers fading.]
+//Mairu] Change is always uncertain. Sometimes you have to take a chance.] 
+Without <b>moonsight</b>, we won't make it up the <b>Teluna</b>. Our true home, Ila, is up there. This is all temporary.]
+//Ila] <i>This</i>, the <b>Etsuna</b>, is our home, Mairu, and I want to make sure it survives.]
+//Mairu] And I want a future for us. We don't belong down here, and the <b>ilarka</b> are our way out.]
+This is our best chance to leave. It's impossible without the <b>moonsight</b>.]
+Not that you would know. You've never had to live without it.]
+//:FullHealCharacter]
+//Ila] You bear the gift of <b>moonsight</b>, yet you're still blinded by arrogance.]
+I'll always be here to heal you, but you've clearly made up your mind. Tread with care.]
+
+;C.1.OLENT;
+//Olent] You're quite the explorer, aren't you?]
+//Mairu] And the <b>Etsuna's</b> best miner.]
+//Olent] The best at destroying this world.]
+//Mairu] Why are you even out here?]
+//Olent] Have you heard the story of how the town's leadership came to be?]
+//Mairu] I was young, but I know of it. Odei promised progress and provided for the people.]
+He cared about all of us and we made him our leader.]
+//Olent] That's what they tell, yes. But I always believed Ila should have taken the village on, an unpopular opinion.]
+//Mairu] Ila is not a leader. She never even asked for power.]
+//Olent] And that is why she would be the best fit. Odei never cared for our people.]
+The only thing he cares about is power and control. It is a pity you cannot see that.]
+//Mairu] Someone had to do something. He's bringing the <b>moonsight</b> to everyone, so we can finally leave this place.
+//Olent] And why must we be <b>moonsighted</b> to do so?]
+I am an old moth, Mairu. My time to act has passed. I wish you wisdom in your path.] 
+It is easy to be swept up in the excitement of change. I pray it does not consume you.]
+As always, mind the Uskerra.]
+
+;C.1.MIAK;
+;C.1.NPC1;
+;C.1.NPC2;
+;C.1.NPC3;
+
+;Core 2;
+
+;C.2.ODEI;
+//Odei] Time is drawing near, Mairu. With these crystals, the preparations to convert the entire village are being made.]
+Then we will begin to scale the <b>Teluna</b>. The birth of a new era!]
+//Mairu] An exciting time to be alive.]
+//Odei] Right you are! A birth of new equality, power and possibilities for all moths.]
+Don't let up, we're almost there.]
+//Mairu] What of the dimming <b>onddargi</b>? I've heard talk that we could run out of food.]
+//Odei] I'm not worried! We'll be out of here soon enough, and have plenty to eat under the moonlight!]
+Time to finish the job and move on!]
+//Mairu] Right, of course.]
+
+;C.2.TILAK;
+//Tilak] Notice anything different?]
+//Mairu] Tilak! This is amazing, look at you! <b>Moonsighted</b>! How is it?]
+//Tilak] It's amazing! I feel alive, like a brand new moth. All thanks to you and your last find.]
+And it seems like you got more for me. I never thought things could go this well.]
+//Mairu] Doesn't seem like everyone's so happy.]
+//Tilak] You mean Ila and the others? They're just a bit unnerved at the changes.]
+Maybe Ila's feeling less powerful with all the new <b>moonsighted</b> moths, hah!]
+Anyway, let me take a look at your new find . . .]
+She's a beauty, probably your best find yet. This candy's going to have quite a kick, you ready?]
+//Mairu] As I'll ever be. Let's see it.]
+//:ScreenFade]
+//Tilak] Here's your share. Careful with that one.]
+//:ActivatePlayerSlam]
+//Mairu] Woah. Ok, ok. . .]
+//:ScreenFade]
+//Tilak] Wow, that one really took you out! But you're glowing, baby! Go try that one out.]
+
+ 
+;C.2.ILA;
+//Mairu] Hey Ila, I -]
+//:FullHealCharacter]
+//Ila] I did my job. You're free to go.]
+//Mairu] Everyone's going to be <b>moonsighted</b> soon, Ila. At least pretend to be happy about it.]
+//Ila] I'll share the village's happiness, but moreso I mourn for our home.]
+//Mairu] I know things have been tense, but . . . ]
+I hope we can grow close again in the new world, above.]
+//Ila] At this point, I truly hope things go as planned Mairu.]
+There's no turning back now. I hope it's all worth it.]
+
+;C.2.OLENT;
+//Odei] You cannot deny a dark shroud that has surrounded the Etsuna.]
+//Mairu] I don't. That is why we must finish the job and leave.]
+//Olent] It has been the miner's destruction. That is why the Ondarggi cry out. The backbone of the caves, the Etsuna, our home.]
+//Mairu] We will finish what we started, and the Etsuna will be a memory of the past once we reach the moon. It's time to return to the surface, Olent. We are going to leave.]
+//Olent] No Mairu. This is my home, and yours too. I will stay here until the bitter end.]
+//Mairu] So be it. Starve alone, Olent. You are stubborn until the end.]
+//Olent] That makes two of us, doesn't it?]
+
+
+;C.2.MIAK;
+;C.2.NPC1;
+;C.2.NPC2;
+;C.2.NPC3;
+
+;Core 3;
+
+;Epilogue shit??;
 
 
 
+;LSTONES;
+;LSTONE1;
+//Lore Stone] <smallcaps> Boundless Years Past, Here Descended The First Moths, The <B>Jondengoa</B> </smallcaps>]
+<smallcaps> Lost to their mother Moon, a home was made from the depths of the <b>Etsuna</b></smallcaps>]
+<smallcaps> They gazed up through the <b>Teluna</b>, pining for the light they once knew</smallcaps>]
+<smallcaps> Their spawn, the <b>Jonditsa</b>, would never know its beauty</smallcaps>]
 
+;LSTONE2;
+//Journal of Iker, the Explorer] This expedition has been a great success! I've learned essential details about the local flora and fauna.]
+
+
+;LSTONE3;
+//Lore Stone]<smallcaps> The prismatic wonder of the <b>Ilarka</b>, the window to a lost world</smallcaps>]
+<smallcaps> The <b>Jonditsa</b> held the untold majesty of their ancestors in their clutches</smallcaps>]
+<smallcaps> Providing the sliver of hope for regaining what was never had</smallcaps>]
+<smallcaps> Would it ever have been theirs to take</smallcaps>]
