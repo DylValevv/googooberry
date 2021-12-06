@@ -269,6 +269,11 @@ public class PlayerController : MonoBehaviour
         DodgeHandler();
 
         AbilityHandler();
+
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            UnlockRanged();
+        }
     }
 
     #region<Locomotion Handlers>
@@ -650,7 +655,7 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
 
-        particleVisual.SetActive(false);
+        //particleVisual.SetActive(false);
 
         comboCount = 0;
         leftWeapon.SheathWeapon();
