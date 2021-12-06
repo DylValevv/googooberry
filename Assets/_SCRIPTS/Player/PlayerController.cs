@@ -907,6 +907,16 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
+    /// locks the slam ability
+    /// </summary>
+    public void LockSlam()
+    {
+        slamControl.action.Disable();
+        slamUnlocked = false;
+        canUseSlam = false;
+    }
+
+    /// <summary>
     /// unlocks the ranged ability
     /// </summary>
     public void UnlockRanged()
@@ -914,6 +924,13 @@ public class PlayerController : MonoBehaviour
         rangeUnlocked = true;
     }
 
+    /// <summary>
+    /// locks the ranged ability
+    /// </summary>
+   public void LockRanged()
+    {
+        rangeUnlocked = false;
+    }
     /// <summary>
     /// stops player movement and begins animation and anticipation
     /// </summary>
@@ -1093,5 +1110,13 @@ public class PlayerController : MonoBehaviour
     public void UnlockDash()
     {
         unlockDash = true;
+    }
+
+    /// <summary>
+    /// locks the ability to dash
+    /// </summary>
+    public void LockDash()
+    {
+        unlockDash = false;
     }
 }

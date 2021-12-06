@@ -14,11 +14,12 @@ public class GameState : ScriptableObject
 
     [Header("Crystal Values")]
     public Object[] crystalCores;
-    public float crystalProgress;
+    [Range(0,3)]
+    public int crystalProgress;
 
     public void getProgress()
     {
-        float progress = 0;
+        int progress = 0;
         foreach (Object i in crystalCores) //the line the error is pointing to
         {
             //progress += i.isMined;
