@@ -12,10 +12,16 @@ public class DamageCrystal : MonoBehaviour
     public GameObject destroyedParticleEffect;
     public GameObject crystalMesh;
     public Image gameOverPanel;
+    private GameState gameState;
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameState = FindObjectOfType<PlayerController>().gameState;
+        if (crystalData.isMined == 0)
+        {
+            gameObject.SetActive(false);
+        }
+
     }
 
     // Update is called once per frame
@@ -47,7 +53,8 @@ public class DamageCrystal : MonoBehaviour
         crystalData.isMined = 1;
         destroyedParticleEffect.SetActive(true);
         crystalMesh.SetActive(false);
-        AlphafestGameOver();
+        gameState.crystalProgress++;
+        //AlphafestGameOver();
     }
 
     private void AlphafestGameOver()
