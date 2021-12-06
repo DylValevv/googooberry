@@ -12,6 +12,8 @@ using Cinemachine;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private bool debugMode;
+
     [Header("-----------------------Camera/HUD-----------------------")]
     #region<Camera/HUD Variables>
     public GameState gameState;
@@ -170,6 +172,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject slamGameobject;
 
     private bool rangeUnlocked;
+    private Coroutine rangedCo;
     #endregion
 
     #region<Initializing Functions>
@@ -268,6 +271,20 @@ public class PlayerController : MonoBehaviour
         DodgeHandler();
 
         AbilityHandler();
+
+        if(debugMode)
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                UnlockRanged();
+            }
+
+            if (Input.GetKeyDown(KeyCode.LeftControl))
+            {
+                UnlockSlam();
+            }
+        }
+
     }
 
     #region<Locomotion Handlers>
@@ -649,7 +666,7 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
 
-        particleVisual.SetActive(false);
+        //particleVisual.SetActive(false);
 
         comboCount = 0;
         leftWeapon.SheathWeapon();
@@ -850,13 +867,16 @@ public class PlayerController : MonoBehaviour
     {
         if (!backToNormal)
         {
-            Invoke("DelayThirdImpactVFX", 0.1f);
+            rangedCo = StartCoroutine(DelayThirdImpactVFX());
+
             PlayImpact();
             playerSpeed = newSpeed;
         }
 
         else
         {
+            rangedCo = null;
+
             impactVFX.SetActive(false);
             playerSpeed = OGplayerSpeed;
         }
@@ -865,13 +885,18 @@ public class PlayerController : MonoBehaviour
     /// <summary>
     /// delayed for animation timing
     /// </summary>
-    private void DelayThirdImpactVFX()
+    private IEnumerator DelayThirdImpactVFX()
     {
-        if(rangeUnlocked)
+        yield return new WaitForSeconds(0.1f);
+
+        if (rangeUnlocked)
         {
             RangedAttack();
         }
+
         impactVFX.SetActive(true);
+
+        yield return null;
     }
 
     /// <summary>
@@ -952,6 +977,8 @@ public class PlayerController : MonoBehaviour
         dialogueExitControl.action.Disable();
         jumpControl.action.Disable();
         dodgeControl.action.Disable();
+
+        AudioManager.instance.PlayAction("CrystalSlam");
     }
 
     /// <summary>

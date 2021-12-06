@@ -107,7 +107,7 @@ public class Enemy : MonoBehaviour
                 Death();
             }
 
-            AudioManager.instance.PlayAction("SwordHit");
+            AudioManager.instance.PlayAction("LizardHit");
 
             hasTakenDamage = true;
             Sequence mySequence = DOTween.Sequence();
@@ -220,6 +220,7 @@ public class Enemy : MonoBehaviour
     public void DealDamage(int damageAmt)
     {
         gameState.playerHealth -= damageAmt;
+        
         AudioManager.instance.PlayAction("PlayerDamage");
 
         if (gameState.playerHealth <= 0)
