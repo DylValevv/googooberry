@@ -12,6 +12,8 @@ using Cinemachine;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private bool debugMode;
+
     [Header("-----------------------Camera/HUD-----------------------")]
     #region<Camera/HUD Variables>
     public GameState gameState;
@@ -270,10 +272,19 @@ public class PlayerController : MonoBehaviour
 
         AbilityHandler();
 
-        if(Input.GetKeyDown(KeyCode.R))
+        if(debugMode)
         {
-            UnlockRanged();
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                UnlockRanged();
+            }
+
+            if (Input.GetKeyDown(KeyCode.LeftControl))
+            {
+                UnlockSlam();
+            }
         }
+
     }
 
     #region<Locomotion Handlers>
@@ -966,6 +977,8 @@ public class PlayerController : MonoBehaviour
         dialogueExitControl.action.Disable();
         jumpControl.action.Disable();
         dodgeControl.action.Disable();
+
+        AudioManager.instance.PlayAction("CrystalSlam");
     }
 
     /// <summary>
