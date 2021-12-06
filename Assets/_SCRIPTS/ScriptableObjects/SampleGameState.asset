@@ -18,4 +18,4 @@ MonoBehaviour:
   spawnPoint: {x: -30.03, y: 9.67, z: -3.88}
   crystalCores:
   - {fileID: 11400000, guid: 4963ce23f7f981743a84695fe7f2940f, type: 2}
-  crystalProgress: 2
+  crystalProgress: 1

@@ -23,13 +23,13 @@ public class AmbientFunctions : MonoBehaviour
             switch (core)
             {
                 case 0:
-                    colorAdjustments.saturation.value = 20;
+                    colorAdjustments.saturation.value = 0;
                     break;
                 case 1:
-                    colorAdjustments.saturation.value = -20;
+                    colorAdjustments.saturation.value = -30;
                     break;
                 case 2:
-                    colorAdjustments.saturation.value = -60;
+                    colorAdjustments.saturation.value = -80;
                     break;
                 case 3:
                     break;
