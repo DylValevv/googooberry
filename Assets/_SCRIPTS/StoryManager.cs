@@ -125,6 +125,7 @@ public class StoryManager : MonoBehaviour
     private void Notify(string title, string message)
     {
         notification.Notify(title, message);
+        Debug.Log(message);
     }
 
     private void FullHealCharacter()
