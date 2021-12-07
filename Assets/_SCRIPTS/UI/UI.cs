@@ -113,7 +113,7 @@ public class UI : MonoBehaviour
         {
             gameState.ToggleControlScheme();
 
-            if (gameState)
+            if (gameState.useController)
             {
                 settingsUIController.SetActive(true);
                 settingsUIKeyboard.SetActive(false);
