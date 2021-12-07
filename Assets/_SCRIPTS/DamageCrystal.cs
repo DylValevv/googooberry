@@ -50,6 +50,7 @@ public class DamageCrystal : MonoBehaviour
 
     private void Destroyed()
     {
+        AudioManager.instance.PlayAction("CrystalBreak");
         crystalData.isMined = 1;
         destroyedParticleEffect.SetActive(true);
         crystalMesh.SetActive(false);

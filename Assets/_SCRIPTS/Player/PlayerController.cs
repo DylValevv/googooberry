@@ -961,7 +961,6 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void StartSlam()
     {
-        slamGameobject.SetActive(true);
         PlayAnim("Cast", true);
         canUseSlam = false;
         vfx_crystalSlamAnticip.SetActive(false);
@@ -979,6 +978,14 @@ public class PlayerController : MonoBehaviour
         dodgeControl.action.Disable();
 
         AudioManager.instance.PlayAction("CrystalSlam");
+    }
+
+    /// <summary>
+    /// turns the slam collider on
+    /// </summary>
+    public void TurnSlamColliderOn()
+    {
+        slamGameobject.SetActive(true);
     }
 
     /// <summary>

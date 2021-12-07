@@ -9,6 +9,8 @@ TagManager:
   - Environment
   - Enemy
   - Obstacle
+  - Ranged
+  - CrystalSlam
   layers:
   - Default
   - TransparentFX
