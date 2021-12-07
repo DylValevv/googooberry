@@ -41,4 +41,9 @@ public class AnimationEvents : MonoBehaviour
     {
         player.EndSlam();
     }
+
+    public void TurnSlamColliderOn()
+    {
+        player.TurnSlamColliderOn();
+    }
 }
