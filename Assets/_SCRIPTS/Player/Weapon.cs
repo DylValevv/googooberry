@@ -61,6 +61,7 @@ public class Weapon : MonoBehaviour
     {
         if(other.CompareTag("Enemy"))
         {
+            AudioManager.instance.PlayAction("LizardHit");
             impactVFX.Play();
         }
     }
