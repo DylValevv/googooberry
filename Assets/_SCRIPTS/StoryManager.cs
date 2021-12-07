@@ -83,6 +83,11 @@ public class StoryManager : MonoBehaviour
     }
 
     #region Helper
+    public void ToggleControlScheme()
+    {
+        useController = !useController;
+    }
+
     private bool IntChanged(int newVal, int oldVal)
     {
         bool res = newVal == oldVal;

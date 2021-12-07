@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5784321409616945710
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5784321409616945708}
+  - component: {fileID: 5784321409616945709}
+  m_Layer: 0
+  m_Name: UIMANAGER
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5784321409616945708
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5784321409616945710}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5784321409616945709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5784321409616945710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a52213e9e5c2c04e8dc530e29995675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SettingsToggleControl: {fileID: -3707340334623257300, guid: 63360a84d4c33944c9537399f12ea8f1, type: 3}
+  QuitControl: {fileID: 6706415562425303193, guid: 63360a84d4c33944c9537399f12ea8f1, type: 3}
+  ContinueControl: {fileID: -411421710784722551, guid: 63360a84d4c33944c9537399f12ea8f1, type: 3}
+  NewGameControl: {fileID: -2836753581054486456, guid: 63360a84d4c33944c9537399f12ea8f1, type: 3}
+  ToggleSchemeControl: {fileID: -3807381601075539268, guid: 63360a84d4c33944c9537399f12ea8f1, type: 3}
+  settingsUIKeyboard: {fileID: 0}
+  settingsUIController: {fileID: 0}
+  menuUIKeyboard: {fileID: 0}
+  menuUIController: {fileID: 0}

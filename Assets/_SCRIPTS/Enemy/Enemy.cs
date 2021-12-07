@@ -107,6 +107,8 @@ public class Enemy : MonoBehaviour
                 Death();
             }
 
+            
+
             AudioManager.instance.PlayAction("LizardHit");
 
             hasTakenDamage = true;
