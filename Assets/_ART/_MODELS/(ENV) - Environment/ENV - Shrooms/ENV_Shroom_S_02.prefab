@@ -117,6 +117,10 @@ PrefabInstance:
       value: ENV_Shroom_S_02_MESH
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: cc98f4625795f864a91a2107f743b30d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cc98f4625795f864a91a2107f743b30d, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
