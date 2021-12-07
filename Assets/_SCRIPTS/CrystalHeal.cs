@@ -19,6 +19,7 @@ public class CrystalHeal : MonoBehaviour
     {
         if (other.tag == "Weapon")
         {
+            AudioManager.instance.PlayAction("CrystalHeal");
             gameState.AddPlayerHealth(healAmount);
             Instantiate(impactVFX, impactVFXSpawnLocation);
             Destroy(gameObject);
