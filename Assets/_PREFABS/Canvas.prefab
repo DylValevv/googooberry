@@ -3227,7 +3227,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crystal Burst
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2719808102884962970, guid: cff30107da1a5f7499e1cb4eabecea57, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cff30107da1a5f7499e1cb4eabecea57, type: 3}
 --- !u!224 &4376411636153511629 stripped
 RectTransform:
@@ -3342,7 +3343,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Projectile Finisher
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2719808102884962970, guid: cff30107da1a5f7499e1cb4eabecea57, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cff30107da1a5f7499e1cb4eabecea57, type: 3}
 --- !u!224 &4464594032315025631 stripped
 RectTransform:
@@ -3457,7 +3459,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Projectile Finisher
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2719808102884962970, guid: cff30107da1a5f7499e1cb4eabecea57, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cff30107da1a5f7499e1cb4eabecea57, type: 3}
 --- !u!224 &4528393699055741911 stripped
 RectTransform:
@@ -3572,7 +3575,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: AirDash
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2719808102884962970, guid: cff30107da1a5f7499e1cb4eabecea57, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cff30107da1a5f7499e1cb4eabecea57, type: 3}
 --- !u!224 &4083211414006762719 stripped
 RectTransform:
@@ -3687,7 +3691,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: AirDash
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2719808102884962970, guid: cff30107da1a5f7499e1cb4eabecea57, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cff30107da1a5f7499e1cb4eabecea57, type: 3}
 --- !u!224 &4241617894420795074 stripped
 RectTransform:
@@ -3802,7 +3807,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crystal Burst
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2719808102884962970, guid: cff30107da1a5f7499e1cb4eabecea57, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cff30107da1a5f7499e1cb4eabecea57, type: 3}
 --- !u!224 &372961231583680096 stripped
 RectTransform:
@@ -3918,7 +3924,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Basics
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2719808102884962970, guid: cff30107da1a5f7499e1cb4eabecea57, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cff30107da1a5f7499e1cb4eabecea57, type: 3}
 --- !u!224 &1427368829607814149 stripped
 RectTransform:
@@ -4033,7 +4040,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Attack
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2719808102884962970, guid: cff30107da1a5f7499e1cb4eabecea57, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cff30107da1a5f7499e1cb4eabecea57, type: 3}
 --- !u!224 &7673296754435653805 stripped
 RectTransform:
@@ -4250,7 +4258,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Attack
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2719808102884962970, guid: cff30107da1a5f7499e1cb4eabecea57, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cff30107da1a5f7499e1cb4eabecea57, type: 3}
 --- !u!224 &9144247633241644254 stripped
 RectTransform:
@@ -4774,7 +4783,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Basics
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2719808102884962970, guid: cff30107da1a5f7499e1cb4eabecea57, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cff30107da1a5f7499e1cb4eabecea57, type: 3}
 --- !u!224 &5985392974140491757 stripped
 RectTransform:
