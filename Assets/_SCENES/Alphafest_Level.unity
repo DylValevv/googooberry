@@ -16098,19 +16098,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2076574102740826269, guid: 97853435a52f2ad4cac738cb08b31111, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000017639547
+      value: 0.000000017639554
       objectReference: {fileID: 0}
     - target: {fileID: 2076574102740826269, guid: 97853435a52f2ad4cac738cb08b31111, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000018464847
+      value: -0.0000000018464854
       objectReference: {fileID: 0}
     - target: {fileID: 2076574102806541797, guid: 97853435a52f2ad4cac738cb08b31111, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000017646416
+      value: 0.000000017646423
       objectReference: {fileID: 0}
     - target: {fileID: 2076574102806541797, guid: 97853435a52f2ad4cac738cb08b31111, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000018457466
+      value: -0.0000000018457358
       objectReference: {fileID: 0}
     - target: {fileID: 2076574102975401490, guid: 97853435a52f2ad4cac738cb08b31111, type: 3}
       propertyPath: m_LocalRotation.x
@@ -24997,6 +24997,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -2836753581054486456, guid: 63360a84d4c33944c9537399f12ea8f1, type: 3}
     - target: {fileID: 5784321409616945709, guid: 26be551588166af4e99ef232ca83d09a, type: 3}
+      propertyPath: ContinueControlKey
+      value: 
+      objectReference: {fileID: 3903914279986739672, guid: 63360a84d4c33944c9537399f12ea8f1, type: 3}
+    - target: {fileID: 5784321409616945709, guid: 26be551588166af4e99ef232ca83d09a, type: 3}
       propertyPath: settingsUIKeyboard
       value: 
       objectReference: {fileID: 61207256}
@@ -25004,6 +25008,10 @@ PrefabInstance:
       propertyPath: settingsUIController
       value: 
       objectReference: {fileID: 61207255}
+    - target: {fileID: 5784321409616945709, guid: 26be551588166af4e99ef232ca83d09a, type: 3}
+      propertyPath: ContinueControlController
+      value: 
+      objectReference: {fileID: -411421710784722551, guid: 63360a84d4c33944c9537399f12ea8f1, type: 3}
     - target: {fileID: 5784321409616945710, guid: 26be551588166af4e99ef232ca83d09a, type: 3}
       propertyPath: m_Name
       value: UIMANAGER

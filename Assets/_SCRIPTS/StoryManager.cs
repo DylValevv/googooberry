@@ -19,6 +19,7 @@ public class StoryManager : MonoBehaviour
 
 
     [SerializeField] GameState gameState;
+    [SerializeField] CrystalCores core;
     [SerializeField] PlayerController player;
     [SerializeField] Notification notification;
     AmbientFunctions ambientFunctions;
@@ -64,8 +65,10 @@ public class StoryManager : MonoBehaviour
 
     private void Start()
     {
+        
         ambientFunctions = GetComponent<AmbientFunctions>();
         player = FindObjectOfType<PlayerController>();
+        StartGame();
         Notify("Welcome to Moon-Sighted.", 
             $"{GetSprite(Move)} to move. {GetSprite(Look)} to look.\n {GetSprite(Jump)} to jump.\n {GetSprite(StartTalk)} to interact.\n {GetSprite(Dodge)} to dodge.\n");
         lastCrystalProgress = -1;
@@ -83,9 +86,11 @@ public class StoryManager : MonoBehaviour
     }
 
     #region Helper
-    public void ToggleControlScheme()
+    public void StartGame()
     {
-        useController = !useController;
+        gameState.crystalProgress = 0;
+        //core.isMined = 0;
+        //core.Health = 3;
     }
 
     private bool IntChanged(int newVal, int oldVal)
@@ -102,7 +107,7 @@ public class StoryManager : MonoBehaviour
     public string GetSprite(Control control)
     {
         string res;
-        if (useController)
+        if (gameState.useController)
         {
             res = $"<sprite name=\"{control.controller}\">";
         }

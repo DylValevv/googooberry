@@ -102,9 +102,17 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Continue",
+                    "name": "ContinueKeyBoard",
                     "type": "Button",
                     "id": "798e6a7b-6941-4f12-8bfe-2c88f52cd6b8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "ContinueController",
+                    "type": "Button",
+                    "id": "3abcc0e8-ee6b-4154-8bd9-e83b7799d6bb",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -712,23 +720,12 @@
                 },
                 {
                     "name": "",
-                    "id": "a8342e4f-ae1f-4ccd-8223-d768792552c1",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Continue",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "027b68ad-a7db-4087-992c-ab2f637db01d",
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Continue",
+                    "action": "ContinueKeyBoard",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -773,6 +770,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "ToggleControlScheme",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "add37b59-14d8-4da8-9605-220057e4606c",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ContinueController",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
