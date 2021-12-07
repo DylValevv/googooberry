@@ -86,6 +86,7 @@ public class StoryManager : MonoBehaviour
     public void ToggleControlScheme()
     {
         useController = !useController;
+        Debug.Log(useController);
     }
 
     private bool IntChanged(int newVal, int oldVal)
@@ -130,7 +131,7 @@ public class StoryManager : MonoBehaviour
     private void Notify(string title, string message)
     {
         notification.Notify(title, message);
-        Debug.Log(message);
+        // Debug.Log(message);
     }
 
     private void FullHealCharacter()

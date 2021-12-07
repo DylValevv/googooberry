@@ -55,38 +55,57 @@ public class UI : MonoBehaviour
         {
             if (!inSettings)
             {
+                inSettings = true;
+                ToggleSchemeControl.action.Enable();
+
+                QuitControl.action.Enable();
+                ContinueControl.action.Enable();
+                NewGameControl.action.Enable();
+
                 Time.timeScale = 0;
                 if (StoryManager.instance.useController)
                 {
                     settingsUIController.SetActive(true);
-
-                    QuitControl.action.Enable();
-                    ContinueControl.action.Enable();
-                    NewGameControl.action.Enable();
+                    settingsUIKeyboard.SetActive(false);
                 }
                 else
                 {
-                    menuUIController.SetActive(true);
-
-                    QuitControl.action.Disable();
-                    ContinueControl.action.Disable();
-                    NewGameControl.action.Disable();
+                    settingsUIKeyboard.SetActive(true);
+                    settingsUIController.SetActive(false);
                 }
             }
             else
             {
+                inSettings = false;
+                ToggleSchemeControl.action.Disable();
+
                 Time.timeScale = 1;
-                if (StoryManager.instance.useController)
-                {
-                    settingsUIController.SetActive(false);
-                }
-                else
-                {
-                    menuUIController.SetActive(false);
-                }
+
+                settingsUIKeyboard.SetActive(false);
+                settingsUIController.SetActive(false);
+
+                QuitControl.action.Disable();
+                ContinueControl.action.Disable();
+                NewGameControl.action.Disable();
             }
         }
-        
+
+        if (ToggleSchemeControl.action.triggered && inSettings)
+        {
+            StoryManager.instance.ToggleControlScheme();
+
+            if (StoryManager.instance.useController)
+            {
+                settingsUIController.SetActive(true);
+                settingsUIKeyboard.SetActive(false);
+            }
+            else
+            {
+                settingsUIKeyboard.SetActive(true);
+                settingsUIController.SetActive(false);
+            }
+        }
+
         if (QuitControl.action.triggered)
         {
             if (inSettings && sceneName != "Menu")
@@ -98,18 +117,13 @@ public class UI : MonoBehaviour
                 Application.Quit();
             }
         }
-        
+
         if (ContinueControl.action.triggered)
         {
             if (sceneName == "Menu")
             {
                 SceneManager.LoadScene("Alphafest_Level");
             }
-        }
-
-        if (ToggleSchemeControl.action.triggered && inSettings)
-        {
-            StoryManager.instance.ToggleControlScheme();
         }
     }
 }
