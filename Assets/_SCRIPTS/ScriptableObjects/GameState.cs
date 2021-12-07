@@ -16,8 +16,16 @@ public class GameState : ScriptableObject
     [Range(0,3)]
     public int crystalProgress;
 
+    [Header("UI Values")]
+    public bool useController;
+
     public void AddPlayerHealth(int amount)
     {
         playerHealth = Mathf.Clamp(playerHealth + amount, 0, maxPlayerHealth);
+    }
+
+    public void ToggleControlScheme()
+    {
+        useController = !useController;
     }
 }

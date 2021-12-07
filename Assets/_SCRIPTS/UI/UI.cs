@@ -8,7 +8,9 @@ public class UI : MonoBehaviour
 {
     [SerializeField] private InputActionReference SettingsToggleControl;
     [SerializeField] private InputActionReference QuitControl;
-    [SerializeField] private InputActionReference ContinueControl;
+    [SerializeField] private InputActionReference ContinueControlKey;
+    [SerializeField] private InputActionReference ContinueControlController;
+
     [SerializeField] private InputActionReference NewGameControl;
     [SerializeField] private InputActionReference ToggleSchemeControl;
     [SerializeField] private InputActionReference CreditsControl;
@@ -21,15 +23,18 @@ public class UI : MonoBehaviour
     [SerializeField] private GameObject menuUIKeyboard;
     [SerializeField] private GameObject menuUIController;
 
+    private GameState gameState;
+
+
     private bool inSettings;
     string sceneName;
 
     CharacterController player;
-
     private bool inCredits;
 
     private void Start()
     {
+        gameState = Resources.Load<GameState>("GameStateObject");
         Time.timeScale = 1;
 
         inSettings = false;
@@ -45,7 +50,8 @@ public class UI : MonoBehaviour
         {
             QuitControl.action.Enable();
             SettingsToggleControl.action.Disable();
-            ContinueControl.action.Enable();
+            ContinueControlKey.action.Enable();
+            ContinueControlController.action.Enable();
             NewGameControl.action.Enable();
             CreditsControl.action.Enable();
         }
@@ -53,7 +59,8 @@ public class UI : MonoBehaviour
         {
             QuitControl.action.Disable();
             SettingsToggleControl.action.Enable();
-            ContinueControl.action.Disable();
+            ContinueControlKey.action.Disable();
+            ContinueControlController.action.Disable();
             NewGameControl.action.Disable();
             CreditsControl.action.Disable();
         }
@@ -69,11 +76,12 @@ public class UI : MonoBehaviour
                 ToggleSchemeControl.action.Enable();
 
                 QuitControl.action.Enable();
-                ContinueControl.action.Enable();
+                ContinueControlKey.action.Enable();
+                ContinueControlController.action.Enable();
                 NewGameControl.action.Enable();
 
                 Time.timeScale = 0;
-                if (StoryManager.instance.useController)
+                if (gameState.useController)
                 {
                     settingsUIController.SetActive(true);
                     settingsUIKeyboard.SetActive(false);
@@ -95,16 +103,17 @@ public class UI : MonoBehaviour
                 settingsUIController.SetActive(false);
 
                 QuitControl.action.Disable();
-                ContinueControl.action.Disable();
+                ContinueControlKey.action.Disable();
+                ContinueControlController.action.Disable();
                 NewGameControl.action.Disable();
             }
         }
 
         if (ToggleSchemeControl.action.triggered && inSettings)
         {
-            StoryManager.instance.ToggleControlScheme();
+            gameState.ToggleControlScheme();
 
-            if (StoryManager.instance.useController)
+            if (gameState.useController)
             {
                 settingsUIController.SetActive(true);
                 settingsUIKeyboard.SetActive(false);
@@ -128,19 +137,27 @@ public class UI : MonoBehaviour
             }
         }
 
-        // play the game
-        if (ContinueControl.action.triggered)
+        if(sceneName == "Menu")
         {
-            if (sceneName == "Menu")
+            // play the game with keyboard
+            if (ContinueControlKey.action.triggered)
             {
                 SceneManager.LoadScene("Alphafest_Level");
+                gameState.useController = false;
             }
-        }
 
-        if (sceneName == "Menu" && CreditsControl.action.triggered)
-        {
-            inCredits = !inCredits;
-            creditsPanel.SetActive(inCredits);
+            //play the game with controller
+            if (ContinueControlController.action.triggered)
+            {
+                SceneManager.LoadScene("Alphafest_Level");
+                gameState.useController = true;
+            }
+
+            if (CreditsControl.action.triggered)
+            {
+                inCredits = !inCredits;
+                creditsPanel.SetActive(inCredits);
+            }
         }
     }
 }
