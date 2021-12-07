@@ -26,6 +26,8 @@ public class StoryManager : MonoBehaviour
     public bool useController = true;
     private int lastCrystalProgress;
 
+    [SerializeField] private GameObject finalCutscene;
+
     public struct Control
     {
         public Control(string controller, string keyboard)
@@ -259,6 +261,12 @@ public class StoryManager : MonoBehaviour
     private void Core3()
     {
         //everyone die and stuff
+        player.TurnEverythingOff();
+
+        // turn off player camera
+        Camera.main.gameObject.SetActive(false);
+
+        finalCutscene.SetActive(true);
     }
     #endregion
 }
