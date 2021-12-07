@@ -1153,4 +1153,15 @@ public class PlayerController : MonoBehaviour
     {
         unlockDash = false;
     }
+
+    /// <summary>
+    /// remove all input from the player
+    /// </summary>
+    public void TurnEverythingOff()
+    {
+        attackControl.action.Disable();
+        dodgeControl.action.Disable();
+        jumpControl.action.Disable();
+        slamControl.action.Disable();
+    }
 }
