@@ -11,6 +11,9 @@ public class UI : MonoBehaviour
     [SerializeField] private InputActionReference ContinueControl;
     [SerializeField] private InputActionReference NewGameControl;
     [SerializeField] private InputActionReference ToggleSchemeControl;
+    [SerializeField] private InputActionReference CreditsControl;
+
+    [SerializeField] private GameObject creditsPanel;
 
     [SerializeField] private GameObject settingsUIKeyboard;
     [SerializeField] private GameObject settingsUIController;
@@ -23,9 +26,14 @@ public class UI : MonoBehaviour
 
     CharacterController player;
 
+    private bool inCredits;
+
     private void Start()
     {
+        Time.timeScale = 1;
+
         inSettings = false;
+        inCredits = false;
 
         // Create a temporary reference to the current scene.
         Scene currentScene = SceneManager.GetActiveScene();
@@ -39,6 +47,7 @@ public class UI : MonoBehaviour
             SettingsToggleControl.action.Disable();
             ContinueControl.action.Enable();
             NewGameControl.action.Enable();
+            CreditsControl.action.Enable();
         }
         else
         {
@@ -46,47 +55,67 @@ public class UI : MonoBehaviour
             SettingsToggleControl.action.Enable();
             ContinueControl.action.Disable();
             NewGameControl.action.Disable();
+            CreditsControl.action.Disable();
         }
     }
 
     private void Update()
     {
-        if (SettingsToggleControl.action.triggered)
+        if (SettingsToggleControl.action.triggered && sceneName != "Menu")
         {
             if (!inSettings)
             {
+                inSettings = true;
+                ToggleSchemeControl.action.Enable();
+
+                QuitControl.action.Enable();
+                ContinueControl.action.Enable();
+                NewGameControl.action.Enable();
+
                 Time.timeScale = 0;
                 if (StoryManager.instance.useController)
                 {
                     settingsUIController.SetActive(true);
-
-                    QuitControl.action.Enable();
-                    ContinueControl.action.Enable();
-                    NewGameControl.action.Enable();
+                    settingsUIKeyboard.SetActive(false);
                 }
                 else
                 {
-                    menuUIController.SetActive(true);
-
-                    QuitControl.action.Disable();
-                    ContinueControl.action.Disable();
-                    NewGameControl.action.Disable();
+                    settingsUIKeyboard.SetActive(true);
+                    settingsUIController.SetActive(false);
                 }
             }
             else
             {
+                inSettings = false;
+                ToggleSchemeControl.action.Disable();
+
                 Time.timeScale = 1;
-                if (StoryManager.instance.useController)
-                {
-                    settingsUIController.SetActive(false);
-                }
-                else
-                {
-                    menuUIController.SetActive(false);
-                }
+
+                settingsUIKeyboard.SetActive(false);
+                settingsUIController.SetActive(false);
+
+                QuitControl.action.Disable();
+                ContinueControl.action.Disable();
+                NewGameControl.action.Disable();
             }
         }
-        
+
+        if (ToggleSchemeControl.action.triggered && inSettings)
+        {
+            StoryManager.instance.ToggleControlScheme();
+
+            if (StoryManager.instance.useController)
+            {
+                settingsUIController.SetActive(true);
+                settingsUIKeyboard.SetActive(false);
+            }
+            else
+            {
+                settingsUIKeyboard.SetActive(true);
+                settingsUIController.SetActive(false);
+            }
+        }
+
         if (QuitControl.action.triggered)
         {
             if (inSettings && sceneName != "Menu")
@@ -98,7 +127,8 @@ public class UI : MonoBehaviour
                 Application.Quit();
             }
         }
-        
+
+        // play the game
         if (ContinueControl.action.triggered)
         {
             if (sceneName == "Menu")
@@ -107,9 +137,10 @@ public class UI : MonoBehaviour
             }
         }
 
-        if (ToggleSchemeControl.action.triggered && inSettings)
+        if (sceneName == "Menu" && CreditsControl.action.triggered)
         {
-            StoryManager.instance.ToggleControlScheme();
+            inCredits = !inCredits;
+            creditsPanel.SetActive(inCredits);
         }
     }
 }

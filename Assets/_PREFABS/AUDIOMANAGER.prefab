@@ -172,6 +172,24 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: ObstacleBreak
+    clip: {fileID: 8300000, guid: 456a445820f48614498655f6708abc6f, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: CrystalBreak
+    clip: {fileID: 8300000, guid: 73933d8aa4f9b3b4ab296056f2d040b5, type: 3}
+    volume: 1
+    pitch: 0.5
+    loop: 0
+    source: {fileID: 0}
+  - name: CrystalHeal
+    clip: {fileID: 8300000, guid: 5f007d1b3ee1b564fb9cfffbe1197c70, type: 3}
+    volume: 1
+    pitch: 0.5
+    loop: 0
+    source: {fileID: 0}
   ambientMixer: {fileID: 7244315924189732430, guid: 4d78c0ff4b4f99647ad6b2dce1f21f47, type: 2}
   ambientSounds: []
   dialogueMixer: {fileID: -4204815170117952932, guid: 4d78c0ff4b4f99647ad6b2dce1f21f47, type: 2}

@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/_SCENES/PlayTest.unity
     guid: b59d41b907556fb43ac03adbbb7355fc
   - enabled: 1
+    path: Assets/_SCENES/Menu.unity
+    guid: 3a824be032a9e0a41997c3f5b31e1da2
+  - enabled: 1
     path: Assets/_SCENES/Alphafest_Level.unity
     guid: a21c8371291b1114ab96a184b9aeb28d
   m_configObjects:
