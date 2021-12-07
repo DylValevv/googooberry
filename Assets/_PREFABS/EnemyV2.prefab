@@ -672,9 +672,21 @@ PrefabInstance:
       value: LizardAnims
       objectReference: {fileID: 0}
     - target: {fileID: 5981540257814642675, guid: caa34369319fc0640aa6dc529b11529d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ed13399453344204981fad6eb9ac2689, type: 2}
+    - target: {fileID: 5981540257814642675, guid: caa34369319fc0640aa6dc529b11529d, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4e87d3d813e05dd45a6d6053c3f33643, type: 2}
+    - target: {fileID: 5981540257814642675, guid: caa34369319fc0640aa6dc529b11529d, type: 3}
       propertyPath: m_Materials.Array.data[2]
       value: 
-      objectReference: {fileID: 2100000, guid: 3ad9a674a295d2549964bcfc474fdf53, type: 2}
+      objectReference: {fileID: 2100000, guid: 00a7de5bbd071684fa4c2203f877aaa9, type: 2}
+    - target: {fileID: 5981540257814642675, guid: caa34369319fc0640aa6dc529b11529d, type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf792111d5e32f646b02cd2a5673b9eb, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caa34369319fc0640aa6dc529b11529d, type: 3}
 --- !u!1 &6932270073293663299 stripped
