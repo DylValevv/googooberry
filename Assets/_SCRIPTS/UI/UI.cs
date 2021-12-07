@@ -11,6 +11,9 @@ public class UI : MonoBehaviour
     [SerializeField] private InputActionReference ContinueControl;
     [SerializeField] private InputActionReference NewGameControl;
     [SerializeField] private InputActionReference ToggleSchemeControl;
+    [SerializeField] private InputActionReference CreditsControl;
+
+    [SerializeField] private GameObject creditsPanel;
 
     [SerializeField] private GameObject settingsUIKeyboard;
     [SerializeField] private GameObject settingsUIController;
@@ -23,9 +26,14 @@ public class UI : MonoBehaviour
 
     CharacterController player;
 
+    private bool inCredits;
+
     private void Start()
     {
+        Time.timeScale = 1;
+
         inSettings = false;
+        inCredits = false;
 
         // Create a temporary reference to the current scene.
         Scene currentScene = SceneManager.GetActiveScene();
@@ -39,6 +47,7 @@ public class UI : MonoBehaviour
             SettingsToggleControl.action.Disable();
             ContinueControl.action.Enable();
             NewGameControl.action.Enable();
+            CreditsControl.action.Enable();
         }
         else
         {
@@ -46,12 +55,13 @@ public class UI : MonoBehaviour
             SettingsToggleControl.action.Enable();
             ContinueControl.action.Disable();
             NewGameControl.action.Disable();
+            CreditsControl.action.Disable();
         }
     }
 
     private void Update()
     {
-        if (SettingsToggleControl.action.triggered)
+        if (SettingsToggleControl.action.triggered && sceneName != "Menu")
         {
             if (!inSettings)
             {
@@ -118,12 +128,19 @@ public class UI : MonoBehaviour
             }
         }
 
+        // play the game
         if (ContinueControl.action.triggered)
         {
             if (sceneName == "Menu")
             {
                 SceneManager.LoadScene("Alphafest_Level");
             }
+        }
+
+        if (sceneName == "Menu" && CreditsControl.action.triggered)
+        {
+            inCredits = !inCredits;
+            creditsPanel.SetActive(inCredits);
         }
     }
 }

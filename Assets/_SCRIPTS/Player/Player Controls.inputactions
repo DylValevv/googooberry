@@ -110,7 +110,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "New Game",
+                    "name": "Credits",
                     "type": "Button",
                     "id": "c1e9fdea-c514-4fda-9a49-626d64405e98",
                     "expectedControlType": "Button",
@@ -739,7 +739,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New Game",
+                    "action": "Credits",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -750,7 +750,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New Game",
+                    "action": "Credits",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

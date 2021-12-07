@@ -86,7 +86,6 @@ public class StoryManager : MonoBehaviour
     public void ToggleControlScheme()
     {
         useController = !useController;
-        Debug.Log(useController);
     }
 
     private bool IntChanged(int newVal, int oldVal)

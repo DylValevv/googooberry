@@ -61,8 +61,8 @@ MonoBehaviour:
     m_Unicode: 65534
     m_GlyphIndex: 3
     m_Scale: 1
-    m_Name: keyspritesheet_0
-    m_HashCode: 670142910
+    m_Name: A_key
+    m_HashCode: 75713577
   - m_ElementType: 2
     m_Unicode: 65534
     m_GlyphIndex: 4
@@ -97,8 +97,8 @@ MonoBehaviour:
     m_Unicode: 65534
     m_GlyphIndex: 9
     m_Scale: 1
-    m_Name: keyspritesheet_7
-    m_HashCode: 670142905
+    m_Name: B_key
+    m_HashCode: 81427818
   - m_ElementType: 2
     m_Unicode: 65534
     m_GlyphIndex: 10
@@ -421,8 +421,8 @@ MonoBehaviour:
     m_Unicode: 65534
     m_GlyphIndex: 63
     m_Scale: 1
-    m_Name: keyspritesheet_63
-    m_HashCode: 639879307
+    m_Name: Y_key
+    m_HashCode: 102468145
   - m_ElementType: 2
     m_Unicode: 65534
     m_GlyphIndex: 64
