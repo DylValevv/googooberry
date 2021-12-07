@@ -173,9 +173,9 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: ObstacleBreak
-    clip: {fileID: 8300000, guid: 31a9a37c9eee1464aaf8e67596e32367, type: 3}
+    clip: {fileID: 8300000, guid: 456a445820f48614498655f6708abc6f, type: 3}
     volume: 1
-    pitch: 0.5
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: CrystalBreak
