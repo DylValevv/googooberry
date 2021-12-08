@@ -11,7 +11,7 @@ public class DamageCrystal : MonoBehaviour
     public bool enemiesDefeated = false;
     public GameObject destroyedParticleEffect;
     public GameObject crystalMesh;
-    public Image gameOverPanel;
+    //public Image gameOverPanel;
     private GameState gameState;
     // Start is called before the first frame update
     void Start()
@@ -58,6 +58,7 @@ public class DamageCrystal : MonoBehaviour
         //AlphafestGameOver();
     }
 
+    /*
     private void AlphafestGameOver()
     {
         Sequence mySequence = DOTween.Sequence();
@@ -68,5 +69,5 @@ public class DamageCrystal : MonoBehaviour
         mySequence.AppendInterval(3f);
         mySequence.Append(gameOverPanel.DOFade(1f, 0.5f));
         mySequence.Append(deathText.DOFade(1f, 0.5f));
-    }
+    }*/
 }
