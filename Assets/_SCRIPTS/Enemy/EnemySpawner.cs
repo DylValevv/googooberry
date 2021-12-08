@@ -11,6 +11,7 @@ public class EnemySpawner : MonoBehaviour
     public GameObject[] enemies;
     public GameObject playerObj;
     private bool combatTime = false;
+    private bool enemiesDead = false;
 
 
     // Start is called before the first frame update
@@ -89,8 +90,13 @@ public class EnemySpawner : MonoBehaviour
         else
         {
             Debug.Log("Able to attack crystal");
-            StoryManager.instance.EnemiesEliminatedNotification();
             crystalCore.enemiesDefeated = true;
+
+            if (!enemiesDead)
+            {
+                enemiesDead = true;
+                StoryManager.instance.EnemiesEliminatedNotification();
+            }
         }
     }
 
