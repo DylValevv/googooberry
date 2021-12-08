@@ -37085,7 +37085,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2076574102975401490, guid: 97853435a52f2ad4cac738cb08b31111, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.095706336
+      value: 0.09570635
       objectReference: {fileID: 0}
     - target: {fileID: 2076574102975401490, guid: 97853435a52f2ad4cac738cb08b31111, type: 3}
       propertyPath: m_LocalRotation.y
@@ -37093,7 +37093,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2076574102975401490, guid: 97853435a52f2ad4cac738cb08b31111, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.07595423
+      value: -0.075954236
       objectReference: {fileID: 0}
     - target: {fileID: 3107635114000072672, guid: 97853435a52f2ad4cac738cb08b31111, type: 3}
       propertyPath: debugMode
@@ -49725,6 +49725,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   globalVolume: {fileID: 150109009}
+  Mush: {fileID: 4108293553385641189, guid: d0409ba388129fc44853e2dc11af3f47, type: 3}
+  Mush_alt: {fileID: 1947533976483465881, guid: f9d4ac8265da7f24f9ed72b4ac0e7260, type: 3}
+  Mushroom0_mat: {fileID: 2100000, guid: a495d9c3393b6db4595a0897f69873dc, type: 2}
+  Mushroom1_mat: {fileID: 2100000, guid: ddce3413244d4ba4aaf33c6c74c0d735, type: 2}
+  Mushroom2_mat: {fileID: 2100000, guid: 32b6642b2a4489245b3808a5bfa98c93, type: 2}
+  Mushroom_alt0_mat: {fileID: 2100000, guid: c89531d19836b464f9e3af08ed1b3ddc, type: 2}
+  Mushroom_alt1_mat: {fileID: 2100000, guid: d97c43b0b8f03d849b1ea34b9862e1dd, type: 2}
+  Mushroom_alt2_mat: {fileID: 2100000, guid: 48a9ced7cda64fd44bcaa267768c00e6, type: 2}
 --- !u!1001 &900908476
 PrefabInstance:
   m_ObjectHideFlags: 0
