@@ -274,6 +274,7 @@ public class StoryManager : MonoBehaviour
     #region Core3
     public void Core3()
     {
+        AudioManager.instance.PlayAction("Earthquake");
         //everyone die and stuff
         player.TurnEverythingOff();
 
