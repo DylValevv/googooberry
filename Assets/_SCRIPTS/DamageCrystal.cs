@@ -17,10 +17,12 @@ public class DamageCrystal : MonoBehaviour
     void Start()
     {
         gameState = FindObjectOfType<PlayerController>().gameState;
-        if (crystalData.isMined == 0)
+        /*if (crystalData.isMined == 1)
         {
             gameObject.SetActive(false);
-        }
+        }*/
+
+        crystalData.isMined = 0;
 
     }
 
