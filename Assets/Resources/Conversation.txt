@@ -132,12 +132,6 @@ Not as good as the moon.]
 //Mairu]
 I just know.]
 
-;C.0.NPC4;
-//Villager]
-When I was small, I felt the <b>onddargi</b> give such a powerful glow. It seems they've dimmed.]
-//Mairu]
-Could be your eyes. You're getting old, after all.]
-//Villager] Perhaps. . .]
 
 
 ;Core 1;
@@ -194,8 +188,19 @@ It is easy to be swept up in the excitement of change. I pray it does not consum
 As always, mind the Uskerra.]
 
 ;C.1.MIAK;
+
+
+
 ;C.1.NPC1;
+//Villager]
+When I was small, I felt the <b>onddargi</b> give such a powerful glow. It seems they've dimmed.]
+//Mairu]
+Could be your eyes. You're getting old, after all.]
+//Villager] Perhaps. . .]
+
 ;C.1.NPC2;
+//Villager] My brother was on a Teluna exploration not too long ago. 
+
 ;C.1.NPC3;
 
 ;Core 2;
@@ -264,7 +269,7 @@ There's no turning back now. I hope it's all worth it.]
 
 ;LSTONES;
 ;LSTONE1;
-//Lore Stone] <smallcaps> Boundless Years Past, Here Descended The First Moths, The <B>Jondengoa</B> </smallcaps>]
+// ] <smallcaps> Boundless Years Past, Here Descended The First Moths, The <B>Jondengoa</B> </smallcaps>]
 <smallcaps> Lost to their mother Moon, a home was made from the depths of the <b>Etsuna</b></smallcaps>]
 <smallcaps> They gazed up through the <b>Teluna</b>, pining for the light they once knew</smallcaps>]
 <smallcaps> Their spawn, the <b>Jonditsa</b>, would never know its beauty</smallcaps>]
@@ -278,7 +283,7 @@ Truly remarkable, that this one crystal can sustain an entire ecosystem!]
 
 
 ;LSTONE3;
-//Lore Stone]<smallcaps> The prismatic wonder of the <b>Ilarka</b>, the window to a lost world</smallcaps>]
+// ]<smallcaps> The prismatic wonder of the <b>Ilarka</b>, the window to a lost world</smallcaps>]
 <smallcaps> The <b>Jonditsa</b> held the untold majesty of their ancestors in their clutches</smallcaps>]
 <smallcaps> Providing the sliver of hope for regaining what was never had</smallcaps>]
 <smallcaps> Would it ever have been theirs to take</smallcaps>]

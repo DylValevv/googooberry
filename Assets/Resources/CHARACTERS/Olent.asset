@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba145888f0203e344a5d8fe0d0dfadcc, type: 3}
-  m_Name: DEFAULT
+  m_Name: Olent
   m_EditorClassIdentifier: 
-  portrait: {fileID: 21300000, guid: ca4674e92e292a740abffd9b6df7d25f, type: 3}
-  soundIndex: 75
+  portrait: {fileID: 21300000, guid: 4eec61c250ae57d4ebb4f6ce92591a71, type: 3}
+  soundIndex: 106
   sounds:
-  - 10
+  - 4
   portraitRight: 0
-  textColor: {r: 1, g: 1, b: 1, a: 1}
+  textColor: {r: 0.80718225, g: 0.819772, b: 0.9150943, a: 1}

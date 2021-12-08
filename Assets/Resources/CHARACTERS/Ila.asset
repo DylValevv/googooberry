@@ -17,4 +17,4 @@ MonoBehaviour:
   sounds:
   - 4
   portraitRight: 0
-  textColor: {r: 1, g: 0.77155054, b: 0.6666667, a: 1}
+  textColor: {r: 0.6666667, g: 1, b: 0.7891681, a: 1}
