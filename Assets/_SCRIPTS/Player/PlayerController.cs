@@ -272,7 +272,7 @@ public class PlayerController : MonoBehaviour
 
         AbilityHandler();
 
-        if(debugMode)
+        if (debugMode)
         {
             if (Input.GetKeyDown(KeyCode.R))
             {
@@ -282,6 +282,11 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.LeftControl))
             {
                 UnlockSlam();
+            }
+
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                StoryManager.instance.Core3();
             }
         }
 
