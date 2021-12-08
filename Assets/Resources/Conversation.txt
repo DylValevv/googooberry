@@ -299,9 +299,11 @@ There's no turning back now. I hope it's all worth it.]
 ;OBSTACLE1;
 // ]<smallcaps> Beyond these tunnels are long stretches and cliffs, Deadly pools of water that will drown the strongest. The gift of <b>flight</b> may aid in your travels.]
 
-;OBSTACLE2; // ]<smallcaps> A rock wall lays ahead, impassable by many. A high velocity projectile may break it open.] 
+;OBSTACLE2;
+// ]<smallcaps> A rock wall lays ahead, impassable by many. A high velocity projectile may break it open.] 
 
-;OBSTACLE3; // ]<smallcaps> A rock wall lays ahead, strong and firm. A mighty burst may clear the way.]
+;OBSTACLE3;
+// ]<smallcaps> A rock wall lays ahead, strong and firm. A mighty burst may clear the way.]
 
 
 ;LSTONE1;

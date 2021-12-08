@@ -214,6 +214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rockCrumbleVFXprefab: {fileID: 2363837519044700162, guid: e38612e062d602b44992a4f1f634aff7, type: 3}
   vfxSpawnLocation: {fileID: 3475741931277418955}
+  pointLight: {fileID: 403275381661687915}
   unlockTag: 1
 --- !u!1001 &3475741931285375801
 PrefabInstance:

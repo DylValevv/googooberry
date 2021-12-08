@@ -7,6 +7,8 @@ public class Obstacle : MonoBehaviour
     [SerializeField] private GameObject rockCrumbleVFXprefab;
     [SerializeField] private Transform vfxSpawnLocation;
 
+    [SerializeField] private GameObject pointLight;
+
     private enum abilityUnlockTag {CrystalSlam, Ranged};
     [SerializeField] private abilityUnlockTag unlockTag;
 
@@ -14,6 +16,7 @@ public class Obstacle : MonoBehaviour
     {
         if (other.tag == unlockTag.ToString())
         {
+            pointLight.SetActive(false);
             AudioManager.instance.PlayAction("ObstacleBreak");
             Instantiate(rockCrumbleVFXprefab, vfxSpawnLocation);
             Destroy(gameObject);
