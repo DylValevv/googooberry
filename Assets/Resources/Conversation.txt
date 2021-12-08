@@ -32,24 +32,28 @@ Maybe then some of these freeloaders will be strong enough to actually help us o
 Glad to be of help.]
 //Odei]
 Hah, that's the spirit!]
- Speaking of which, I've got some leads on new <b>ilarka</b> deposits near town, meaning I got another job for you.]
-Why don't you go pay Ila a visit over at her shrine first?]
- Despite all of her ravings about how these crystals are killin' us, her healing powers are a great way to prepare for an outing.]
+Speaking of which, I've got a lead on a new <b>ilarka</b> deposit near town, meaning I got another job for you.]
+Head out through the main cave, look for a large <b>ilarka</b> core, and bring it back here.]
+//Mairu]
+Sure thing, boss.]
+//Odei]
+Before you go, why don't you go pay Ila a visit over at her shrine first?]
+ Despite all of her ravings about how these crystals are killin' us, her healing powers are a great way to prepare for a job.]
 Can't stand it, but that's why I got you to take the beating instead! Hah!]
 
 ;C.0.ODEI+;
 //Odei]
-You got those crystals yet?]
+You find that <b>ilarka</b> core yet?]
 //Mairu]
 Still working on it, boss.]
 //Odei]
-Alright, well, let's get a move-on. If you're having a tough time, try talking to Tilak. He might have something that could help.]
+Alright, well, let's get a move-on. If you're having a tough time, try stopping by Tilak's shop. He might have something that could help.]
 
 ;C.0.ILA;
 //Ila]
 Welcome Mairu. How goes your harvesting of those blasted crystals?]
 //Mairu]
-Quite well, actually. The more <b>ilarka</b> we collect the closer we are to finally escaping this place.]
+Quite well, actually. The more <b>ilarka</b> we collect, the closer we are to finally escaping this place.]
 //Ila]
 The <b>Teluna</b> will always be there, we will ascend it and find the moon in time. We don't need to rush it with the <b>moonsight</b>.]
 Our ancestors had patience, and so can we.]
@@ -79,7 +83,7 @@ Speaking of which, are you and Odei bringin' in a new shipment of <b>ilarka</b> 
 //Mairu]
 Yep, I'm just about to head out on another outing.]
 //Tilak]
-Alright! Just bring those crystals back to me and I can get cooking. I'll even give ya a lil' extra to boost your <b>moonsight</b> powers!
+Alright! Just bring those crystals back to me and I can get cooking. I'll even give ya a lil' extra to boost your <b>moonsight</b> powers!]
 Actually, ya know what? I've got a bit of candy left over, why don't you take this now as an advanced thank-you?]
 //:ActivatePlayerDash]
 //Mairu]
@@ -108,7 +112,7 @@ If you keep consuming it, they're not going to be happy. . .]
 
 ;C.0.NPC1;
 //Villager]
-One of Odei's moonsighted, eh? You're lucky to have gotten it so soon.]
+One of Odei's <b>moonsighted</b>, eh? You're lucky to have gotten it so soon.]
 
 ;C.0.NPC2;
 //Villager]
@@ -116,12 +120,12 @@ Ila likes to pretend that she understands the common moth's issues.]
 //Mairu]
 She's pretending?]
 //Villager]
-Of course! Her father was the village leader, and she inherited his moonsight.]
+Of course! Her father was the village leader, and she inherited his <b>moonsight</b>.]
 She was born powerful. Odei's right. She'll never truly know the struggle.]
 
 ;C.0.NPC3;
 //Villager]
-I love staring at the slow sway of the mushrooms. What a peaceful glow they give off.]
+I love staring at the slow sway of the <b>onddargi</b>. What a peaceful glow they give off.]
 //Mairu]
 Not as good as the moon.]
 //Villager] How can you know when you've never seen it?]
@@ -132,7 +136,7 @@ I just know.]
 //Villager]
 When I was small, I felt the <b>onddargi</b> give such a powerful glow. It seems they've dimmed.]
 //Mairu]
-Must be your eyes. You're getting old, after all.]
+Could be your eyes. You're getting old, after all.]
 //Villager] Perhaps. . .]
 
 
@@ -267,6 +271,10 @@ There's no turning back now. I hope it's all worth it.]
 
 ;LSTONE2;
 //Journal of Iker, the Explorer] This expedition has been a great success! I've learned essential details about the local flora and fauna.]
+It seems both the reptilian <b>uskerra</b> and the fungal <b>onddargi</b> rely on <b>ilarka</b> crystals to sustain themselves.]
+The <b>onddargi</b> derive their beautiful glow from them, and the <b>uskerra</b> use them as their primary food source.]
+Truly remarkable, that this one crystal can sustain an entire ecosystem!]
+
 
 
 ;LSTONE3;
