@@ -191,7 +191,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Earthquake
-    clip: {fileID: 8300000, guid: e1d3d39953f456b4d898995eee84d0f1, type: 3}
+    clip: {fileID: 8300000, guid: deac0b39330c2e34c8ab089373256ae8, type: 3}
     volume: 1
     pitch: 1
     loop: 0
@@ -232,6 +232,12 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: moth6
     clip: {fileID: 8300000, guid: 8a45e4a6225c67f44b10b37b5c578e67, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: moth10
+    clip: {fileID: 8300000, guid: ac5108bc3e59d3c459c163c5311c20f0, type: 3}
     volume: 1
     pitch: 1
     loop: 0

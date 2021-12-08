@@ -38,6 +38,7 @@ public class StoryManager : MonoBehaviour
     private int lastCrystalProgress;
 
     [SerializeField] private GameObject finalCutscene;
+    [SerializeField] private GameObject ogCanvas;
 
     public struct Control
     {
@@ -296,6 +297,7 @@ public class StoryManager : MonoBehaviour
         // turn off player camera
         Camera.main.gameObject.SetActive(false);
 
+        ogCanvas.SetActive(false);
         finalCutscene.SetActive(true);
 
         Invoke("GoToMenu", 40);

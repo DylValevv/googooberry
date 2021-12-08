@@ -16,5 +16,5 @@ MonoBehaviour:
   maxPlayerHealth: 10
   playerDamage: 1
   spawnPoint: {x: -30.03, y: 9.67, z: -3.88}
-  crystalProgress: 2
+  crystalProgress: 0
   useController: 0
