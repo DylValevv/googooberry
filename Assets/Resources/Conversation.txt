@@ -133,6 +133,11 @@ Not as good as the moon.]
 I just know.]
 
 
+;C.0.NPC4;
+//Villager] I remember your gentle eyes, before you were <b>moonsighted</b>. I don't know what I'm looking at anymore.]
+//Mairu] I'm the same as always. Just stronger. You should get <b>moonsighted</b> too.]
+
+
 
 ;Core 1;
 Themes, llarka doubt, ilarka craze, sides becoming more polarized, npc comments on mushrooms dimming, seasonal sadness type beat, start of an artificial winter
@@ -199,9 +204,17 @@ Could be your eyes. You're getting old, after all.]
 //Villager] Perhaps. . .]
 
 ;C.1.NPC2;
-//Villager] My brother was on a Teluna exploration not too long ago. 
+//Villager] My brother was on a Teluna exploration not too long ago. He wasn't moonsighted, and he almost died.]
+It is downright wrong to have any regular moth to do that. We all need moonsight!]
+The fact that some people resist such an obvious change gets my blood boiling.]
+//Mairu] It is our only option to progress.]
+
 
 ;C.1.NPC3;
+//Villager] I don't know why, I've been feeling sad. Our home has darkened.]
+//Mairu] The underground is not meant for us. But we will move forward soon.]
+//Villager] I'm not sure I want to. The <b>Etsuna</b> is my home. But it cries today. . .]
+
 
 ;Core 2;
 
@@ -257,9 +270,23 @@ There's no turning back now. I hope it's all worth it.]
 
 
 ;C.2.MIAK;
+
 ;C.2.NPC1;
+//Villager] Time to get out of here. It's been far too long we've been stuck in this hole.]
+//Mairu] I agree. I've always wondered if we have brothers and sisters on the surface that never fell downwards.]
+//Villager] They would be living the dream.]
+//Mairu] Seems like we'll be joining them soon!]
+//Villager] Can't wait.]
+
+
 ;C.2.NPC2;
+//Villager] The <b>Onddargi</b> mushrooms look so gray. Our home is being destroyed. And you're all blind to it. I'm not joining this movement.]
+//Mairu] You're wrong. We're moving to better things. If you don't become <b>moonsighted</b> you'll just be left behind.]
+//Villager] I'll take my chances.]
+
+
 ;C.2.NPC3;
+//Villager] True equality is on the horizon! We will all be <b>moonsighted</b> soon!]
 
 ;Core 3;
 
@@ -268,22 +295,35 @@ There's no turning back now. I hope it's all worth it.]
 
 
 ;LSTONES;
+
+;OBSTACLE1;
+// ]<smallcaps> Beyond these tunnels are long stretches and cliffs, Deadly pools of water that will drown the strongest. The gift of <b>flight</b> may aid in your travels.]
+
+;OBSTACLE2; // ]<smallcaps> A rock wall lays ahead, impassable by many. A high velocity projectile may break it open.] 
+
+;OBSTACLE3; // ]<smallcaps> A rock wall lays ahead, strong and firm. A mighty burst may clear the way.]
+
+
 ;LSTONE1;
 // ] <smallcaps> Boundless Years Past, Here Descended The First Moths, The <B>Jondengoa</B> </smallcaps>]
 <smallcaps> Lost to their mother Moon, a home was made from the depths of the <b>Etsuna</b></smallcaps>]
 <smallcaps> They gazed up through the <b>Teluna</b>, pining for the light they once knew</smallcaps>]
 <smallcaps> Their spawn, the <b>Jonditsa</b>, would never know its beauty</smallcaps>]
 
+
 ;LSTONE2;
+// ]<smallcaps> The prismatic wonder of the <b>Ilarka</b>, the window to a lost world</smallcaps>]
+<smallcaps> The <b>Jonditsa</b> held the untold majesty of their ancestors in their clutches</smallcaps>]
+<smallcaps> Providing the sliver of hope for regaining what was never had</smallcaps>]
+<smallcaps> Would it ever have been theirs to take</smallcaps>]
+
+;JOURNAL1;
 //Journal of Iker, the Explorer] This expedition has been a great success! I've learned essential details about the local flora and fauna.]
 It seems both the reptilian <b>uskerra</b> and the fungal <b>onddargi</b> rely on <b>ilarka</b> crystals to sustain themselves.]
 The <b>onddargi</b> derive their beautiful glow from them, and the <b>uskerra</b> use them as their primary food source.]
 Truly remarkable, that this one crystal can sustain an entire ecosystem!]
 
-
-
-;LSTONE3;
-// ]<smallcaps> The prismatic wonder of the <b>Ilarka</b>, the window to a lost world</smallcaps>]
-<smallcaps> The <b>Jonditsa</b> held the untold majesty of their ancestors in their clutches</smallcaps>]
-<smallcaps> Providing the sliver of hope for regaining what was never had</smallcaps>]
-<smallcaps> Would it ever have been theirs to take</smallcaps>]
+;JOURNAL2;
+//Journal of Iker, the Explorer] Studying the structure of these giant <b>ilarka</b> cores has revealed some fascinating results about this place!]
+Not only do these crystals support the local wildlife, but they also seem to be structurally integral to this cave system.]
+These magnificent, lustrous spires are responsible for holding the roof over heads. Who would've thought?]

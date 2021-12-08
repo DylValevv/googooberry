@@ -13,10 +13,13 @@ public class StoryManager : MonoBehaviour
     [SerializeField] DialogueStart Miak;
     [SerializeField] DialogueStart Olent;
 
-    [SerializeField] DialogueStart Npc1;
-    [SerializeField] DialogueStart Npc2;
-    [SerializeField] DialogueStart Npc3;
-    [SerializeField] DialogueStart Npc4;
+
+    [SerializeField] GameObject Tilak_Moon;
+    [SerializeField] GameObject Tilak_Norm;
+    [SerializeField] GameObject Core0Stuff;
+    [SerializeField] GameObject Core1Stuff;
+    [SerializeField] GameObject Core2Stuff;
+
 
     [SerializeField] private GameObject UnlockedTip1_1;
     [SerializeField] private GameObject UnlockedTip1_2;
@@ -162,7 +165,12 @@ public class StoryManager : MonoBehaviour
     private void Core0()
     {
         //starting sequence
-        
+        Core0Stuff.SetActive(true);
+        Core1Stuff.SetActive(false);
+        Core2Stuff.SetActive(false);
+        Tilak_Norm.SetActive(true);
+        Tilak_Moon.SetActive(false);
+
         //player lock dash, projectile, slam
         player.LockDash();
         player.LockRanged();
@@ -172,7 +180,6 @@ public class StoryManager : MonoBehaviour
         SwapDialogue(Odei, "C.0.ODEI");
         SwapDialogue(Ila, "C.0.ILA");
         SwapDialogue(Tilak, "C.0.TILAK");
-        SwapDialogue(Olent, "C.0.OLENT");
 
         //SwapDialogue(Miak, "C.0.MIAK");
         //SwapDialogue(Npc1, "C.0.NPC1");
@@ -213,6 +220,11 @@ public class StoryManager : MonoBehaviour
     {
         //screen shake?
         //destroy previous obstacles
+        Core0Stuff.SetActive(false);
+        Core1Stuff.SetActive(true);
+        Core2Stuff.SetActive(false);
+        Tilak_Norm.SetActive(true);
+        Tilak_Moon.SetActive(false);
 
         //player lock dash, projectile, slam
         player.UnlockDash();
@@ -223,7 +235,6 @@ public class StoryManager : MonoBehaviour
         SwapDialogue(Odei, "C.1.ODEI");
         SwapDialogue(Ila, "C.1.ILA");
         SwapDialogue(Tilak, "C.1.TILAK");
-        SwapDialogue(Olent, "C.1.OLENT");
 
         //SwapDialogue(Miak, "C.1.MIAK");
         //SwapDialogue(Npc1, "C.1.NPC1");
@@ -245,6 +256,11 @@ public class StoryManager : MonoBehaviour
     {
         //more screen shake?
         //destroy previous obstacles
+        Core0Stuff.SetActive(false);
+        Core1Stuff.SetActive(false);
+        Core2Stuff.SetActive(true);
+        Tilak_Norm.SetActive(false);
+        Tilak_Moon.SetActive(true);
 
         //player lock dash, projectile, slam
         player.UnlockDash();
@@ -255,7 +271,6 @@ public class StoryManager : MonoBehaviour
         SwapDialogue(Odei, "C.2.ODEI");
         SwapDialogue(Ila, "C.2.ILA");
         SwapDialogue(Tilak, "C.2.TILAK");
-        SwapDialogue(Olent, "C.2.OLENT");
 
         //SwapDialogue(Miak, "C.2.MIAK");
         //SwapDialogue(Npc1, "C.2.NPC1");
