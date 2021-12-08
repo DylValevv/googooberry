@@ -190,6 +190,12 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Earthquake
+    clip: {fileID: 8300000, guid: e1d3d39953f456b4d898995eee84d0f1, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   ambientMixer: {fileID: 7244315924189732430, guid: 4d78c0ff4b4f99647ad6b2dce1f21f47, type: 2}
   ambientSounds: []
   dialogueMixer: {fileID: -4204815170117952932, guid: 4d78c0ff4b4f99647ad6b2dce1f21f47, type: 2}

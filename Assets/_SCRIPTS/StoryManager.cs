@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 //An object that has necessary references to all story based stuff
 //given a string, run a function, use Invoke
@@ -271,8 +272,9 @@ public class StoryManager : MonoBehaviour
     #endregion
 
     #region Core3
-    private void Core3()
+    public void Core3()
     {
+        AudioManager.instance.PlayAction("Earthquake");
         //everyone die and stuff
         player.TurnEverythingOff();
 
@@ -280,6 +282,16 @@ public class StoryManager : MonoBehaviour
         Camera.main.gameObject.SetActive(false);
 
         finalCutscene.SetActive(true);
+
+        Invoke("GoToMenu", 40);
+    }
+
+    /// <summary>
+    /// goes to the menu after the final cutscene is done
+    /// </summary>
+    private void GoToMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
     #endregion
 }
