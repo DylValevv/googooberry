@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &174118704
 Transform:
   m_ObjectHideFlags: 0
@@ -92,21 +92,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4975587921721254548, guid: 536b12f8995c011448e92d05201c20d1, type: 3}
---- !u!114 &1999574756
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8908094330564768895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23e7cd4debd7bcc409568bf9e0aca9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rockCrumbleVFXprefab: {fileID: 2363837519044700162, guid: e38612e062d602b44992a4f1f634aff7, type: 3}
-  vfxSpawnLocation: {fileID: 174118704}
-  unlockTag: 1
 --- !u!1001 &8601454490248726830
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -184,7 +169,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 536b12f8995c011448e92d05201c20d1, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 4294967287
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 536b12f8995c011448e92d05201c20d1, type: 3}
