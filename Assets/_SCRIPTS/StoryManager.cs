@@ -17,9 +17,12 @@ public class StoryManager : MonoBehaviour
     [SerializeField] DialogueStart Npc3;
     [SerializeField] DialogueStart Npc4;
 
-    [SerializeField] private GameObject UnlockedTip1;
-    [SerializeField] private GameObject UnlockedTip2;
-    [SerializeField] private GameObject UnlockedTip3;
+    [SerializeField] private GameObject UnlockedTip1_1;
+    [SerializeField] private GameObject UnlockedTip1_2;
+    [SerializeField] private GameObject UnlockedTip2_1;
+    [SerializeField] private GameObject UnlockedTip2_2;
+    [SerializeField] private GameObject UnlockedTip3_1;
+    [SerializeField] private GameObject UnlockedTip3_2;
 
 
     [SerializeField] GameState gameState;
@@ -177,7 +180,8 @@ public class StoryManager : MonoBehaviour
     }
     private void ActivatePlayerDash()
     {
-        UnlockedTip1.SetActive(true);
+        UnlockedTip1_1.SetActive(true);
+        UnlockedTip1_2.SetActive(true);
         StepOdeiDialogue();
         player.UnlockDash();
         Notify("Air Dash Unlocked", $"Press {GetSprite(Jump)} in the air. Zoom forward and use the power in your wings.");
@@ -228,7 +232,8 @@ public class StoryManager : MonoBehaviour
 
     private void ActivatePlayerProjectile()
     {
-        UnlockedTip2.SetActive(true);
+        UnlockedTip2_1.SetActive(true);
+        UnlockedTip2_2.SetActive(true);
         player.UnlockRanged();
         Notify("Projectile Finisher Unlocked", $"Press {GetSprite(Attack)} three times to trigger your finisher. Notice the projectile that shoots forward!");
     }
@@ -258,7 +263,8 @@ public class StoryManager : MonoBehaviour
     }
     private void ActivatePlayerSlam()
     {
-        UnlockedTip3.SetActive(true);
+        UnlockedTip3_1.SetActive(true);
+        UnlockedTip3_2.SetActive(true);
         player.UnlockSlam();
         Notify("Illarka Burst Unlocked", $"Press {GetSprite(Slam)} on the ground to cause a mighty burst, demolishing enemies in it's path. Use the ultimate power of the illarka crystal.");
     }
