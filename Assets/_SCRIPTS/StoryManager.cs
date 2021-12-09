@@ -212,7 +212,7 @@ public class StoryManager : MonoBehaviour
     }
     public void EnemiesSpottedNotification()
     {
-        Notify("Uskerra Spotted", "The dangerous creatures defend the ilarka core. Defeat them to harvest its shards.");
+        Notify("Uskerra Spotted", $"The dangerous creatures defend the ilarka core. Defeat them to harvest its shards. \n {GetSprite(Attack)} to attack. Smash small crystals mid-battle for a heal");
     }
     #endregion
 

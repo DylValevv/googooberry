@@ -230,22 +230,22 @@ Time to finish the job and move on! There's one <b>ilarka</b> core left, go ahea
 //Mairu] Right, of course.]
 
 ;C.2.TILAK;
-//Tilak] Notice anything different?]
+//Tilak the Sighted] Notice anything different?]
 //Mairu] Tilak! This is amazing, look at you! <b>Moonsighted</b>! How is it?]
-//Tilak] It's amazing! I feel alive, like a brand new moth. All thanks to you and your last find.]
+//Tilak the Sighted] It's amazing! I feel alive, like a brand new moth. All thanks to you and your last find.]
 And it seems like you got more for me. I never thought things could go this well.]
 //Mairu] Doesn't seem like everyone's so happy.]
-//Tilak] You mean Ila and the others? They're just a bit unnerved at the changes.]
+//Tilak the Sighted] You mean Ila and the others? They're just a bit unnerved at the changes.]
 Maybe Ila's feeling less powerful with all the new <b>moonsighted</b> moths, hah!]
 Anyway, let me take a look at your new find . . .]
 She's a beauty, probably your best find yet. This one might knock you out, you ready?]
 //Mairu] As I'll ever be. Let's see it.]
 //:ScreenFade]
-//Tilak] Here's your share. Careful with that one.]
+//Tilak the Sighted] Here's your share. Careful with that one.]
 //:ActivatePlayerSlam]
 //Mairu] Woah. Ok, ok. . .]
 //:ScreenFade]
-//Tilak] Wow, you were out for a while. But you're absolutely glowing! Go test out your new powers.]
+//Tilak the Sighted] Wow, you were out for a while. But you're absolutely glowing! Go test out your new powers.]
 
  
 ;C.2.ILA;
@@ -260,7 +260,7 @@ I hope we can be friends again in the new world, on the surface.]
 There's no turning back now. I hope it's all worth it.]
 
 ;C.2.OLENT;
-//Olenti] You cannot deny that a dark shroud has surrounded the <b>Etsuna</b>.]
+//Olent] You cannot deny that a dark shroud has surrounded the <b>Etsuna</b>.]
 //Mairu] I don't. That is why we must finish the job and leave.]
 //Olent] Your job is one of destruction. That is why the <b>ondarggi</b> cry out. The backbone of the caves, the <b>Etsuna</b>, our home.]
 //Mairu] We will finish what we started, and the <b>Etsuna</b> will be a memory of the past once we reach the moon. It's time to return to the surface, Olent. We are going to leave.]
