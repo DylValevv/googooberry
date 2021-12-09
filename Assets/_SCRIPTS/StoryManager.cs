@@ -208,7 +208,7 @@ public class StoryManager : MonoBehaviour
     }
     public void EnemiesEliminatedNotification()
     {
-        Notify("Uskerra Eliminated", "Smash the crystal to harvest the ilarka shards.");
+        Notify("Uskerra Eliminated", "Smash the crystal to harvest the ilarka shards. Return to the village to deliver the Illarka.");
     }
     public void EnemiesSpottedNotification()
     {

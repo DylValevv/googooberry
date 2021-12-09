@@ -15,9 +15,9 @@ public class AmbientFunctions : MonoBehaviour
     [SerializeField] Material Mushroom0_mat;
     [SerializeField] Material Mushroom1_mat;
     [SerializeField] Material Mushroom2_mat;
-    MeshRenderer Mushroom;
+    [SerializeField] MeshRenderer Mushroom;
 
-    MeshRenderer Mushroom_alt;
+    [SerializeField] MeshRenderer Mushroom_alt;
     [SerializeField] Material Mushroom_alt0_mat;
     [SerializeField] Material Mushroom_alt1_mat;
     [SerializeField] Material Mushroom_alt2_mat;
@@ -26,8 +26,8 @@ public class AmbientFunctions : MonoBehaviour
     private void Start()
     {
         globalVolume.enabled = false;
-        Mushroom = Mush.GetChild(0).GetComponent<MeshRenderer>();
-        Mushroom_alt = Mush.GetChild(0).GetComponent<MeshRenderer>();
+        //Mushroom = Mush.GetChild(0).GetComponent<MeshRenderer>();
+        //Mushroom_alt = Mush.GetChild(0).GetComponent<MeshRenderer>();
     }
     public void Environment(int core)
     {
@@ -40,18 +40,18 @@ public class AmbientFunctions : MonoBehaviour
             {
                 case 0:
                     colorAdjustments.hueShift.value = 0;
-                    //Mushroom.sharedMaterials[0] = Mushroom0_mat;
-                    //Mushroom_alt.sharedMaterials[0] = Mushroom_alt0_mat;
+                    Mushroom.sharedMaterial = Mushroom0_mat;
+                    Mushroom_alt.sharedMaterial = Mushroom_alt0_mat;
                     break;
                 case 1:
                     colorAdjustments.hueShift.value = -10;
-                    //Mushroom.sharedMaterials[0] = Mushroom1_mat;
-                    //Mushroom_alt.sharedMaterials[0] = Mushroom_alt1_mat;
+                    Mushroom.sharedMaterial = Mushroom1_mat;
+                    Mushroom_alt.sharedMaterial = Mushroom_alt1_mat;
                     break;
                 case 2:
                     colorAdjustments.hueShift.value = -20;
-                    //Mushroom.sharedMaterials[0] = Mushroom2_mat;
-                    //Mushroom_alt.sharedMaterials[0] = Mushroom_alt2_mat;
+                    Mushroom.sharedMaterial = Mushroom2_mat;
+                    Mushroom_alt.sharedMaterial = Mushroom_alt2_mat;
                     break;
                 case 3:
                     break;
