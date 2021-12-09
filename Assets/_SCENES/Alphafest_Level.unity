@@ -37160,6 +37160,10 @@ PrefabInstance:
       propertyPath: jumpHeight
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 3107635114000072672, guid: 97853435a52f2ad4cac738cb08b31111, type: 3}
+      propertyPath: slamCooldown
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4074390657961255643, guid: 97853435a52f2ad4cac738cb08b31111, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
