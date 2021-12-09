@@ -40,18 +40,18 @@ public class AmbientFunctions : MonoBehaviour
             {
                 case 0:
                     colorAdjustments.hueShift.value = 0;
-                    //Mushroom.sharedMaterial = Mushroom0_mat;
-                    //Mushroom_alt.sharedMaterial = Mushroom_alt0_mat;
+                    Mushroom.sharedMaterial = Mushroom0_mat;
+                    Mushroom_alt.sharedMaterial = Mushroom_alt0_mat;
                     break;
                 case 1:
                     colorAdjustments.hueShift.value = -10;
-                    //Mushroom.sharedMaterial = Mushroom1_mat;
-                    //Mushroom_alt.sharedMaterial = Mushroom_alt1_mat;
+                    Mushroom.sharedMaterial = Mushroom1_mat;
+                    Mushroom_alt.sharedMaterial = Mushroom_alt1_mat;
                     break;
                 case 2:
                     colorAdjustments.hueShift.value = -20;
-                    //Mushroom.sharedMaterial = Mushroom2_mat;
-                    //Mushroom_alt.sharedMaterial = Mushroom_alt2_mat;
+                    Mushroom.sharedMaterial = Mushroom2_mat;
+                    Mushroom_alt.sharedMaterial = Mushroom_alt2_mat;
                     break;
                 case 3:
                     break;
