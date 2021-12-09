@@ -34,6 +34,9 @@ public class UI : MonoBehaviour
 
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         gameState = Resources.Load<GameState>("GameStateObject");
         Time.timeScale = 1;
 
