@@ -39,7 +39,7 @@ Sure thing, boss.]
 //Odei]
 Before you go, why don't you go pay Ila a visit over at her shrine first?]
  Despite all of her ravings about how these crystals are killin' us, her healing powers are a great way to prepare for a job.]
-Can't stand it, but that's why I got you to take the beating instead! Hah!]
+Can't stand it, but that's why I got you to take the beating instead! Hah! Alternatively you can destroy smaller ilarka crystals for a little boost of health as well.]
 
 ;C.0.ODEI+;
 //Odei]
@@ -158,7 +158,7 @@ Oh, wow. This one's powerful, lots of raw <b>ilarka</b> energy. Let me cook it u
 Alright, deals a deal. Some <b>ilarka</b> for the miner, and the rest for the village.]
 I don't mean to brag but this looks to be some of my finest work. Eat up!]
 //:ActivatePlayerProjectile]
-//Mairu] Whew, that has a kick! Thanks, Tilak.]
+//Mairu] Delicious. Thanks, Tilak.]
  
 ;C.1.ILA;
 //Ila] Another crystal destroyed, hmm?]
@@ -177,7 +177,7 @@ I'll always be here to heal you, but you've clearly made up your mind. Tread wit
 ;C.1.OLENT;
 //Olent] You're quite the explorer, aren't you?]
 //Mairu] And the <b>Etsuna's</b> best miner.]
-//Olent] The best at destroying this world.]
+//Olent] Right, the best at destroying this world.]
 //Mairu] Why are you even out here?]
 //Olent] Have you heard the story of how the town's leadership came to be?]
 //Mairu] I was young, but I know of it. Odei promised progress and provided for the people.]
@@ -190,7 +190,7 @@ The only thing he cares about is power and control. It is a pity you cannot see 
 //Olent] And why must we be <b>moonsighted</b> to do so?]
 I am an old moth, Mairu. My time to act has passed. I wish you wisdom in your path.] 
 It is easy to be swept up in the excitement of change. I pray it does not consume you.]
-As always, mind the Uskerra.]
+As always, mind the <b>Uskerra</b>.]
 
 ;C.1.MIAK;
 
@@ -204,8 +204,8 @@ Could be your eyes. You're getting old, after all.]
 //Villager] Perhaps. . .]
 
 ;C.1.NPC2;
-//Villager] My brother was on a Teluna exploration not too long ago. He wasn't moonsighted, and he almost died.]
-It is downright wrong to have any regular moth to do that. We all need moonsight!]
+//Villager] My brother tried exploring up the <b>Teluna</b> not too long ago. He wasn't <b>moonsighted</b>, and he almost died.]
+It is downright wrong to have any regular moth to do that. We all need <b>moonsight</b>!]
 The fact that some people resist such an obvious change gets my blood boiling.]
 //Mairu] It is our only option to progress.]
 
@@ -226,26 +226,26 @@ Then we will begin to scale the <b>Teluna</b>. The birth of a new era!]
 Don't let up, we're almost there.]
 //Mairu] What of the dimming <b>onddargi</b>? I've heard talk that we could run out of food.]
 //Odei] I'm not worried! We'll be out of here soon enough, and have plenty to eat under the moonlight!]
-Time to finish the job and move on!]
+Time to finish the job and move on! There's one <b>ilarka</b> core left, go ahead and do what you do best.]
 //Mairu] Right, of course.]
 
 ;C.2.TILAK;
-//Tilak] Notice anything different?]
+//Tilak the Sighted] Notice anything different?]
 //Mairu] Tilak! This is amazing, look at you! <b>Moonsighted</b>! How is it?]
-//Tilak] It's amazing! I feel alive, like a brand new moth. All thanks to you and your last find.]
+//Tilak the Sighted] It's amazing! I feel alive, like a brand new moth. All thanks to you and your last find.]
 And it seems like you got more for me. I never thought things could go this well.]
 //Mairu] Doesn't seem like everyone's so happy.]
-//Tilak] You mean Ila and the others? They're just a bit unnerved at the changes.]
+//Tilak the Sighted] You mean Ila and the others? They're just a bit unnerved at the changes.]
 Maybe Ila's feeling less powerful with all the new <b>moonsighted</b> moths, hah!]
 Anyway, let me take a look at your new find . . .]
-She's a beauty, probably your best find yet. This candy's going to have quite a kick, you ready?]
+She's a beauty, probably your best find yet. This one might knock you out, you ready?]
 //Mairu] As I'll ever be. Let's see it.]
 //:ScreenFade]
-//Tilak] Here's your share. Careful with that one.]
+//Tilak the Sighted] Here's your share. Careful with that one.]
 //:ActivatePlayerSlam]
 //Mairu] Woah. Ok, ok. . .]
 //:ScreenFade]
-//Tilak] Wow, that one really took you out! But you're glowing, baby! Go try that one out.]
+//Tilak the Sighted] Wow, you were out for a while. But you're absolutely glowing! Go test out your new powers.]
 
  
 ;C.2.ILA;
@@ -253,19 +253,19 @@ She's a beauty, probably your best find yet. This candy's going to have quite a 
 //:FullHealCharacter]
 //Ila] I did my job. You're free to go.]
 //Mairu] Everyone's going to be <b>moonsighted</b> soon, Ila. At least pretend to be happy about it.]
-//Ila] I'll share the village's happiness, but moreso I mourn for our home.]
-//Mairu] I know things have been tense, but . . . ]
-I hope we can grow close again in the new world, above.]
-//Ila] At this point, I truly hope things go as planned Mairu.]
+//Ila] I'll share the village's happiness, but my heart mourns our home.]
+//Mairu] I know things have been tense between us, but . . . ]
+I hope we can be friends again in the new world, on the surface.]
+//Ila] At this point, I truly wish for things go as planned, Mairu.]
 There's no turning back now. I hope it's all worth it.]
 
 ;C.2.OLENT;
-//Odei] You cannot deny a dark shroud that has surrounded the Etsuna.]
+//Olent] You cannot deny that a dark shroud has surrounded the <b>Etsuna</b>.]
 //Mairu] I don't. That is why we must finish the job and leave.]
-//Olent] It has been the miner's destruction. That is why the Ondarggi cry out. The backbone of the caves, the Etsuna, our home.]
-//Mairu] We will finish what we started, and the Etsuna will be a memory of the past once we reach the moon. It's time to return to the surface, Olent. We are going to leave.]
-//Olent] No Mairu. This is my home, and yours too. I will stay here until the bitter end.]
-//Mairu] So be it. Starve alone, Olent. You are stubborn until the end.]
+//Olent] Your job is one of destruction. That is why the <b>ondarggi</b> cry out. The backbone of the caves, the <b>Etsuna</b>, our home.]
+//Mairu] We will finish what we started, and the <b>Etsuna</b> will be a memory of the past once we reach the moon. It's time to return to the surface, Olent. We are going to leave.]
+//Olent] No, Mairu. This is my home, and yours too. I will stay here until the bitter end.]
+//Mairu] So be it. Starve alone, Olent. You were always so stubborn.]
 //Olent] That makes two of us, doesn't it?]
 
 
@@ -273,14 +273,14 @@ There's no turning back now. I hope it's all worth it.]
 
 ;C.2.NPC1;
 //Villager] Time to get out of here. It's been far too long we've been stuck in this hole.]
-//Mairu] I agree. I've always wondered if we have brothers and sisters on the surface that never fell downwards.]
+//Mairu] I agree. I've always wondered if we have family on the surface that never fell down here.]
 //Villager] They would be living the dream.]
 //Mairu] Seems like we'll be joining them soon!]
-//Villager] Can't wait.]
+//Villager] I can't wait!]
 
 
 ;C.2.NPC2;
-//Villager] The <b>Onddargi</b> mushrooms look so gray. Our home is being destroyed. And you're all blind to it. I'm not joining this movement.]
+//Villager] The <b>onddargi</b> mushrooms look so gray. Our home is being destroyed. And you're all blind to it. I'm not joining this movement.]
 //Mairu] You're wrong. We're moving to better things. If you don't become <b>moonsighted</b> you'll just be left behind.]
 //Villager] I'll take my chances.]
 
@@ -321,8 +321,8 @@ There's no turning back now. I hope it's all worth it.]
 
 ;JOURNAL1;
 //Journal of Iker, the Explorer] This expedition has been a great success! I've learned essential details about the local flora and fauna.]
-It seems both the reptilian <b>uskerra</b> and the fungal <b>onddargi</b> rely on <b>ilarka</b> crystals to sustain themselves.]
-The <b>onddargi</b> derive their beautiful glow from them, and the <b>uskerra</b> use them as their primary food source.]
+It seems both the reptilian <b>Uskerra</b> and the fungal <b>onddargi</b> rely on <b>ilarka</b> crystals to sustain themselves.]
+The <b>onddargi</b> derive their beautiful glow from them, and the <b>Uskerra</b> use them as their primary food source.]
 Truly remarkable, that this one crystal can sustain an entire ecosystem!]
 
 ;JOURNAL2;

@@ -11,12 +11,6 @@ public class EnemyHitCollider : MonoBehaviour
         enemy = transform.parent.GetComponent<Enemy>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Player") && enemy.isAttacking)

@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 877fe2dae6bba1b419dea96f3bc16319, type: 3}
-  m_Name: GameStateObject
+  m_Script: {fileID: 11500000, guid: ba145888f0203e344a5d8fe0d0dfadcc, type: 3}
+  m_Name: Tilak the Sighted
   m_EditorClassIdentifier: 
-  playerHealth: 10
-  maxPlayerHealth: 10
-  playerDamage: 1
-  spawnPoint: {x: -30.03, y: 9.67, z: -3.88}
-  crystalProgress: 2
-  useController: 0
+  portrait: {fileID: 21300000, guid: 14a5277bcd06d7c4aa373e20ec7d9bd7, type: 3}
+  soundIndex: 106
+  sounds:
+  - 4
+  portraitRight: 0
+  textColor: {r: 1, g: 0.5213085, b: 0.3820755, a: 1}

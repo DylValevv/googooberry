@@ -12,7 +12,7 @@ public class SlamCollider : MonoBehaviour
     {
         if (other.tag == "Enemy")
         {
-            other.GetComponent<Enemy>().TakeDamage(100);
+            other.transform.parent.GetComponent<Enemy>().TakeDamage(100);
         }
     }
 }
